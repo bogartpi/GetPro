@@ -1,0 +1,69 @@
+{
+  "teams": [
+    {
+      "id":"0",
+      "name":"Gambit",
+      "logo":"gambit",
+      "players": [
+        {
+          "alias":"HObbit",
+          "name":"Abay Khasenov",
+          "age":"23",
+          "country":"Kazakhstan",
+          "playerImage":"hobbit",
+          "info": [
+            {
+                    "screenshots": [
+                            "hobbit1",
+                            "hobbit2",
+                            "hobbit3",
+                            "hobbit4",
+                            "hobbit5"
+                     ],
+                     "gear": [
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4"
+                     ],
+                     "povs": [
+                            "Ly6v0Eke8T8",
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4",
+                            "fXLvaa_l7p4"
+                     ],
+                     "cfg": {
+                             "mouseSettings": [
+                                          "880",
+                                          "400",
+                                          "1000",
+                                          "6/11",
+                                          "2.2",
+                                          "1"
+                               ],
+                             "monitorSettings": [
+                                          "1280x960",
+                                          "4:3",
+                                          "stretched",
+                                          "144"
+                               ],
+                             "crosshaircfg": [
+                                "cl_crosshairalpha 255",
+                                "cl_crosshaircolor 2",
+                                "cl_crosshairdot 0",
+                                "cl_crosshairgap -1",
+                                "cl_crosshairsize 4.5",
+                                "cl_crosshairstyle 4",
+                                "cl_crosshairusealpha 1",
+                                "cl_crosshairthickness 1",
+                                "cl_crosshair_drawoutline 1"
+                              ]
+                         }
+            }
+          ]
+        }
+  		]
+    }
+  ]
+}
