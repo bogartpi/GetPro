@@ -19,7 +19,6 @@ class DetailsController: UICollectionViewController, UICollectionViewDelegateFlo
         didSet {
             if let alias = player?.alias {
                 navigationItem.title = alias
-                
             }
         }
     }

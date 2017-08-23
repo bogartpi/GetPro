@@ -11,6 +11,7 @@ import UIKit
 class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     private let screenshotCellId = "cellId"
+
     
     var info: Info? {
         didSet {

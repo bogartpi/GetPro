@@ -8,26 +8,35 @@
 
 import UIKit
 
-class PlayersController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class PlayersController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate {
+    
+    var imagesArray = [String]()
+    var aliasArray = [String]()
     
     var team: Team? {
         didSet {
             if let teamName = team?.name {
                 navigationItem.title = teamName
+                for player in (team?.players)! {
+                    imagesArray.append(player.imageName!)
+                    aliasArray.append(player.alias!)
+                }
             }
         }
     }
-
     
     private let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = customGrayColor
         collectionView?.isUserInteractionEnabled = true
         collectionView?.register(PlayerCell.self, forCellWithReuseIdentifier: cellId)
+        
+        registerForPreviewing(with: self, sourceView: collectionView!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +76,18 @@ class PlayersController: UICollectionViewController, UICollectionViewDelegateFlo
         navigationController?.pushViewController(detailsController, animated: true)
     }
     
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location) else { return nil}
+        guard let cell = collectionView?.cellForItem(at: indexPath) else { return nil}
+        let popVC = PopVC()
+        popVC.initData(forImage: imagesArray[indexPath.item], forLabel: aliasArray[indexPath.item])
+        previewingContext.sourceRect = cell.contentView.frame
+        return popVC
+    }
+    
 }
-
 

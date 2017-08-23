@@ -13,7 +13,11 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     private let cellId = "cellId"
     
-    var teams: [Team]?
+    var teams: [Team]? {
+        didSet {
+        
+        }
+    }
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -105,6 +109,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         player.age = json["age"] as? String
         player.country = json["country"] as? String
         player.imageName = json["playerImage"] as? String
+        
         for singleInfo in json["info"] as! [[String: Any]] {
             let currentInfo = parseSinglePlayerInfo(json: singleInfo)
             player.info = currentInfo

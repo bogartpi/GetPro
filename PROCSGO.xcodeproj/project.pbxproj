@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3612ED881F3D551D00AEA870 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3612ED871F3D551D00AEA870 /* Constants.swift */; };
 		3648D6181F401AAB00B3E941 /* csgonew.json in Resources */ = {isa = PBXBuildFile; fileRef = 3648D6171F401AAB00B3E941 /* csgonew.json */; };
+		3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA6E1F4A769E003BA1F0 /* PopVC.swift */; };
 		365C05491F39B47A008A2F25 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365C05481F39B47A008A2F25 /* MessageUI.framework */; };
 		365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE11F380FDA00364C0A /* SettingModel.swift */; };
 		365DDCE51F38124200364C0A /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE41F38124200364C0A /* AboutController.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		3612ED871F3D551D00AEA870 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3648D6171F401AAB00B3E941 /* csgonew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csgonew.json; sourceTree = "<group>"; };
+		3655DA6E1F4A769E003BA1F0 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		365C05481F39B47A008A2F25 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		365DDCE11F380FDA00364C0A /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
 		365DDCE41F38124200364C0A /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				365E56761F25E8B10087A6D3 /* PlayersController.swift */,
 				36BF57671F356C5B003125C9 /* PlayerCell.swift */,
+				3655DA6E1F4A769E003BA1F0 /* PopVC.swift */,
 			);
 			name = Players;
 			sourceTree = "<group>";
@@ -330,17 +333,20 @@
 					365E563E1F25B3A00087A6D3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7CAT7V5Y6M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					365E56521F25B3A00087A6D3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7CAT7V5Y6M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 365E563E1F25B3A00087A6D3;
 					};
 					365E565D1F25B3A00087A6D3 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 7CAT7V5Y6M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 365E563E1F25B3A00087A6D3;
 					};
@@ -413,6 +419,7 @@
 				3612ED881F3D551D00AEA870 /* Constants.swift in Sources */,
 				36BB867D1F3723E90044BDEC /* Header.swift in Sources */,
 				369277061F28163C00AC434A /* DetailsController.swift in Sources */,
+				3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */,
 				36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */,
 				36BF57681F356C5B003125C9 /* PlayerCell.swift in Sources */,
 				36BF576D1F356CD0003125C9 /* DescriptionCell.swift in Sources */,
