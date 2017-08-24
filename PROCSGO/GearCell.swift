@@ -20,10 +20,8 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     
     private var internalGearCellId = "internalGearCellId"
     
-    // header
-    
     let headerLabel: UILabel = {
-        let label = UILabel(font: UIFont.boldSystemFont(ofSize: 15), color: customRedColor)
+        let label = UILabel(color: customRedColor, fontName: "Avenir-Medium", fontSize: 15)
         label.text = "GEAR"
         return label
     }()
@@ -54,7 +52,7 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return imagesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,7 +71,7 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         fatalError("init(coder:) has not been implemented")
     }
     
-    class InternalGearsCell: UICollectionViewCell {
+    private class InternalGearsCell: UICollectionViewCell {
         
         let imageView: UIImageView = {
             let iv = UIImageView()
@@ -84,10 +82,7 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         }()
         
         let gearLabel: UILabel = {
-            let label = UILabel()
-            label.font = UIFont(name: "Avenir-Heavy", size: 14)
-            label.text = "XTRFY EK-8904"
-            label.textColor = customWhitecolor
+            let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
             label.minimumScaleFactor = 0.2
             label.adjustsFontSizeToFitWidth = true
             return label
@@ -95,7 +90,6 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         
         override init(frame: CGRect) {
             super.init(frame: frame)
-            
             backgroundColor = customDarkGrayColor
             self.layer.cornerRadius = 3
             self.layer.masksToBounds = true
@@ -117,5 +111,4 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
             fatalError("init(coder:) has not been implemented")
         }
     }
-    
 }

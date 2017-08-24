@@ -41,36 +41,30 @@ class PlayerCell: UICollectionViewCell {
     }()
     
     let aliasDataLabel: UILabel = {
-        let label = UILabel(color: customRedColor)
-        label.font = UIFont(name: "Chalkduster", size: 24)
+        let label = UILabel(color: customRedColor, fontName: "Chalkduster", fontSize: 24)
         return label
     }()
     
     let nameDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor)
-        label.font = UIFont(name: "Avenir-Book", size: 14)
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
     let ageDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor)
-        label.font = UIFont(name: "Avenir-Book", size: 14)
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
     let countryDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor)
-        label.textAlignment = .left
-        label.font = UIFont(name: "Avenir-Book", size: 14)
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
     let flagImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
-        iv.image = UIImage(named: "russia")
         iv.layer.cornerRadius = 0
-        iv.layer.masksToBounds =  true
+        iv.layer.masksToBounds = true
         return iv
     }()
     

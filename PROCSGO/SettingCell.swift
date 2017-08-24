@@ -29,10 +29,7 @@ class SettingCell: UICollectionViewCell {
     }
     
     let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Feedback"
-        label.textColor = customWhitecolor
-        label.font = UIFont.systemFont(ofSize: 13)
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     

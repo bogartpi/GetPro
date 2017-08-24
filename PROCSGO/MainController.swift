@@ -13,11 +13,7 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     private let cellId = "cellId"
     
-    var teams: [Team]? {
-        didSet {
-        
-        }
-    }
+    var teams: [Team]?
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()

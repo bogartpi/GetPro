@@ -11,36 +11,26 @@ import UIKit
 class AboutController: UIViewController {
     
     let aboutLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel(color: customDarkGrayColor, fontName: "Avenir", fontSize: 16, align: .center, lines: 15)
         label.text = "Welcome to The GetPro App!\n This is your guide into the world of CS:GO professionals. Get know all your favorite pro players. Check their configurations and gears. Explore and learn the best skills of pros by watching pov demos and setting their configs to feel like pro.\n\nNew features and updates are coming soon!\n\nFor any further suggestions related to this project or any support contact at: "
-        label.textAlignment = .center
-        label.font = UIFont(name: "Avenir", size: 16)
-        label.textColor = customDarkGrayColor
-        label.numberOfLines = 15
         return label
     }()
     
     let fbButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "Facebook")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let button = UIButton(imageName: "Facebook")
         button.addTarget(self, action: #selector(handleFbPage), for: .touchUpInside)
-        button.contentMode = .scaleAspectFit
         return button
     }()
     
     let twitterButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "Twitter")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let button = UIButton(imageName: "Twitter")
         button.addTarget(self, action: #selector(handleTwitterPage), for: .touchUpInside)
-        button.contentMode = .scaleAspectFit
         return button
     }()
     
     let instaButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "Instagram")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let button = UIButton(imageName: "Instagram")
         button.addTarget(self, action: #selector(handleInstaPage), for: .touchUpInside)
-        button.contentMode = .scaleAspectFit
         return button
     }()
     

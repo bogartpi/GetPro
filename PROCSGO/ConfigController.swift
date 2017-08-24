@@ -24,7 +24,7 @@ class ConfigController: UICollectionViewController, UICollectionViewDelegateFlow
         navigationItem.title = "Config"
         collectionView?.backgroundColor = customGrayColor
         collectionView?.register(ConfigCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView?.register(Header.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:  headerId)
+        collectionView?.register(ConfigHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:  headerId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +58,7 @@ class ConfigController: UICollectionViewController, UICollectionViewDelegateFlow
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! Header
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! ConfigHeader
         header.sectionNamelabel.text = sectionNames[indexPath.section]
         return header
     }

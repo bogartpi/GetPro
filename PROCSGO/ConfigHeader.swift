@@ -8,12 +8,10 @@
 
 import UIKit
 
-class Header: UICollectionViewCell {
+class ConfigHeader: UICollectionViewCell {
     
     let sectionNamelabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Avenir-Heavy", size: 16)
-        label.textColor = customRedColor
+        let label = UILabel(color: customRedColor, fontName: "Avenir-Heavy", fontSize: 16)
         return label
     }()
     
@@ -34,12 +32,9 @@ class Header: UICollectionViewCell {
     }
     
     func setupViews() {
-        
         addSubview(headerView)
         headerView.addSubview(sectionNamelabel)
-        
-        addConstraintsWithFormaat(format: "H:|[v0]|", views: headerView)
-        addConstraintsWithFormaat(format: "V:|[v0]|", views: headerView)
+        headerView.pinEdges(to: self)
         sectionNamelabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     

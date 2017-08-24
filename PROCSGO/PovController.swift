@@ -33,11 +33,8 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
     }()
     
     let warningLabel: UILabel = {
-        let label = UILabel()
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Medium", fontSize: 14, lines: 5)
         label.text = "Network Error.\nCouldn't connect to the server. Check your network connection"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = customWhitecolor
-        label.numberOfLines = 5
         return label
     }()
     
@@ -49,13 +46,11 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: cellId)
         navigationItem.titleView = activityIndicatorView
         activityIndicatorView.startAnimating()
-        
         checkReachability()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
         customizeNavController()
         setupNavigationButtons()
@@ -86,7 +81,7 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         view.addSubview(warningView)
         warningView.addSubview(warningImage)
         warningView.addSubview(warningLabel)
-        
+
         warningView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 80)
         warningImage.anchor(top: warningView.topAnchor, left: warningView.leftAnchor, bottom: warningView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 80, height: 0)
         warningLabel.anchor(top: warningView.topAnchor, left: warningImage.rightAnchor, bottom: warningView.bottomAnchor, right: warningView.rightAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)

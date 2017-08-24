@@ -17,10 +17,7 @@ class PopVC: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     var nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = customRedColor
-        label.font = UIFont(name: "Chalkduster", size: 54)
-        label.textAlignment = .center
+        let label = UILabel(color: customRedColor, fontName: "Chalkduster", fontSize: 54, align: .center)
         return label
     }()
     

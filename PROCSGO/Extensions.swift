@@ -10,10 +10,6 @@ import UIKit
 import Foundation
 import SystemConfiguration
 
-protocol Utilities {
-    
-}
-
 public extension UIViewController {
     
     func changeNavigationTintColor(_ color: UIColor) {
@@ -28,6 +24,10 @@ public extension UIViewController {
             UIApplication.shared.open(URL(string: "https://\(social)/\(pageId)")!, options: [:])
         }
     }
+}
+
+protocol Utilities {
+    
 }
 
 extension NSObject: Utilities {
@@ -81,10 +81,6 @@ extension NSObject: Utilities {
 }
 
 public extension UIColor {
-    
-    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
-    }
 
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
@@ -147,15 +143,6 @@ public extension UIView {
         }
     }
     
-    func setCustomShadow(color: CGColor, offSetWidth: Int, offSetHeight: Int, opacity: Float, radius: CGFloat) {
-        self.layer.shadowColor = color
-        self.layer.shadowOffset = CGSize(width: offSetWidth, height: offSetHeight)
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = radius
-        self.clipsToBounds = false
-        self.layer.masksToBounds = false
-    }
-    
     func setDefaultShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -169,11 +156,12 @@ public extension UIView {
 
 public extension UILabel {
     
-    public convenience init(color: UIColor) {
+    public convenience init(color: UIColor, fontName: String, fontSize: CGFloat, align: NSTextAlignment = .left, lines: Int = 1) {
         self.init()
         self.textColor = color
-        self.adjustsFontSizeToFitWidth = true
-        self.minimumScaleFactor = 0.2
+        self.textAlignment = align
+        self.font = UIFont(name: fontName, size: fontSize)
+        self.numberOfLines = lines
     }
     
     public convenience init(font: UIFont, color: UIColor) {
@@ -193,6 +181,15 @@ public extension UIImageView {
         self.init()
         self.contentMode = .scaleAspectFill
         self.image = UIImage(named: imageName)
+    }
+}
+
+public extension UIButton {
+    
+    public convenience init(imageName: String) {
+        self.init(type: .system)
+        self.setImage(UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
+        self.contentMode = .scaleAspectFit
     }
 }
 

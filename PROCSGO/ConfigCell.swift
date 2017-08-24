@@ -17,18 +17,12 @@ class ConfigCell: UICollectionViewCell {
     }()
     
     let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "DPI"
-        label.font = UIFont(name: "Avenir-Heavy", size: 14)
-        label.textColor = customWhitecolor
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
         return label
     }()
     
     let valueLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1400000"
-        label.font = UIFont(name: "Avenir-Heavy", size: 14)
-        label.textColor = customWhitecolor
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
         return label
     }()
     

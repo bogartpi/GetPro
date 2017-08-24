@@ -12,7 +12,6 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
     
     private let screenshotCellId = "cellId"
 
-    
     var info: Info? {
         didSet {
             collectionView.reloadData()
@@ -70,12 +69,12 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
         return UIEdgeInsetsMake(0, 14, 0, 14)
     }
     
-    class ScreenshotsImageCell: UICollectionViewCell {
+    private class ScreenshotsImageCell: UICollectionViewCell {
         
         var imageView: UIImageView = {
             let iv = UIImageView()
             iv.contentMode = .scaleAspectFill
-            iv.image = UIImage(named: "getright")
+            iv.backgroundColor = customDarkGrayColor
             iv.layer.masksToBounds = true
             iv.isUserInteractionEnabled = true
             return iv
@@ -85,12 +84,9 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
             super.init(frame: frame)
             
             addSubview(imageView)
-            
             addConstraintsWithFormaat(format: "H:|[v0]|", views: imageView)
             addConstraintsWithFormaat(format: "V:|[v0]|", views: imageView)
-            
             setDefaultShadow()
-            
         }
         
         required init?(coder aDecoder: NSCoder) {
