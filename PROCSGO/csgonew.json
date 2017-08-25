@@ -1607,54 +1607,54 @@
           ]
         },
         {
-          "alias":"kioShiMa",
-          "name":"Fabien Fiey",
-          "age":"23",
-          "country":"France",
-          "playerImage":"kioshima",
+          "alias":"olofmeister",
+          "name":"Olof Kajbjer",
+          "age":"25",
+          "country":"Sweden",
+          "playerImage":"olof",
           "info": [
             {
               "screenshots": [
-                "kioshima1",
-                "kioshima2",
-                "kioshima3",
-                "kioshima4",
-                "kioshima5"
+                "olof1",
+                "olof2",
+                "olof3",
+                "olof4",
+                "olof5"
               ],
               "gear": [
-                           "fXLvaa_l7p4",
-                           "fXLvaa_l7p4",
-                           "fXLvaa_l7p4",
-                           "fXLvaa_l7p4",
-                           "fXLvaa_l7p4"
+                           "BENQ XL2730",
+                           "STEELSERIES RIVAL 300",
+                           "FNATIC GEAR FOCUS PRO",
+                           "FNATIC GEAR RUSH G1",
+                           "HYPERX CLOUD II"
                            ],
               "povs": [
-                "CR2krXUlDxE",
-                "Lf20vmwlKVI",
-                "Nqylte7Ezbc",
-                "vkYkC8zQjwI"
+                "gQHabyf96D8",
+                "KFko3DjMw3U",
+                "LeUhk7nRaqk",
+                "CSrTBPoifH4"
               ],
               "cfg": {
                          "mouseSettings": [
-                                           "720",
+                                           "680",
                                            "400",
                                            "1000",
                                            "6/11",
-                                           "1.8",
+                                           "1.2",
                                            "1.0"
                                            ],
                          "monitorSettings": [
-                                             "1280x720",
-                                             "16:9",
-                                             "n/a",
-                                             "240"
+                                             "1024x768",
+                                             "4:3",
+                                             "black bars",
+                                             "144"
                                              ],
                          "crosshaircfg": [
-                           "cl_crosshairalpha 800",
-                           "cl_crosshaircolor 0",
+                           "cl_crosshairalpha 200",
+                           "cl_crosshaircolor 6",
                            "cl_crosshairdot 0",
-                           "cl_crosshairgap -2",
-                           "cl_crosshairsize 3",
+                           "cl_crosshairgap -1",
+                           "cl_crosshairsize 5",
                            "cl_crosshairstyle 4",
                            "cl_crosshairusealpha 1",
                            "cl_crosshairthickness 0",
@@ -2024,57 +2024,56 @@
       "logo": "cloud9",
       "players": [
         {
-          "alias":"n0thing",
-          "name":"Jordan Gilbert",
-          "age":"26",
+          "alias":"RUSH",
+          "name":"Will Wierzba",
+          "age":"23",
           "country":"United States",
-          "playerImage":"n0thing",
+          "playerImage":"rush",
           "info": [
             {
               "screenshots": [
-                "n0thing1",
-                "n0thing2",
-                "n0thing3",
-                "n0thing4",
-                "n0thing5"
+                "rush1",
+                "rush2",
+                "rush3",
+                "rush4",
+                "rush5"
               ],
               "gear": [
-                           "BENQ XL2430T",
-                           "LOGITECH G100S",
-                           "LOGITECH G440",
-                           "LOGITECH RGB G810",
-                           "LOGITECH G430"
+                           "BENQ XL2420T",
+                           "ZOWIE FK1",
+                           "STEELSERIES QCK+",
+                           "TURTLE BEACH IMPACT 700",
+                           "TURTLE BEACH ELITE PRO"
                            ],
               "povs": [
-                "DOBT4xNgjZU",
-                "6ij4YWpTv9M",
-                "akblxHqXyiU",
-                "lVSTqykDYDg"
+                "4KS3CabG0uA",
+                "UvDO1LDISsI",
+                "V34g59nmhso"
               ],
               "cfg": {
                          "mouseSettings": [
-                                           "680",
+                                           "880",
                                            "400",
-                                           "500",
+                                           "1000",
                                            "6/11",
-                                           "1.7",
+                                           "2.2",
                                            "1.0"
                                            ],
                          "monitorSettings": [
                                              "1024x768",
                                              "4:3",
-                                             "black bars",
-                                             "144"
+                                             "stretched",
+                                             "120"
                                              ],
                          "crosshaircfg": [
                            "cl_crosshairalpha 255",
                            "cl_crosshaircolor 1",
                            "cl_crosshairdot 0",
-                           "cl_crosshairgap 0",
-                           "cl_crosshairsize 5.5",
+                           "cl_crosshairgap -1",
+                           "cl_crosshairsize 4",
                            "cl_crosshairstyle 4",
                            "cl_crosshairusealpha 1",
-                           "cl_crosshairthickness 1.5",
+                           "cl_crosshairthickness 0",
                            "cl_crosshair_drawoutline 0"
                                           ]
               }
@@ -2141,57 +2140,58 @@
           ]
         },
         {
-          "alias":"shroud",
-          "name":"Mike Grzesiek",
-          "age":"23",
-          "country":"Canada",
-          "playerImage":"shroud",
+          "alias":"tarik",
+          "name":"Tarik Celik",
+          "age":"21",
+          "country":"United States",
+          "playerImage":"tarik",
           "info": [
             {
               "screenshots": [
-                "shroud1",
-                "shroud2",
-                "shroud3",
-                "shroud4",
-                "shroud5"
+                "tarik1",
+                "tarik2",
+                "tarik3",
+                "tarik4",
+                "tarik5"
               ],
               "gear": [
-                           "BENQ XL2430T",
-                           "LOGITECH G303",
-                           "LOGITECHG 640",
-                           "LOGITECH G PRO",
-                           "LOGITECH G533"
+                           "ASUS VG248QE",
+                           "LOGITECH G400S",
+                           "STEELSERIES QCK HEAVY",
+                           "RAZER BLACKWIDOW CHROMA",
+                           "TURTLE BEACH ELITE PRO"
                            ],
               "povs": [
-                "baFmP4idOq4",
-                "PKZAbQZb6Xo",
-                "8_zk4T68CeM"
+                "_E1VZa2RDwo",
+                "b-6M6BXsMqA",
+                "LhC3813-KRs",
+                "VcX-ie3tDOc"
               ],
               "cfg": {
                          "mouseSettings": [
                                            "880",
-                                           "400",
+                                           "800",
                                            "1000",
                                            "6/11",
-                                           "2.2",
+                                           "1.10",
                                            "1.0"
                                            ],
                          "monitorSettings": [
-                                             "1920x1080",
-                                             "16:9",
-                                             "n/a",
+                                             "1024x768",
+                                             "4:3",
+                                             "stretched",
                                              "144"
                                              ],
                          "crosshaircfg": [
-                           "cl_crosshairalpha 255",
-                           "cl_crosshaircolor 5",
+                           "cl_crosshairalpha 99999",
+                           "cl_crosshaircolor 0",
                            "cl_crosshairdot 0",
-                           "cl_crosshairgap -1",
-                           "cl_crosshairsize 3.5",
-                           "cl_crosshairstyle 4",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 3",
+                           "cl_crosshairstyle 1",
                            "cl_crosshairusealpha 1",
                            "cl_crosshairthickness 1",
-                           "cl_crosshair_drawoutline 1"
+                           "cl_crosshair_drawoutline 0"
                                           ]
               }
             }
@@ -2528,7 +2528,7 @@
                                 "400",
                                 "1000",
                                 "6/11",
-                                "22",
+                                "2.2",
                                 "1.0"
                                ],
                              "monitorSettings": [
@@ -2551,6 +2551,64 @@
                          }
             }
           ]
+        },
+        {
+          "alias":"valde",
+          "name":"Valdemar Bjørn Vangså",
+          "age":"22",
+          "country":"Denmark",
+          "playerImage":"valde",
+          "info": [
+            {
+              "screenshots": [
+                "valde1",
+                "valde2",
+                "valde3",
+                "valde4",
+                "valde5"
+               ],
+               "gear": [
+                            "BENQ XL2420Z",
+                            "ZOWIE EC1-A",
+                            "STEELSERIES QCK HEAVY",
+                            "ZOWIE CELERITAS",
+                            "HYPERX CLOUD II"
+                            ],
+                         "povs": [
+                           "r8qZzpJZZWU",
+                          "CFcUxvE4x14",
+                          "dbrDi_na64k",
+                          "nWJKmF4nlr8"
+                         ],
+                         "cfg": {
+                             "mouseSettings": [
+                                "1280",
+                                "1600",
+                                "500",
+                                "6/11",
+                                "0.8",
+                                "1.0"
+                               ],
+                             "monitorSettings": [
+                                "1024x768",
+                                "4:3",
+                                "stretched",
+                                "144"
+                               ],
+                             "crosshaircfg": [
+                               "cl_crosshairalpha 200",
+                               "cl_crosshaircolor 1",
+                               "cl_crosshairdot 0",
+                               "cl_crosshairgap -3",
+                               "cl_crosshairsize 2.5",
+                               "cl_crosshairstyle 4",
+                               "cl_crosshairusealpha 1",
+                               "cl_crosshairthickness 0",
+                               "cl_crosshair_drawoutline 0"
+                              ]
+                         }
+            }
+          ]
         }
       ]
     },
@@ -2560,46 +2618,43 @@
       "logo": "fnatic",
       "players": [
         {
-          "alias":"olofmeister",
-          "name":"Olof Kajbjer",
-          "age":"25",
+          "alias":"Golden",
+          "name":"Maikil Selim",
+          "age":"24",
           "country":"Sweden",
-          "playerImage":"olof",
+          "playerImage":"golden",
           "info": [
             {
               "screenshots": [
-                "olof1",
-                "olof2",
-                "olof3",
-                "olof4",
-                "olof5"
+                "golden1",
+                "golden2",
+                "golden3",
+                "golden4",
+                "golden5"
               ],
               "gear": [
-                           "BENQ XL2730",
-                           "STEELSERIES RIVAL 300",
-                           "FNATIC GEAR FOCUS PRO",
+                           "ASUS VG248QE",
+                           "ZOWIE ZA13",
+                           "FNATIC GEAR FOCUS XXL",
                            "FNATIC GEAR RUSH G1",
-                           "HYPERX CLOUD II"
+                           "FNATIC GEAR DUEL"
                            ],
               "povs": [
-                "gQHabyf96D8",
-                "KFko3DjMw3U",
-                "LeUhk7nRaqk",
-                "CSrTBPoifH4"
+                "pAQYxzlc17E"
               ],
               "cfg": {
                          "mouseSettings": [
-                                           "680",
+                                           "800",
                                            "400",
                                            "1000",
                                            "6/11",
-                                           "1.2",
+                                           "2.0",
                                            "1.0"
                                            ],
                          "monitorSettings": [
-                                             "1024x768",
-                                             "4:3",
-                                             "black bars",
+                                             "1280×720",
+                                             "16:9",
+                                             "n/a",
                                              "144"
                                              ],
                          "crosshaircfg": [
@@ -2618,57 +2673,57 @@
           ]
         },
         {
-          "alias":"dennis",
-          "name":"Dennis Edman",
-          "age":"26",
+          "alias":"Lekr0",
+          "name":"Jonas Olofsson ",
+          "age":"25",
           "country":"Sweden",
-          "playerImage":"dennis",
+          "playerImage":"lekro",
           "info": [
             {
               "screenshots": [
-                "dennis1",
-                "dennis2",
-                "dennis3",
-                "dennis4",
-                "dennis5"
+                "lekro1",
+                "lekro2",
+                "lekro3",
+                "lekro4",
+                "lekro5"
               ],
               "gear": [
-                           "BENQ XL2540",
-                           "ZOWIE FK1",
+                           "BENQ XL2411Z",
+                           "QPAD DX-20",
                            "STEELSERIES QCK HEAVY",
-                           "FNATIC GEAR RUSH G1",
-                           "HYPERX CLOUD II"
+                           "QPAD MK-85",
+                           "STEELSERIES SIBERIA V2"
                            ],
               "povs": [
-                "dWu1H3SnXwQ",
-                "dMSLLlK6R8U",
-                "ff4RglTydmA",
-                "D4nGlmq08W4"
+                "O7fR2Kvr9DA",
+                "w07vLGfeL-E",
+                "KDF6zy_ASD0",
+                "4koweZ5zlZM"
               ],
               "cfg": {
                          "mouseSettings": [
-                                           "800",
-                                           "400",
+                                           "1000",
+                                           "1000",
                                            "1000",
                                            "6/11",
-                                           "2.0",
+                                           "1.0",
                                            "1.0"
                                            ],
                          "monitorSettings": [
-                                             "1280x800",
-                                             "16:10",
+                                             "1440×1080",
+                                             "4:3",
                                              "stretched",
                                              "144"
                                              ],
                          "crosshaircfg": [
                            "cl_crosshairalpha 255",
-                           "cl_crosshaircolor 1",
-                           "cl_crosshairdot 1",
-                           "cl_crosshairgap -1",
-                           "cl_crosshairsize 4",
+                           "cl_crosshaircolor 4",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 3",
                            "cl_crosshairstyle 4",
                            "cl_crosshairusealpha 1",
-                           "cl_crosshairthickness 1",
+                           "cl_crosshairthickness -1",
                            "cl_crosshair_drawoutline 0"
                                           ]
               }
@@ -3735,63 +3790,6 @@
       "logo": "optic",
       "players": [
         {
-          "alias":"RUSH",
-          "name":"Will Wierzba",
-          "age":"23",
-          "country":"United States",
-          "playerImage":"rush",
-          "info": [
-            {
-              "screenshots": [
-                "rush1",
-                "rush2",
-                "rush3",
-                "rush4",
-                "rush5"
-              ],
-              "gear": [
-                           "BENQ XL2420T",
-                           "ZOWIE FK1",
-                           "STEELSERIES QCK+",
-                           "TURTLE BEACH IMPACT 700",
-                           "TURTLE BEACH ELITE PRO"
-                           ],
-              "povs": [
-                "4KS3CabG0uA",
-                "UvDO1LDISsI",
-                "V34g59nmhso"
-              ],
-              "cfg": {
-                         "mouseSettings": [
-                                           "880",
-                                           "400",
-                                           "1000",
-                                           "6/11",
-                                           "2.2",
-                                           "1.0"
-                                           ],
-                         "monitorSettings": [
-                                             "1024x768",
-                                             "4:3",
-                                             "stretched",
-                                             "120"
-                                             ],
-                         "crosshaircfg": [
-                           "cl_crosshairalpha 255",
-                           "cl_crosshaircolor 1",
-                           "cl_crosshairdot 0",
-                           "cl_crosshairgap -1",
-                           "cl_crosshairsize 4",
-                           "cl_crosshairstyle 4",
-                           "cl_crosshairusealpha 1",
-                           "cl_crosshairthickness 0",
-                           "cl_crosshair_drawoutline 0"
-                                          ]
-              }
-            }
-          ]
-        },
-        {
           "alias":"mixwell",
           "name":"Óscar Cañellas",
           "age":"21",
@@ -3908,32 +3906,32 @@
           ]
         },
         {
-          "alias":"tarik",
-          "name":"Tarik Celik",
-          "age":"21",
-          "country":"United States",
-          "playerImage":"tarik",
+          "alias":"friberg",
+          "name":"Keith Markovic",
+          "age":"26",
+          "country":"Sweden",
+          "playerImage":"friberg",
           "info": [
             {
               "screenshots": [
-                "tarik1",
-                "tarik2",
-                "tarik3",
-                "tarik4",
-                "tarik5"
+                "friberg1",
+                "friberg2",
+                "friberg3",
+                "friberg4",
+                "friberg5"
               ],
               "gear": [
-                           "ASUS VG248QE",
-                           "LOGITECH G400S",
-                           "STEELSERIES QCK HEAVY",
-                           "RAZER BLACKWIDOW CHROMA",
-                           "TURTLE BEACH ELITE PRO"
+                           "EIZO FORIS FG2421",
+                           "ZOWIE EC2-A",
+                           "XTRFY XTP1-L4-NIP-IT",
+                           "XTRFY K2-RGB",
+                           "SENNHEISER GAME ZERO"
                            ],
               "povs": [
-                "_E1VZa2RDwo",
-                "b-6M6BXsMqA",
-                "LhC3813-KRs",
-                "VcX-ie3tDOc"
+                "AqZNLYzL2Ig",
+                "xsTpLHxKV4Q",
+                "OYB4r7o1RCQ",
+                "Pr6j15kYr8k"
               ],
               "cfg": {
                          "mouseSettings": [
@@ -3941,24 +3939,140 @@
                                            "800",
                                            "1000",
                                            "6/11",
-                                           "1.10",
+                                           "1.1",
                                            "1.0"
                                            ],
                          "monitorSettings": [
-                                             "1024x768",
+                                             "1280×960",
                                              "4:3",
                                              "stretched",
                                              "144"
                                              ],
                          "crosshaircfg": [
                            "cl_crosshairalpha 99999",
-                           "cl_crosshaircolor 0",
+                           "cl_crosshaircolor 4",
                            "cl_crosshairdot 0",
-                           "cl_crosshairgap -3",
-                           "cl_crosshairsize 3",
-                           "cl_crosshairstyle 1",
+                           "cl_crosshairgap -0.7",
+                           "cl_crosshairsize 2.3",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 0.9",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"allu",
+          "name":"Aleksi Jalli",
+          "age":"28",
+          "country":"Finland",
+          "playerImage":"allu",
+          "info": [
+            {
+              "screenshots": [
+                "allu1",
+                "allu2",
+                "allu3",
+                "allu4",
+                "allu5"
+              ],
+              "gear": [
+                           "ASUS VG248QE",
+                           "ZOWIE EC1-A",
+                           "XTRFY XTP1-L4-NIP-LI",
+                           "XTRFY XG-K2-RGB",
+                           "SENNHEISER GAME ZERO"
+                           ],
+              "povs": [
+                "mNUGI4IhXpQ",
+                "8xnX_e4K0h8",
+                "C4Ci_nU4y7s",
+                "j-kTENiIIzA"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "1320",
+                                           "400",
+                                           "1000",
+                                           "6/11",
+                                           "3.3",
+                                           "1"
+                                           ],
+                         "monitorSettings": [
+                                             "1024x768",
+                                             "4:3",
+                                             "black bars",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 200",
+                           "cl_crosshaircolor 5",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -1",
+                           "cl_crosshairsize 4",
+                           "cl_crosshairstyle 4",
                            "cl_crosshairusealpha 1",
                            "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"“Magisk”",
+          "name":"Emil Reif",
+          "age":"18",
+          "country":"Denmark",
+          "playerImage":"magisk",
+          "info": [
+            {
+              "screenshots": [
+                "magisk1",
+                "magisk2",
+                "magisk3",
+                "magisk4",
+                "magisk5"
+              ],
+              "gear": [
+                           "BENQ XL2420T",
+                           "ZOWIE EC2-A",
+                           "STEELSERIES QCK+",
+                           "CORSAIR K-70 RGB",
+                           "HYPERX CLOUD REVOLVER"
+                           ],
+              "povs": [
+                "T8t9PvXAIzc",
+                "ae5dC97t7gc",
+                "F94MlHf8EAg",
+                "DcTh5f_GYnI"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "920",
+                                           "800",
+                                           "1000",
+                                           "6/11",
+                                           "1.15",
+                                           "1"
+                                           ],
+                         "monitorSettings": [
+                                             "1024x768",
+                                             "4:3",
+                                             "stretched",
+                                             "120"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 200",
+                           "cl_crosshaircolor 1",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 2.3",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 0",
                            "cl_crosshair_drawoutline 0"
                                           ]
               }
