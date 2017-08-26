@@ -4022,7 +4022,7 @@
           ]
         },
         {
-          "alias":"“Magisk”",
+          "alias":"Magisk",
           "name":"Emil Reif",
           "age":"18",
           "country":"Denmark",
@@ -4629,6 +4629,597 @@
                 "seized3",
                 "seized4",
                 "seized5"
+              ],
+              "gear": [
+                           "AOC G2460PQU",
+                           "ZOWIE EC2-A",
+                           "ZOWIE G-SR",
+                           "XTRFY K2-RGB",
+                           "HYPERX CLOUD II"
+                           ],
+              "povs": [
+                "n3bxXLWiP5Y",
+                "MUnwla0aBYc",
+                "kc-B47sM29g",
+                "0Ia8hBuXDGQ"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "1200",
+                                           "400",
+                                           "1000",
+                                           "6/11",
+                                           "3.0",
+                                           "0.8"
+                                           ],
+                         "monitorSettings": [
+                                             "1200x768",
+                                             "4:3",
+                                             "black bars",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 200",
+                           "cl_crosshaircolor 1",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -2",
+                           "cl_crosshairsize 5.5",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"16",
+      "name":"FlipSid3",
+      "logo": "flipside",
+      "players": [
+        {
+          "alias":"markeloff",
+          "name":"Yegor Markelov",
+          "age":"29",
+          "country":"Ukraine",
+          "playerImage":"markeloff",
+          "info": [
+            {
+              "screenshots": [
+                "markeloff1",
+                "markeloff2",
+                "markeloff3",
+                "markeloff4",
+                "markeloff5"
+               ],
+               "gear": [
+                            "BENQ XL2420T",
+                            "ZOWIE ZA12",
+                            "ZOWIE G-SR",
+                            "ZOWIE CELERITAS",
+                            "SENNHEISER GAME ZERO"
+                            ],
+              "povs": [
+                            "Wm8TNi4VVIg",
+                            "8fGzu9Vj-fA",
+                            "2PhtvypDe0Q",
+                            "A9IWkDHE81Q"
+                            ],
+              "cfg": {
+                             "mouseSettings": [
+                                "800",
+                                "400",
+                                "500",
+                                "6/11",
+                                "2.0",
+                                "0.85"
+                               ],
+                             "monitorSettings": [
+                                "1024x768",
+                                "4:3",
+                                "black bars",
+                                "120"
+                               ],
+                             "crosshaircfg": [
+                               "cl_crosshairalpha 8888",
+                               "cl_crosshaircolor 1",
+                               "cl_crosshairdot 0",
+                               "cl_crosshairgap -3",
+                               "cl_crosshairsize 4",
+                               "cl_crosshairstyle 4",
+                               "cl_crosshairusealpha 1",
+                               "cl_crosshairthickness 0",
+                               "cl_crosshair_drawoutline 0"
+                              ]
+                         }
+            }
+          ]
+        },
+        {
+          "alias":"B1ad3",
+          "name":"Andrey Gorodenskiy",
+          "age":"30",
+          "country":"Ukraine",
+          "playerImage":"blade",
+          "info": [
+            {
+              "screenshots": [
+                "blade1",
+                "blade2",
+                "blade3",
+                "blade4",
+                "blade5"
+              ],
+              "gear": [
+                           "AOC G2460PQU",
+                           "ZOWIE FK1",
+                           "RAZER GOLIATHUS CONTROL",
+                           "ZOWIE CELERITAS",
+                           "SENNHEISER PC 363D"
+                           ],
+              "povs": [
+                "ToNl6OEtJM8",
+                "6jO2QDB8UOA"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "920",
+                                           "400",
+                                           "500",
+                                           "6/11",
+                                           "2.3",
+                                           "0.77"
+                                           ],
+                         "monitorSettings": [
+                                             "1280x720",
+                                             "16:9",
+                                             "n/a",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 255",
+                           "cl_crosshaircolor 5",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -2",
+                           "cl_crosshairsize 5",
+                           "cl_crosshairstyle 5",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 0.5",
+                           "cl_crosshair_drawoutline 1"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"WorldEdit",
+          "name":"Georgi Yaskin",
+          "age":"25",
+          "country":"Russia",
+          "playerImage":"worldedit",
+          "info": [
+            {
+              "screenshots": [
+                "worldedit1",
+                "worldedit2",
+                "worldedit3",
+                "worldedit4",
+                "worldedit5"
+              ],
+              "gear": [
+                           "BENQ XL2411Z",
+                           "ZOWIE ZA12",
+                           "ZOWIE G-SR",
+                           "ZOWIE CELERITAS",
+                           "SENNHEISER GAME ZERO"
+                           ],
+              "povs": [
+                "lg_EWmE-rgo",
+                "r1XR1qX9nSE",
+                "qXDd_94Gbgk",
+                "SEn5iiFdV14"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "736",
+                                           "400",
+                                           "500",
+                                           "6/11",
+                                           "1.84",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "1600×900",
+                                             "16:9",
+                                             "n/a",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 255",
+                           "cl_crosshaircolor 4",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap 0",
+                           "cl_crosshairsize 3",
+                           "cl_crosshairstyle 5",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 0",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"wayLander",
+          "name":"Jan Rahkonen",
+          "age":"23",
+          "country":"Finland",
+          "playerImage":"waylander",
+          "info": [
+            {
+              "screenshots": [
+                "waylander1",
+                "waylander2",
+                "waylander3",
+                "waylander4",
+                "waylander5"
+              ],
+              "gear": [
+                "BENQ XL2411Z",
+                "ZOWIE EC1-A",
+                "ZOWIE G-SR",
+                "ZOWIE CELERITAS",
+                "SENNHEISER GAME ZERO"
+                           ],
+              "povs": [
+                "GhoCzZDHl7M",
+                "jE2DrhGKgsY",
+                "JFevzqc5im0",
+                "crKyWV3nCgg"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "462",
+                                           "1800",
+                                           "500",
+                                           "6/11",
+                                           "0.26",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "1024×768",
+                                             "4:3",
+                                             "black bars",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 500",
+                           "cl_crosshaircolor 5",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 2.4",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"electronic",
+          "name":"Denis Sharipov",
+          "age":"18",
+          "country":"Russia",
+          "playerImage":"electronic",
+          "info": [
+            {
+              "screenshots": [
+                "electronic1",
+                "electronic2",
+                "electronic3",
+                "electronic4",
+                "electronic5"
+              ],
+              "gear": [
+                           "BENQ XL2540",
+                           "ZOWIE EC2-A",
+                           "STEELSERIES QCK+",
+                           "RAZER BLACKWIDOW CHROMA",
+                           "HYPERX CLOUD II"
+                           ],
+              "povs": [
+                "nz3AiRTpguI",
+                "ZWsrIKI3-rE",
+                "oyRkIUoNxno",
+                "h37K--_7U-A"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "1080",
+                                           "400",
+                                           "1000",
+                                           "6/11",
+                                           "2.7",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "1200x768",
+                                             "4:3",
+                                             "black bars",
+                                             "240"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 8888",
+                           "cl_crosshaircolor 1",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 3",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 0",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id":"17",
+      "name":"EnVyUs",
+      "logo": "envyus",
+      "players": [
+        {
+          "alias":"SIXER",
+          "name":"Christophe Xia",
+          "age":"26",
+          "country":"France",
+          "playerImage":"sixer",
+          "info": [
+            {
+              "screenshots": [
+                "sixer1",
+                "sixer2",
+                "sixer3",
+                "sixer4",
+                "sixer5"
+               ],
+               "gear": [
+                            "ASUS VG248QE",
+                            "ZZOWIE ZA12",
+                            "ZOWIE G-SR",
+                            "STEELSERIES 6GV2",
+                            "HYPERX CLOUD II"
+                            ],
+              "povs": [
+                            "wmAmwHihKl4",
+                            "awGQizOCBb8",
+                            "rKQe2WC8DSY",
+                            "-DXyFjwDmBA"
+                            ],
+              "cfg": {
+                             "mouseSettings": [
+                                "920",
+                                "400",
+                                "1000",
+                                "6/11",
+                                "2.1",
+                                "1.0"
+                               ],
+                             "monitorSettings": [
+                                "1280x960",
+                                "4:3",
+                                "black bars",
+                                "144"
+                               ],
+                             "crosshaircfg": [
+                               "cl_crosshairalpha 255",
+                               "cl_crosshaircolor 1",
+                               "cl_crosshairdot 0",
+                               "cl_crosshairgap -1",
+                               "cl_crosshairsize 2.5",
+                               "cl_crosshairstyle 4",
+                               "cl_crosshairusealpha 1",
+                               "cl_crosshairthickness 1",
+                               "cl_crosshair_drawoutline 0"
+                              ]
+                         }
+            }
+          ]
+        },
+        {
+          "alias":"RpK",
+          "name":"Cédric Guipouy",
+          "age":"28",
+          "country":"France",
+          "playerImage":"rpk",
+          "info": [
+            {
+              "screenshots": [
+                "rpk1",
+                "rpk2",
+                "rpk3",
+                "rpk4",
+                "rpk5"
+              ],
+              "gear": [
+                           "BENQ XL2411Z",
+                           "ZOWIE FK1",
+                           "STEELSERIES QCK HEAVY",
+                           "RAZER BLACKWIDOW CHROMA",
+                           "SENNHEISER GAME ZERO"
+                           ],
+              "povs": [
+                "PnQp-cj05uY",
+                "r7QSTmpV1nA",
+                "p1tao2FIXcc",
+                "Rx5hqVaqMXc"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "740",
+                                           "400",
+                                           "500",
+                                           "6/11",
+                                           "1.85",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "1280x1024",
+                                             "4:3",
+                                             "stretched",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 999",
+                           "cl_crosshaircolor 0",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -3",
+                           "cl_crosshairsize 3",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"ScreaM",
+          "name":"Adil Benrlitom",
+          "age":"23",
+          "country":"Belgium",
+          "playerImage":"scream",
+          "info": [
+            {
+              "screenshots": [
+                "scream1",
+                "scream2",
+                "scream3",
+                "scream4",
+                "scream5"
+              ],
+              "gear": [
+                           "BENQ XL2411Z",
+                           "FINALMOUSE SCREAM ONE",
+                           "STEELSERIES QCK HEAVY",
+                           "STEELSERIES 6GV2",
+                           "HYPERX CLOUD II"
+                           ],
+              "povs": [
+                "5P4t1tmdiqI",
+                "0iGCe9Ly0qs",
+                "b9EtmtZEmS0"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "1000",
+                                           "400",
+                                           "1000",
+                                           "5/11",
+                                           "2.5",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "800x600",
+                                             "4:3",
+                                             "stretched",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 255",
+                           "cl_crosshaircolor 1",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -2",
+                           "cl_crosshairsize 3",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"Happy",
+          "name":"Vincent Schopenhauer",
+          "age":"25",
+          "country":"France",
+          "playerImage":"happy",
+          "info": [
+            {
+              "screenshots": [
+                "happy1",
+                "happy2",
+                "happy3",
+                "happy4",
+                "happy5"
+              ],
+              "gear": [
+                           "ASUS VG248QE",
+                           "ZOWIE FK1+ WHITE EDITION",
+                           "ZOWIE G-SR",
+                           "HYPERX ALLOY FPS",
+                           "HYPERX CLOUD REVOLVER S"
+                           ],
+              "povs": [
+                "hgDkXgEhIoHU",
+                "b4AXhevQucY",
+                "VPQvJI-NxLo",
+                "zccRtpXWpdI"
+              ],
+              "cfg": {
+                         "mouseSettings": [
+                                           "1236",
+                                           "400",
+                                           "1000",
+                                           "6/11",
+                                           "3.09",
+                                           "1.0"
+                                           ],
+                         "monitorSettings": [
+                                             "800x600",
+                                             "4:3",
+                                             "black bars",
+                                             "144"
+                                             ],
+                         "crosshaircfg": [
+                           "cl_crosshairalpha 255",
+                           "cl_crosshaircolor 1",
+                           "cl_crosshairdot 0",
+                           "cl_crosshairgap -1",
+                           "cl_crosshairsize 2",
+                           "cl_crosshairstyle 4",
+                           "cl_crosshairusealpha 1",
+                           "cl_crosshairthickness 1",
+                           "cl_crosshair_drawoutline 0"
+                                          ]
+              }
+            }
+          ]
+        },
+        {
+          "alias":"xms",
+          "name":"Alexandre Forté",
+          "age":"20",
+          "country":"France",
+          "playerImage":"xms",
+          "info": [
+            {
+              "screenshots": [
+                "xms1",
+                "xms2",
+                "xms3",
+                "xms4",
+                "xms5"
               ],
               "gear": [
                            "AOC G2460PQU",
