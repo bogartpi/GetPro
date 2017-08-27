@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerCell: UICollectionViewCell {
+class PlayerCell: BaseCell {
     
     var player: Player? {
         didSet {
@@ -68,15 +68,14 @@ class PlayerCell: UICollectionViewCell {
         return iv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override func setupViews() {
+        super.setupViews()
+        setup()
         backgroundColor = customDarkGrayColor
         setDefaultShadow()
-        setupViews()
     }
     
-    fileprivate func setupViews() {
+    func setup() {
         
         let topStackView = UIStackView(arrangedSubviews: [aliasDataLabel, nameDataLabel])
         topStackView.distribution = .fillProportionally
@@ -111,9 +110,4 @@ class PlayerCell: UICollectionViewCell {
                              paddingBottom: 0, paddingRight: 0, width: 19, height: 14)
         
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

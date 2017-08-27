@@ -23,7 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         layout.minimumLineSpacing = 1
         let newsVC = NewsController(collectionViewLayout: layout)
         window?.rootViewController = UINavigationController(rootViewController: newsVC)
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .lightContent 
+        
+        // get rid of black bar underneath navbar
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor(r: 214, g: 74, b: 71)
+        
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintsWithFormaat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormaat(format: "V:|[v0(20)]|", views: statusBarBackgroundView)
+        
         return true
     }
 

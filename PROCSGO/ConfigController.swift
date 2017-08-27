@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ConfigController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+private let headerId = "headerId"
+private let cellId = "cellId"
+
+private let sectionNames = ["Mouse Settings", "Monitor Settings", "Crosshair Settings"]
+private let mouseSettingsTitles = ["EDPI", "Mouse DPI", "Mouse Hz", "Windows Sensitivity", "Sensitivity", "Zoom Sensitivity"]
+private let monitorSettingsTitles = ["Resolution", "Aspect Ratio", "Aspect Ratio Description", "Monitor Hz"]
+
+class ConfigController: UICollectionViewController {
 
     var config: Config?
-    
-    private let headerId = "headerId"
-    private let cellId = "cellId"
-    
-    private let sectionNames = ["Mouse Settings", "Monitor Settings", "Crosshair Settings"]
-    private let mouseSettingsTitles = ["EDPI", "Mouse DPI", "Mouse Hz", "Windows Sensitivity", "Sensitivity", "Zoom Sensitivity"]
-    private let monitorSettingsTitles = ["Resolution", "Aspect Ratio", "Aspect Ratio Description", "Monitor Hz"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,10 @@ class ConfigController: UICollectionViewController, UICollectionViewDelegateFlow
     override func customizeNavController() {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: customWhitecolor, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
+
+}
+
+extension ConfigController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! ConfigHeader
@@ -107,5 +111,5 @@ class ConfigController: UICollectionViewController, UICollectionViewDelegateFlow
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
     }
-
+    
 }

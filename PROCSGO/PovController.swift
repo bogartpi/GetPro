@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PovController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIWebViewDelegate {
-    
-    private let cellId = "cellId"
+private let cellId = "cellId"
+
+class PovController: UICollectionViewController {
     
     var povs: [String]?
     
@@ -102,6 +102,20 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         }
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        activityIndicatorView.stopAnimating()
+        navigationItem.titleView = nil
+        navigationItem.title = "POVs"
+    }
+    
+    func loadYoutube(webView: UIWebView ,videoID: String) {
+        guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)") else { return }
+        webView.loadRequest( URLRequest(url: youtubeURL) )
+    }
+}
+
+extension PovController: UICollectionViewDelegateFlowLayout, UIWebViewDelegate {
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = povs?.count {
             return count
@@ -120,12 +134,6 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         return cell
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        activityIndicatorView.stopAnimating()
-        navigationItem.titleView = nil
-        navigationItem.title = "POVs"
-    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width - 28, height: 200)
     }
@@ -134,8 +142,12 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         return UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
     }
     
-    func loadYoutube(webView: UIWebView ,videoID: String) {
-        guard let youtubeURL = URL(string: "https://www.youtube.com/embed/\(videoID)") else { return }
-        webView.loadRequest( URLRequest(url: youtubeURL) )
-    }
 }
+
+
+
+
+
+
+
+

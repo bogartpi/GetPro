@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamsCell: UICollectionViewCell {
+class TeamsCell: BaseCell {
     
     let cellView: UIView = {
         let v = UIView()
@@ -38,8 +38,13 @@ class TeamsCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
+        
+        setup()
+    }
+    
+    func setup() {
         
         addSubview(cellView)
         cellView.addSubview(imageView)
@@ -53,10 +58,6 @@ class TeamsCell: UICollectionViewCell {
         teamNameLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
         
         setDefaultShadow()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

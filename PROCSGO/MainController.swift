@@ -9,17 +9,11 @@
 import UIKit
 import Social
 
-class MainController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    private let cellId = "cellId"
+private let cellId = "cellId"
+
+class MainController: UICollectionViewController {
     
     var teams: [Team]?
-    
-    lazy var settingsLauncher: SettingsLauncher = {
-        let launcher = SettingsLauncher()
-        launcher.mainController = self
-        return launcher
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +23,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.backgroundColor = customGrayColor
         collectionView?.register(TeamsCell.self, forCellWithReuseIdentifier: cellId)
         setCellLayout()
-        setupNavigationButtons()
-    }
-    
-    private func setupNavigationButtons() {
-        let moreImage = UIImage(named: "more_icon")?.withRenderingMode(.alwaysOriginal)
-        let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
-        navigationItem.rightBarButtonItems = [moreButtonItem]
-    }
-    
-    func handleMore() {
-        settingsLauncher.showSettings()
     }
     
     private func setCellLayout() {
@@ -49,14 +32,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         collectionView?.collectionViewLayout = layout
-    }
-    
-    private func showPlayersController(index: Int) {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 14
-        let playersVC = PlayersController(collectionViewLayout: layout)
-        playersVC.team = teams?[index]
-        navigationController?.pushViewController(playersVC, animated: true)
     }
     
     private func fetchData() {
@@ -145,6 +120,18 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         config.monitorSettings = monitorCfgArray
         config.crosshaircfg = crossConfigArray
         return config
+    }
+    
+}
+
+extension MainController: UICollectionViewDelegateFlowLayout {
+    
+    private func showPlayersController(index: Int) {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 14
+        let playersVC = PlayersController(collectionViewLayout: layout)
+        playersVC.team = teams?[index]
+        navigationController?.pushViewController(playersVC, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

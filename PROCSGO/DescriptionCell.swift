@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescriptionCell: UICollectionViewCell {
+class DescriptionCell: BaseCell {
     
     let textView: UITextView = {
         let tv = UITextView()
@@ -19,17 +19,15 @@ class DescriptionCell: UICollectionViewCell {
         return tv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override func setupViews() {
+        super.setupViews()
+        setup()
+    }
+    
+    func setup() {
         addSubview(textView)
-        
         addConstraintsWithFormaat(format: "H:|-14-[v0]-14-|", views: textView)
         addConstraintsWithFormaat(format: "V:|[v0]|", views: textView)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
 }

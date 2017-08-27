@@ -8,7 +8,9 @@
 
 import UIKit
 
-class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+private var internalGearCellId = "internalGearCellId"
+
+class GearCell: BaseCell {
     
     var gearInfo: Info? {
         didSet {
@@ -17,8 +19,6 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     }
     
     var imagesArray = ["monitor", "mouse", "mousepad", "keyboard", "headset"]
-    
-    private var internalGearCellId = "internalGearCellId"
     
     let headerLabel: UILabel = {
         let label = UILabel(color: customRedColor, fontName: "Avenir-Medium", fontSize: 15)
@@ -33,9 +33,13 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         cv.backgroundColor = .clear
         return cv
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override func setupViews() {
+        super.setupViews()
+        setup()
+    }
+    
+    func setup() {
         
         collectionView.register(InternalGearsCell.self, forCellWithReuseIdentifier: internalGearCellId)
         
@@ -47,9 +51,13 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
         
         addConstraintsWithFormaat(format: "H:|[v0]|", views: collectionView)
         addConstraintsWithFormaat(format: "V:|-32-[v0]-16-|", views: collectionView)
-    
+        
         headerLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 20, paddingBottom: 0, paddingRight: 0)
+        
     }
+}
+
+extension GearCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imagesArray.count
@@ -65,50 +73,47 @@ class GearCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.frame.width - 14 - 32, height: 40)
     }
-
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+}
+
+private class InternalGearsCell: BaseCell {
+    
+    let imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.layer.masksToBounds = true
+        iv.isUserInteractionEnabled = true
+        return iv
+    }()
+    
+    let gearLabel: UILabel = {
+        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
+        label.minimumScaleFactor = 0.2
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        setup()
     }
     
-    private class InternalGearsCell: UICollectionViewCell {
+    func setup() {
         
-        let imageView: UIImageView = {
-            let iv = UIImageView()
-            iv.contentMode = .scaleAspectFit
-            iv.layer.masksToBounds = true
-            iv.isUserInteractionEnabled = true
-            return iv
-        }()
+        backgroundColor = customDarkGrayColor
+        self.layer.cornerRadius = 3
+        self.layer.masksToBounds = true
         
-        let gearLabel: UILabel = {
-            let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
-            label.minimumScaleFactor = 0.2
-            label.adjustsFontSizeToFitWidth = true
-            return label
-        }()
+        addSubview(imageView)
+        addSubview(gearLabel)
         
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            backgroundColor = customDarkGrayColor
-            self.layer.cornerRadius = 3
-            self.layer.masksToBounds = true
-            
-            addSubview(imageView)
-            addSubview(gearLabel)
-            
-            imageView.anchor(top: nil, left: contentView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 14, paddingBottom: 0, paddingRight: 0, width: 30, height: 30)
-            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-            
-            gearLabel.anchor(top: nil, left: imageView.rightAnchor, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 7, width: 0, height: 25)
-            gearLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-            
-            setDefaultShadow()
-            
-        }
+        imageView.anchor(top: nil, left: contentView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 14, paddingBottom: 0, paddingRight: 0, width: 30, height: 30)
+        imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+        gearLabel.anchor(top: nil, left: imageView.rightAnchor, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 7, width: 0, height: 25)
+        gearLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        setDefaultShadow()
+        
     }
 }

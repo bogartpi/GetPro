@@ -39,7 +39,7 @@ class AboutController: UIViewController {
         
         view.backgroundColor = customWhitecolor
         navigationItem.title = "About"
-        setupViews()
+        setup()
         setupButtons()
     }
     
@@ -61,7 +61,7 @@ class AboutController: UIViewController {
         stackView.centerXAnchor.constraint(equalTo: aboutLabel.centerXAnchor).isActive = true
     }
     
-    func setupViews() {
+    func setup() {
         
         view.addSubview(aboutLabel)
         aboutLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 30, paddingLeft: 12, paddingBottom: 0, paddingRight: 12)

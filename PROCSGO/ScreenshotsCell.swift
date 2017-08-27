@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    private let screenshotCellId = "cellId"
+private let screenshotCellId = "cellId"
+
+class ScreenshotsCell: BaseCell {
 
     var info: Info? {
         didSet {
@@ -27,23 +27,46 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
         return cv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        addSubview(collectionView)
-        
-        addConstraintsWithFormaat(format: "H:|[v0]|", views: collectionView)
-        addConstraintsWithFormaat(format: "V:|[v0]|", views: collectionView)
-        
-        collectionView.register(ScreenshotsImageCell.self, forCellWithReuseIdentifier: screenshotCellId)
+    override func setupViews() {
+        super.setupViews()
+        setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setup() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        addSubview(collectionView)
+        addConstraintsWithFormaat(format: "H:|[v0]|", views: collectionView)
+        addConstraintsWithFormaat(format: "V:|[v0]|", views: collectionView)
+        collectionView.register(ScreenshotsImageCell.self, forCellWithReuseIdentifier: screenshotCellId)
     }
+}
+
+private class ScreenshotsImageCell: BaseCell {
+    
+    var imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = customDarkGrayColor
+        iv.layer.masksToBounds = true
+        iv.isUserInteractionEnabled = true
+        return iv
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        setup()
+    }
+    
+    func setup() {
+        addSubview(imageView)
+        addConstraintsWithFormaat(format: "H:|[v0]|", views: imageView)
+        addConstraintsWithFormaat(format: "V:|[v0]|", views: imageView)
+        setDefaultShadow()
+    }
+}
+
+extension ScreenshotsCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = info?.screenshots?.count {
@@ -69,28 +92,4 @@ class ScreenshotsCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
         return UIEdgeInsetsMake(0, 14, 0, 14)
     }
     
-    private class ScreenshotsImageCell: UICollectionViewCell {
-        
-        var imageView: UIImageView = {
-            let iv = UIImageView()
-            iv.contentMode = .scaleAspectFill
-            iv.backgroundColor = customDarkGrayColor
-            iv.layer.masksToBounds = true
-            iv.isUserInteractionEnabled = true
-            return iv
-        }()
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            addSubview(imageView)
-            addConstraintsWithFormaat(format: "H:|[v0]|", views: imageView)
-            addConstraintsWithFormaat(format: "V:|[v0]|", views: imageView)
-            setDefaultShadow()
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
 }
