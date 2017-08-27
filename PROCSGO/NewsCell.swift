@@ -147,7 +147,7 @@ class NewsCell: UICollectionViewCell {
         addSubview(buttonStackView)
         buttonStackView.anchor(top: topAnchor, left: nil,
                                bottom: nil, right: rightAnchor,
-                               paddingTop: 10, paddingLeft: 10,
+                               paddingTop: 20, paddingLeft: 0,
                                paddingBottom: 0, paddingRight: 10)
     }
     

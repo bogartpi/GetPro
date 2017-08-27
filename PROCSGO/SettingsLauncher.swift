@@ -39,7 +39,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
                 Setting(name: .Cancel, imageName: "cancel_icon") ]
     }()
     
-    var mainController: MainController?
+    var newsController: NewsController?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -110,13 +110,13 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
     
     func showAboutController() {
         let aboutVC = AboutController()
-        mainController?.navigationController?.pushViewController(aboutVC, animated: true)
+        newsController?.navigationController?.pushViewController(aboutVC, animated: true)
     }
     
     func customAlert(title: String, msg: String) {
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.mainController?.present(alertVC, animated: true, completion: nil)
+        self.newsController?.present(alertVC, animated: true, completion: nil)
     }
     
     func shareTheApp() {
@@ -129,7 +129,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
                 tweetComposer?.setInitialText("Getpro App is waiting for you. Get it on your phone and enjoy exploring CS:GO pro players.")
                 tweetComposer?.add(UIImage(named: "shareImage1"))
                 tweetComposer?.add(URL(string: "https://itunes.apple.com/us/app/getpro-cs-go/id1271666107?ls=1&mt=8"))
-                self.mainController?.present(tweetComposer!, animated: true, completion: nil)
+                self.newsController?.present(tweetComposer!, animated: true, completion: nil)
             } else {
                 self.customAlert(title: "Twitter Unavailable", msg: "Check your settings Settings > Twitter to set up your Twitter account.")
             }
@@ -143,7 +143,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
                 fbComposer?.setInitialText("Getpro App is waiting for you. Get it on your phone and enjoy exploring CS:GO pro players.")
                 fbComposer?.add(UIImage(named: "shareImage1"))
                 fbComposer?.add(URL(string: "https://itunes.apple.com/us/app/getpro-cs-go/id1271666107?ls=1&mt=8"))
-                self.mainController?.present(fbComposer!, animated: true, completion: nil)
+                self.newsController?.present(fbComposer!, animated: true, completion: nil)
             } else {
                 self.customAlert(title: "Facebook Unavailable", msg: "Check your settings Settings > Facebook to set up your Facebook account.")
             }
@@ -154,7 +154,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         shareActionSheet.addAction(twitterActionSheet)
         shareActionSheet.addAction(facebookActionSheet)
         shareActionSheet.addAction(cancelAction)
-        self.mainController?.present(shareActionSheet, animated: true, completion: nil)
+        self.newsController?.present(shareActionSheet, animated: true, completion: nil)
     }
     
     // MARK: - MFMailComposeVC Methods
@@ -171,7 +171,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
     func createEmailController(sendToEmail: [String], subject: String, msgBody: String) {
         let emailController = configureEmailComposeViewController(setToRecipients: sendToEmail, setSubject: subject, setMsgBody: msgBody)
         if MFMailComposeViewController.canSendMail() {
-            mainController?.navigationController?.present(emailController, animated: true, completion: nil)
+            newsController?.navigationController?.present(emailController, animated: true, completion: nil)
         } else {
             print("ERROR")
         }
@@ -186,7 +186,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         default:
             break
         }
-        mainController?.dismiss(animated: true, completion: nil)
+        newsController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - CollectionView Methods
