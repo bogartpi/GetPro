@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsCell: UICollectionViewCell {
+class NewsCell: BaseCell {
     
     let newsImage: UIImageView = {
         let iv = UIImageView()
@@ -93,9 +93,10 @@ class NewsCell: UICollectionViewCell {
         return iv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+    override func setupViews() {
+        super.setupViews()
+        
+        setup()
         likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         commentButton.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
     }
@@ -108,7 +109,7 @@ class NewsCell: UICollectionViewCell {
         print("comment")
     }
     
-    func setupViews() {
+    func setup() {
         
         let stackView = UIStackView(arrangedSubviews: [likesLabel, commentsLabel, viewsLabel])
         stackView.axis = .horizontal
@@ -150,8 +151,5 @@ class NewsCell: UICollectionViewCell {
                                paddingTop: 20, paddingLeft: 0,
                                paddingBottom: 0, paddingRight: 10)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

@@ -9,9 +9,9 @@
 import UIKit
 import Social
 
-class MainController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    private let cellId = "cellId"
+private let cellId = "cellId"
+
+class MainController: UICollectionViewController {
     
     var teams: [Team]?
     
@@ -32,14 +32,6 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         collectionView?.collectionViewLayout = layout
-    }
-    
-    private func showPlayersController(index: Int) {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 14
-        let playersVC = PlayersController(collectionViewLayout: layout)
-        playersVC.team = teams?[index]
-        navigationController?.pushViewController(playersVC, animated: true)
     }
     
     private func fetchData() {
@@ -128,6 +120,18 @@ class MainController: UICollectionViewController, UICollectionViewDelegateFlowLa
         config.monitorSettings = monitorCfgArray
         config.crosshaircfg = crossConfigArray
         return config
+    }
+    
+}
+
+extension MainController: UICollectionViewDelegateFlowLayout {
+    
+    private func showPlayersController(index: Int) {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 14
+        let playersVC = PlayersController(collectionViewLayout: layout)
+        playersVC.team = teams?[index]
+        navigationController?.pushViewController(playersVC, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

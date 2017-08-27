@@ -10,6 +10,10 @@ import UIKit
 import MessageUI
 import Social
 
+private let cellId = "cellId"
+private let cellHeight: CGFloat = 50
+private let appId = "id1271666107"
+
 enum SettingName: String {
     case Cancel = "Cancel"
     case RateUs = "Rate Us"
@@ -19,16 +23,9 @@ enum SettingName: String {
     case About = "About"
 }
 
-class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource, MFMailComposeViewControllerDelegate
-{
-    
-    let appId = "id1271666107"
+class SettingsLauncher: NSObject {
     
     let blackView = UIView()
-    
-    private let cellId = "cellId"
-    
-    private let cellHeight: CGFloat = 50
     
     let settings: [Setting] = {
         return [Setting(name: .RateUs, imageName: "rate_icon"),
@@ -112,6 +109,10 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         let aboutVC = AboutController()
         newsController?.navigationController?.pushViewController(aboutVC, animated: true)
     }
+
+}
+
+extension SettingsLauncher: MFMailComposeViewControllerDelegate {
     
     func customAlert(title: String, msg: String) {
         let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
@@ -157,8 +158,6 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         self.newsController?.present(shareActionSheet, animated: true, completion: nil)
     }
     
-    // MARK: - MFMailComposeVC Methods
-    
     func configureEmailComposeViewController(setToRecipients: [String], setSubject: String, setMsgBody: String) -> MFMailComposeViewController {
         let mailComposeVC = MFMailComposeViewController()
         mailComposeVC.mailComposeDelegate = self
@@ -189,7 +188,9 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         newsController?.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - CollectionView Methods
+}
+
+extension SettingsLauncher: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         handleDismiss()
@@ -209,7 +210,7 @@ class SettingsLauncher: NSObject, UICollectionViewDelegateFlowLayout, UICollecti
         default:
             print("IndexPath is wrong")
         }
-    
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

@@ -13,7 +13,7 @@ protocol DetailsHandlerProtocol {
     func handlePovsController()
 }
 
-class ConfCell: UICollectionViewCell {
+class ConfCell: BaseCell {
     
     var myDelegate: DetailsHandlerProtocol?
     
@@ -54,14 +54,12 @@ class ConfCell: UICollectionViewCell {
         myDelegate?.handlePovsController()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setDefaultShadow()
+    override func setupViews() {
+        super.setupViews()
+        setup()
     }
-    
-    
-   fileprivate func setupViews() {
+
+    func setup() {
     
         confButton.addTarget(self, action: #selector(handleCfg(sender:)), for: .touchUpInside)
         povsButton.addTarget(self, action: #selector(handlePovs(sender:)), for: .touchUpInside)
@@ -84,8 +82,5 @@ class ConfCell: UICollectionViewCell {
         povsImageView.centerYAnchor.constraint(equalTo: povsButton.centerYAnchor).isActive = true
     
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

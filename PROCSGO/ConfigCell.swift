@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigCell: UICollectionViewCell {
+class ConfigCell: BaseCell {
     
     let cellView: UIView = {
         let cv = UIView()
@@ -26,17 +26,13 @@ class ConfigCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
         
-        setupViews()
+        setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
+    func setup() {
         
         addSubview(cellView)
         cellView.addSubview(titleLabel)

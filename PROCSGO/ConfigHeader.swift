@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigHeader: UICollectionViewCell {
+class ConfigHeader: BaseCell {
     
     let sectionNamelabel: UILabel = {
         let label = UILabel(color: customRedColor, fontName: "Avenir-Heavy", fontSize: 16)
@@ -21,21 +21,16 @@ class ConfigHeader: UICollectionViewCell {
         return hv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
         
-        setupViews()
+        setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
+    func setup() {
         addSubview(headerView)
         headerView.addSubview(sectionNamelabel)
         headerView.pinEdges(to: self)
         sectionNamelabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
-    
 }

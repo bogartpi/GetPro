@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PlayersController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate {
+private let cellId = "cellId"
+
+class PlayersController: UICollectionViewController {
     
     var imagesArray = [String]()
     var aliasArray = [String]()
@@ -24,8 +26,6 @@ class PlayersController: UICollectionViewController, UICollectionViewDelegateFlo
             }
         }
     }
-    
-    private let cellId = "cellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,10 @@ class PlayersController: UICollectionViewController, UICollectionViewDelegateFlo
         changeNavigationTintColor(customWhitecolor)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
+    
+}
+
+extension PlayersController: UICollectionViewDelegateFlowLayout, UIViewControllerPreviewingDelegate {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = team?.players?.count {
@@ -88,6 +92,5 @@ class PlayersController: UICollectionViewController, UICollectionViewDelegateFlo
         previewingContext.sourceRect = cell.contentView.frame
         return popVC
     }
-    
 }
 

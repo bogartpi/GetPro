@@ -8,12 +8,11 @@
 
 import UIKit
 
+private let cellId = "cellId"
+private let gearCellId = "gearCellId"
+private let configCellId = "configCellId"
 
-class DetailsController: UICollectionViewController, UICollectionViewDelegateFlowLayout, DetailsHandlerProtocol {
-    
-    private let cellId = "cellId"
-    private let gearCellId = "gearCellId"
-    private let configCellId = "configCellId"
+class DetailsController: UICollectionViewController, DetailsHandlerProtocol {
     
     var player: Player? {
         didSet {
@@ -55,6 +54,10 @@ class DetailsController: UICollectionViewController, UICollectionViewDelegateFlo
         povVC.povs = player?.info?.povs
         present(navController, animated: true, completion: nil)
     }
+
+}
+
+extension DetailsController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
@@ -88,5 +91,5 @@ class DetailsController: UICollectionViewController, UICollectionViewDelegateFlo
         
         return CGSize(width: view.frame.width, height: 300)
     }
+    
 }
-

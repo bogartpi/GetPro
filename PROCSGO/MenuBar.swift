@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MenuBar: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+private let cellId = "cellId"
+private let imageNames = ["newsWhite", "rostersWhite", "profileWhite"]
+
+class MenuBar: UIView {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -16,9 +19,6 @@ class MenuBar: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataS
         cv.backgroundColor = customRedColor
         return cv
     }()
-    
-    let cellId = "cellId"
-    let imageNames = ["newsWhite", "rostersWhite", "profileWhite"]
     
     var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
     
@@ -54,6 +54,14 @@ class MenuBar: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataS
 
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension MenuBar: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let x = CGFloat(indexPath.item) * frame.width / 3
         horizontalBarLeftAnchorConstraint?.constant = x
@@ -81,43 +89,6 @@ class MenuBar: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
-
-class MenuBarCell: BaseCell {
-    
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "newsWhite")
-        iv.contentMode = .scaleAspectFit
-        return iv
-    }()
-    
-    override var isHighlighted: Bool {
-        didSet {
-            imageView.tintColor = isHighlighted ? UIColor.white : customDarkGrayColor
-        }
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            imageView.tintColor = isSelected ? UIColor.white : customDarkGrayColor
-        }
-    }
-    
-    override func setupViews() {
-        super.setupViews()
-        
-        addSubview(imageView)
-        imageView.anchor(width: 20, height: 20)
-        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-    }
-    
 }
 
 

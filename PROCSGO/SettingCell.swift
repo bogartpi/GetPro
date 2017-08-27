@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingCell: UICollectionViewCell {
+class SettingCell: BaseCell {
     
     override var isHighlighted: Bool {
         didSet {
@@ -40,14 +40,12 @@ class SettingCell: UICollectionViewCell {
         return iv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setupViews()
+    override func setupViews() {
+        super.setupViews()
+        setup()
     }
     
-    func setupViews() {
-        
+    func setup() {
         addSubview(nameLabel)
         addSubview(imageView)
         
@@ -56,9 +54,4 @@ class SettingCell: UICollectionViewCell {
         addConstraintsWithFormaat(format: "V:[v0(20)]", views: imageView)
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

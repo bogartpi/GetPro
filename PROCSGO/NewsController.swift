@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NewsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    private let cellId = "cellId"
+private let cellId = "cellId"
+
+class NewsController: UICollectionViewController {
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -64,6 +64,10 @@ class NewsController: UICollectionViewController, UICollectionViewDelegateFlowLa
         menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
     }
     
+}
+
+extension NewsController: UICollectionViewDelegateFlowLayout {
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -76,4 +80,5 @@ class NewsController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 200)
     }
+    
 }

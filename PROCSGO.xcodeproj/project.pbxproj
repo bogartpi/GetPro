@@ -40,6 +40,7 @@
 		36BF576D1F356CD0003125C9 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576C1F356CD0003125C9 /* DescriptionCell.swift */; };
 		36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576E1F356CF9003125C9 /* GearCell.swift */; };
 		36D8E5251F3AEF1800DE0566 /* ConfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8E5241F3AEF1800DE0566 /* ConfCell.swift */; };
+		36F68EA91F5322C400EE9DBB /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F68EA81F5322C400EE9DBB /* MenuBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		36BF576C1F356CD0003125C9 /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		36BF576E1F356CF9003125C9 /* GearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearCell.swift; sourceTree = "<group>"; };
 		36D8E5241F3AEF1800DE0566 /* ConfCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfCell.swift; sourceTree = "<group>"; };
+		36F68EA81F5322C400EE9DBB /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,7 +217,7 @@
 				36AA692D1F52707E003660CA /* NewsController.swift */,
 				362DF0501F52B10E00EEE73C /* NewsCell.swift */,
 				362DF0521F52CA7F00EEE73C /* MenuBar.swift */,
-				362DF0541F52D28100EEE73C /* BaseCell.swift */,
+				36F68EA81F5322C400EE9DBB /* MenuBarCell.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -257,6 +259,7 @@
 				365E56721F25B9480087A6D3 /* Extensions.swift */,
 				365E56741F25C5930087A6D3 /* Model.swift */,
 				3612ED871F3D551D00AEA870 /* Constants.swift */,
+				362DF0541F52D28100EEE73C /* BaseCell.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				365DDCE51F38124200364C0A /* AboutController.swift in Sources */,
 				365E56731F25B9480087A6D3 /* Extensions.swift in Sources */,
 				36D8E5251F3AEF1800DE0566 /* ConfCell.swift in Sources */,
+				36F68EA91F5322C400EE9DBB /* MenuBarCell.swift in Sources */,
 				36AE43151F29B37300C3A386 /* ConfigController.swift in Sources */,
 				365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */,
 				36BB86791F3723820044BDEC /* VideoCell.swift in Sources */,
