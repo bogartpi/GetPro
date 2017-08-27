@@ -56,17 +56,6 @@ class PovController: UICollectionViewController, UICollectionViewDelegateFlowLay
         setupNavigationButtons()
     }
     
-    private func customizeNavController() {
-        navigationController?.navigationBar.layer.masksToBounds = false
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 2
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = customRedColor
-        navigationController?.navigationBar.tintColor = customWhitecolor
-    }
-    
     private func setupNavigationButtons() {
         let backImage = UIImage(named: "cancel")?.withRenderingMode(.alwaysOriginal)
         let backButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(dismissController))

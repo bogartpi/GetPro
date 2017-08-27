@@ -45,15 +45,7 @@ class ConfigController: UICollectionViewController, UICollectionViewDelegateFlow
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func customizeNavController() {
-        navigationController?.navigationBar.layer.masksToBounds = false
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        navigationController?.navigationBar.layer.shadowRadius = 2
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = customRedColor
-        navigationController?.navigationBar.tintColor = customWhitecolor
+    override func customizeNavController() {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: customWhitecolor, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
     

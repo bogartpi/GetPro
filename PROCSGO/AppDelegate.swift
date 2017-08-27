@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
-        let mainVC = MainController(collectionViewLayout: layout)
-        window?.rootViewController = UINavigationController(rootViewController: mainVC)
+        layout.minimumLineSpacing = 1
+        let newsVC = NewsController(collectionViewLayout: layout)
+        window?.rootViewController = UINavigationController(rootViewController: newsVC)
         UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
