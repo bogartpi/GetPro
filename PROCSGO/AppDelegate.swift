@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
-        let newsVC = NewsController(collectionViewLayout: layout)
+        let newsVC = MainController(collectionViewLayout: layout)
         window?.rootViewController = UINavigationController(rootViewController: newsVC)
         UIApplication.shared.statusBarStyle = .lightContent 
         
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.addSubview(statusBarBackgroundView)
         window?.addConstraintsWithFormaat(format: "H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintsWithFormaat(format: "V:|[v0(20)]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormaat(format: "V:[v0(20)]", views: statusBarBackgroundView)
         
         return true
     }

@@ -21,7 +21,6 @@ class ConfigController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Config"
         collectionView?.backgroundColor = customGrayColor
         collectionView?.register(ConfigCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(ConfigHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:  headerId)
@@ -29,9 +28,7 @@ class ConfigController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-    
         customizeNavController()
-        
         setupNavigationButtons()
     }
     
@@ -43,10 +40,6 @@ class ConfigController: UICollectionViewController {
     
     func dismissController() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func customizeNavController() {
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: customWhitecolor, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
 
 }

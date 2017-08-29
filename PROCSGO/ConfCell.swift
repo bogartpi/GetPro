@@ -57,6 +57,7 @@ class ConfCell: BaseCell {
     override func setupViews() {
         super.setupViews()
         setup()
+        setDefaultShadow()
     }
 
     func setup() {

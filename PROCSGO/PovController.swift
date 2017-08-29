@@ -40,7 +40,6 @@ class PovController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "POVs"
         collectionView?.backgroundColor = customGrayColor
         collectionView?.isUserInteractionEnabled = true
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: cellId)

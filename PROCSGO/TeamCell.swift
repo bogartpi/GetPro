@@ -52,9 +52,8 @@ class TeamsCell: BaseCell {
         
         cellView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
         imageView.centerXAnchor.constraint(equalTo: cellView.centerXAnchor).isActive = true
-        imageView.anchor(width: 50, height: 50)
+        imageView.anchor(width: 50, height: 0)
         imageView.anchor(top: topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        imageView.anchor(width: 70, height: 70)
         teamNameLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
         
         setDefaultShadow()

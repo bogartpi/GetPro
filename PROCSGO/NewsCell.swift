@@ -20,7 +20,7 @@ class NewsCell: BaseCell {
     
     let darkView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
         return view
     }()
     

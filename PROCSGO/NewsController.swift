@@ -37,6 +37,12 @@ class NewsController: UICollectionViewController {
         setupNavigationButtons()
     }
     
+    override func customizeNavController() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = customRedColor
+        navigationController?.navigationBar.tintColor = customWhitecolor
+    }
+    
     private func setupNavigationButtons() {
         let moreImage = UIImage(named: "more_icon")?.withRenderingMode(.alwaysOriginal)
         let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
@@ -49,7 +55,6 @@ class NewsController: UICollectionViewController {
     
     private func setupMenuBar() {
         navigationController?.hidesBarsOnSwipe = true
-        
         // view to hide the bug's effect when we swipe up
         let redView = UIView()
         redView.backgroundColor = customRedColor
