@@ -11,12 +11,14 @@ import Social
 
 private let cellId = "cellId"
 
-class MainController: UICollectionViewController {
+class TeamsController: UICollectionViewController {
     
     var teams: [Team]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Rosters"
+        changeNavigationTintColor(.white)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
         customizeNavController()
@@ -124,7 +126,7 @@ class MainController: UICollectionViewController {
     
 }
 
-extension MainController: UICollectionViewDelegateFlowLayout {
+extension TeamsController: UICollectionViewDelegateFlowLayout {
     
     private func showPlayersController(index: Int) {
         let layout = UICollectionViewFlowLayout()

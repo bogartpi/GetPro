@@ -18,11 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+
+        let mainVC = MainTabBarController()
+        window?.rootViewController = mainVC
         
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 1
-        let newsVC = MainController(collectionViewLayout: layout)
-        window?.rootViewController = UINavigationController(rootViewController: newsVC)
         UIApplication.shared.statusBarStyle = .lightContent 
         
         // get rid of black bar underneath navbar

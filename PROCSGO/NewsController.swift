@@ -17,24 +17,16 @@ class NewsController: UICollectionViewController {
         launcher.newsController = self
         return launcher
     }()
-    
-    let menuBar: MenuBar = {
-        let mb = MenuBar()
-        return mb
-    }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        //customizeNavController()
+        customizeNavController()
+        setupNavigationButtons()
+        
+        navigationItem.title = "News"
+        changeNavigationTintColor(.white)
         collectionView?.backgroundColor = .white
         collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
-        customizeNavController()
-        
-        setupMenuBar()
-        
-        setupNavigationButtons()
     }
     
     override func customizeNavController() {
@@ -52,23 +44,6 @@ class NewsController: UICollectionViewController {
     func handleMore() {
         settingsLauncher.showSettings()
     }
-    
-    private func setupMenuBar() {
-        navigationController?.hidesBarsOnSwipe = true
-        // view to hide the bug's effect when we swipe up
-        let redView = UIView()
-        redView.backgroundColor = customRedColor
-        view.addSubview(redView)
-        view.addConstraintsWithFormaat(format: "H:|[v0]|", views: redView)
-        view.addConstraintsWithFormaat(format: "V:[v0(50)]", views: redView)
-        
-        view.addSubview(menuBar)
-        view.addConstraintsWithFormaat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormaat(format: "V:[v0(50)]", views: menuBar)
-        
-        menuBar.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-    }
-    
 }
 
 extension NewsController: UICollectionViewDelegateFlowLayout {
@@ -84,6 +59,11 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 200)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = NewsDetailController()
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
