@@ -28,6 +28,8 @@
 		365E56751F25C5930087A6D3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56741F25C5930087A6D3 /* Model.swift */; };
 		365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56761F25E8B10087A6D3 /* PlayersController.swift */; };
 		36631C061F30358100C6CDD5 /* PovController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C051F30358100C6CDD5 /* PovController.swift */; };
+		3691CC431F56D72300512962 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC421F56D72300512962 /* SignUpController.swift */; };
+		3691CC451F56D73200512962 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC441F56D73200512962 /* LogInController.swift */; };
 		369277061F28163C00AC434A /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369277051F28163C00AC434A /* DetailsController.swift */; };
 		36AA692E1F52707E003660CA /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AA692D1F52707E003660CA /* NewsController.swift */; };
 		36AE43151F29B37300C3A386 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE43141F29B37300C3A386 /* ConfigController.swift */; };
@@ -89,6 +91,8 @@
 		365E56741F25C5930087A6D3 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		365E56761F25E8B10087A6D3 /* PlayersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersController.swift; sourceTree = "<group>"; };
 		36631C051F30358100C6CDD5 /* PovController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PovController.swift; sourceTree = "<group>"; };
+		3691CC421F56D72300512962 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		3691CC441F56D73200512962 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		369277051F28163C00AC434A /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		36AA692D1F52707E003660CA /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		36AE43141F29B37300C3A386 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				36AA692B1F52700D003660CA /* Rosters */,
 				36AA692C1F527022003660CA /* News */,
 				364A18591F5566AA00DAFC98 /* Profile */,
+				3691CC461F56D73800512962 /* Authentication */,
 			);
 			path = PROCSGO;
 			sourceTree = "<group>";
@@ -235,6 +240,15 @@
 				365E56641F25B3A00087A6D3 /* Info.plist */,
 			);
 			path = PROCSGOUITests;
+			sourceTree = "<group>";
+		};
+		3691CC461F56D73800512962 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3691CC421F56D72300512962 /* SignUpController.swift */,
+				3691CC441F56D73200512962 /* LogInController.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 		36AA692B1F52700D003660CA /* Rosters */ = {
@@ -475,6 +489,7 @@
 				365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */,
 				365E56711F25B40C0087A6D3 /* TeamsController.swift in Sources */,
 				36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */,
+				3691CC431F56D72300512962 /* SignUpController.swift in Sources */,
 				36BB86801F3739E00044BDEC /* SettingsLauncher.swift in Sources */,
 				36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */,
 				365DDCE51F38124200364C0A /* AboutController.swift in Sources */,
@@ -492,6 +507,7 @@
 				364A18551F55535100DAFC98 /* NewsDetailController.swift in Sources */,
 				364A185B1F5566E200DAFC98 /* ProfileController.swift in Sources */,
 				36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */,
+				3691CC451F56D73200512962 /* LogInController.swift in Sources */,
 				36BF57681F356C5B003125C9 /* PlayerCell.swift in Sources */,
 				36BF576D1F356CD0003125C9 /* DescriptionCell.swift in Sources */,
 				365E56751F25C5930087A6D3 /* Model.swift in Sources */,
