@@ -6,4 +6,4 @@ You can find GetPro App in AppStore! Go through a link below and get it right no
 
 [AppStore](https://itunes.apple.com/nz/app/getpro-cs-go/id1271666107?mt=8 "AppStore")
 
-Updates and new features are coming soon!
+Updates and new features are coming soon! :)
