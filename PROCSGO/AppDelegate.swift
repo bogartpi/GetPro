@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
-        let mainVC = MainTabBarController()
+        let mainVC = LogInController()
         window?.rootViewController = mainVC
         
         UIApplication.shared.statusBarStyle = .lightContent 
@@ -30,10 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let statusBarBackgroundView = UIView()
         statusBarBackgroundView.backgroundColor = UIColor(r: 214, g: 74, b: 71)
-        
-        window?.addSubview(statusBarBackgroundView)
-        window?.addConstraintsWithFormaat(format: "H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintsWithFormaat(format: "V:[v0(20)]", views: statusBarBackgroundView)
         
         return true
     }

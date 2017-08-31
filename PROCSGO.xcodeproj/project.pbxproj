@@ -28,6 +28,8 @@
 		365E56751F25C5930087A6D3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56741F25C5930087A6D3 /* Model.swift */; };
 		365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56761F25E8B10087A6D3 /* PlayersController.swift */; };
 		36631C061F30358100C6CDD5 /* PovController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C051F30358100C6CDD5 /* PovController.swift */; };
+		366C9C841F5851DF00302D27 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 366C9C831F58508B00302D27 /* video.mov */; };
+		366C9C861F585CC900302D27 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C9C851F585CC900302D27 /* VideoView.swift */; };
 		3691CC431F56D72300512962 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC421F56D72300512962 /* SignUpController.swift */; };
 		3691CC451F56D73200512962 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC441F56D73200512962 /* LogInController.swift */; };
 		369277061F28163C00AC434A /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369277051F28163C00AC434A /* DetailsController.swift */; };
@@ -91,6 +93,8 @@
 		365E56741F25C5930087A6D3 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		365E56761F25E8B10087A6D3 /* PlayersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersController.swift; sourceTree = "<group>"; };
 		36631C051F30358100C6CDD5 /* PovController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PovController.swift; sourceTree = "<group>"; };
+		366C9C831F58508B00302D27 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
+		366C9C851F585CC900302D27 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		3691CC421F56D72300512962 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3691CC441F56D73200512962 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		369277051F28163C00AC434A /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 		365E56411F25B3A00087A6D3 /* PROCSGO */ = {
 			isa = PBXGroup;
 			children = (
+				366C9C831F58508B00302D27 /* video.mov */,
 				364A18581F55657E00DAFC98 /* Supporting Files */,
 				36B47B541F2DB48700CECB3F /* Resources */,
 				36BB867E1F372FCB0044BDEC /* Helpers */,
@@ -245,8 +250,9 @@
 		3691CC461F56D73800512962 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				3691CC421F56D72300512962 /* SignUpController.swift */,
 				3691CC441F56D73200512962 /* LogInController.swift */,
+				3691CC421F56D72300512962 /* SignUpController.swift */,
+				366C9C851F585CC900302D27 /* VideoView.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366C9C841F5851DF00302D27 /* video.mov in Resources */,
 				365E564D1F25B3A00087A6D3 /* LaunchScreen.storyboard in Resources */,
 				365E564A1F25B3A00087A6D3 /* Assets.xcassets in Resources */,
 				3648D6181F401AAB00B3E941 /* csgonew.json in Resources */,
@@ -512,6 +519,7 @@
 				36BF576D1F356CD0003125C9 /* DescriptionCell.swift in Sources */,
 				365E56751F25C5930087A6D3 /* Model.swift in Sources */,
 				36BB86821F3745200044BDEC /* SettingCell.swift in Sources */,
+				366C9C861F585CC900302D27 /* VideoView.swift in Sources */,
 				36631C061F30358100C6CDD5 /* PovController.swift in Sources */,
 				36BF57641F356BEA003125C9 /* TeamCell.swift in Sources */,
 				362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */,
