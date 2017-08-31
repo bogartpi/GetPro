@@ -11,7 +11,7 @@ import UIKit
 class AboutController: UIViewController {
     
     let aboutLabel: UILabel = {
-        let label = UILabel(color: customDarkGrayColor, fontName: "Avenir", fontSize: 16, align: .center, lines: 15)
+        let label = UILabel(color: UIColor.customDarkGrayColor, fontName: "Avenir", fontSize: 16, align: .center, lines: 15)
         label.text = "Welcome to The GetPro App!\n This is your guide into the world of CS:GO professionals. Get know all your favorite pro players. Check their configurations and gears. Explore and learn the best skills of pros by watching pov demos and setting their configs to feel like pro.\n\nNew features and updates are coming soon!\n\nFor any further suggestions related to this project or any support contact at: "
         return label
     }()
@@ -37,7 +37,7 @@ class AboutController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = customWhitecolor
+        view.backgroundColor = UIColor.customWhitecolor
         navigationItem.title = "About"
         setup()
         setupButtons()
@@ -46,7 +46,7 @@ class AboutController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        changeNavigationTintColor(customWhitecolor)
+        changeNavigationTintColor(UIColor.customWhitecolor)
     }
     
     func setupButtons() {

@@ -21,7 +21,7 @@ class ConfigController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = customGrayColor
+        collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.register(ConfigCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(ConfigHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier:  headerId)
     }

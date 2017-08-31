@@ -14,7 +14,7 @@ class DescriptionCell: BaseCell {
         let tv = UITextView()
         tv.isEditable = false
         tv.font = UIFont(name: "Avenir-Heavy", size: 14)
-        tv.textColor = customWhitecolor
+        tv.textColor = UIColor.customWhitecolor
         tv.backgroundColor = .clear
         return tv
     }()

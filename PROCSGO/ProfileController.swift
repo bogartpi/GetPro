@@ -12,7 +12,7 @@ class ProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = customGrayColor
+        view.backgroundColor = UIColor.customGrayColor
         customizeNavController()
         navigationItem.title = "Profile"
         changeNavigationTintColor(.white)

@@ -22,7 +22,7 @@ class TeamsController: UICollectionViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
         customizeNavController()
-        collectionView?.backgroundColor = customGrayColor
+        collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.register(TeamsCell.self, forCellWithReuseIdentifier: cellId)
         setCellLayout()
     }

@@ -12,9 +12,9 @@ class SettingCell: BaseCell {
     
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? UIColor.darkGray : customDarkGrayColor
-            nameLabel.textColor = isHighlighted ? customRedColor : customWhitecolor
-            imageView.tintColor = isHighlighted ? customRedColor : customWhitecolor
+            backgroundColor = isHighlighted ? UIColor.darkGray : UIColor.customDarkGrayColor
+            nameLabel.textColor = isHighlighted ? UIColor.customRedColor : UIColor.customWhitecolor
+            imageView.tintColor = isHighlighted ? UIColor.customRedColor : UIColor.customWhitecolor
         }
     }
     
@@ -23,13 +23,13 @@ class SettingCell: BaseCell {
             nameLabel.text = setting?.name.rawValue
             if let image = setting?.imageName {
                 imageView.image = UIImage(named: image)?.withRenderingMode(.alwaysTemplate)
-                imageView.tintColor = customWhitecolor
+                imageView.tintColor = UIColor.customWhitecolor
             }
         }
     }
     
     let nameLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     

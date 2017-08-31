@@ -41,22 +41,22 @@ class PlayerCell: BaseCell {
     }()
     
     let aliasDataLabel: UILabel = {
-        let label = UILabel(color: customRedColor, fontName: "Chalkduster", fontSize: 24)
+        let label = UILabel(color: UIColor.customRedColor, fontName: "Chalkduster", fontSize: 24)
         return label
     }()
     
     let nameDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
     let ageDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
     let countryDataLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Book", fontSize: 13)
         return label
     }()
     
@@ -71,7 +71,7 @@ class PlayerCell: BaseCell {
     override func setupViews() {
         super.setupViews()
         setup()
-        backgroundColor = customDarkGrayColor
+        backgroundColor = UIColor.customDarkGrayColor
         setDefaultShadow()
     }
     

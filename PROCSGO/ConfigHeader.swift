@@ -11,13 +11,13 @@ import UIKit
 class ConfigHeader: BaseCell {
     
     let sectionNamelabel: UILabel = {
-        let label = UILabel(color: customRedColor, fontName: "Avenir-Heavy", fontSize: 16)
+        let label = UILabel(color: UIColor.customRedColor, fontName: "Avenir-Heavy", fontSize: 16)
         return label
     }()
     
     let headerView: UIView = {
         let hv = UIView()
-        hv.backgroundColor = customGrayColor
+        hv.backgroundColor = UIColor.customGrayColor
         return hv
     }()
     

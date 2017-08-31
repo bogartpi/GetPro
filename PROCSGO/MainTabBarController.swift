@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.barTintColor = customRedColor
+        tabBar.barTintColor = UIColor.customRedColor
         
         // News Controller
         let newsLayout = UICollectionViewFlowLayout()

@@ -14,5 +14,4 @@ class LogInController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
-    
 }

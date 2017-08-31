@@ -26,7 +26,7 @@ class DetailsController: UICollectionViewController, DetailsHandlerProtocol {
         super.viewDidLoad()
         
         collectionView?.alwaysBounceVertical = true
-        collectionView?.backgroundColor = customGrayColor
+        collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.register(ScreenshotsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(GearCell.self, forCellWithReuseIdentifier: gearCellId)
         collectionView?.register(ConfCell.self, forCellWithReuseIdentifier: configCellId) 
@@ -35,7 +35,7 @@ class DetailsController: UICollectionViewController, DetailsHandlerProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let nav = self.navigationController?.navigationBar
-        nav?.tintColor = customWhitecolor
+        nav?.tintColor = UIColor.customWhitecolor
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
     

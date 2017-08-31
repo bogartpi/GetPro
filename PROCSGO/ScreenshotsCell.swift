@@ -47,7 +47,7 @@ private class ScreenshotsImageCell: BaseCell {
     var imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
-        iv.backgroundColor = customDarkGrayColor
+        iv.backgroundColor = UIColor.customDarkGrayColor
         iv.layer.masksToBounds = true
         iv.isUserInteractionEnabled = true
         return iv

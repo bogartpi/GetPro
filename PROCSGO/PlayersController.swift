@@ -32,7 +32,7 @@ class PlayersController: UICollectionViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         collectionView?.alwaysBounceVertical = true
-        collectionView?.backgroundColor = customGrayColor
+        collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.isUserInteractionEnabled = true
         collectionView?.register(PlayerCell.self, forCellWithReuseIdentifier: cellId)
         
@@ -42,7 +42,7 @@ class PlayersController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        changeNavigationTintColor(customWhitecolor)
+        changeNavigationTintColor(UIColor.customWhitecolor)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 20)!]
     }
     

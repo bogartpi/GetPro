@@ -16,31 +16,31 @@ class PovController: UICollectionViewController {
     
     let activityIndicatorView: UIActivityIndicatorView = {
         let adv = UIActivityIndicatorView()
-        adv.color = customWhitecolor
+        adv.color = UIColor.customWhitecolor
         return adv
     }()
     
     let warningView: UIView = {
         let view = UIView()
-        view.backgroundColor = customRedColor
+        view.backgroundColor = UIColor.customRedColor
         return view
     }()
     
     let warningImage: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = customWhitecolor
+        iv.backgroundColor = UIColor.customWhitecolor
         return iv
     }()
     
     let warningLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Medium", fontSize: 14, lines: 5)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Medium", fontSize: 14, lines: 5)
         label.text = "Network Error.\nCouldn't connect to the server. Check your network connection"
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = customGrayColor
+        collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.isUserInteractionEnabled = true
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: cellId)
         navigationItem.titleView = activityIndicatorView

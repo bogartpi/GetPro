@@ -31,8 +31,8 @@ class NewsController: UICollectionViewController {
     
     override func customizeNavController() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = customRedColor
-        navigationController?.navigationBar.tintColor = customWhitecolor
+        navigationController?.navigationBar.barTintColor = UIColor.customRedColor
+        navigationController?.navigationBar.tintColor = UIColor.customWhitecolor
     }
     
     private func setupNavigationButtons() {

@@ -19,7 +19,7 @@ class ConfCell: BaseCell {
     
     let confButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = customDarkGrayColor
+        button.backgroundColor = UIColor.customDarkGrayColor
         button.layer.cornerRadius = 3
         button.layer.masksToBounds = true
         return button
@@ -33,7 +33,7 @@ class ConfCell: BaseCell {
     
     let povsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = customDarkGrayColor
+        button.backgroundColor = UIColor.customDarkGrayColor
         button.layer.cornerRadius = 3
         button.layer.masksToBounds = true
         return button

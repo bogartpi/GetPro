@@ -21,7 +21,7 @@ class GearCell: BaseCell {
     var imagesArray = ["monitor", "mouse", "mousepad", "keyboard", "headset"]
     
     let headerLabel: UILabel = {
-        let label = UILabel(color: customRedColor, fontName: "Avenir-Medium", fontSize: 15)
+        let label = UILabel(color: UIColor.customRedColor, fontName: "Avenir-Medium", fontSize: 15)
         label.text = "GEAR"
         return label
     }()
@@ -87,7 +87,7 @@ private class InternalGearsCell: BaseCell {
     }()
     
     let gearLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
         label.minimumScaleFactor = 0.2
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -100,7 +100,7 @@ private class InternalGearsCell: BaseCell {
     
     func setup() {
         
-        backgroundColor = customDarkGrayColor
+        backgroundColor = UIColor.customDarkGrayColor
         self.layer.cornerRadius = 3
         self.layer.masksToBounds = true
         

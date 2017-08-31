@@ -12,7 +12,7 @@ class TeamsCell: BaseCell {
     
     let cellView: UIView = {
         let v = UIView()
-        v.backgroundColor = customDarkGrayColor
+        v.backgroundColor = UIColor.customDarkGrayColor
         v.layer.masksToBounds = true
         v.layer.cornerRadius = 3
         return v
@@ -29,8 +29,8 @@ class TeamsCell: BaseCell {
     let teamNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Heavy", size: 14)
-        label.textColor = customWhitecolor
-        label.backgroundColor = customRedColor
+        label.textColor = UIColor.customWhitecolor
+        label.backgroundColor = UIColor.customRedColor
         label.textAlignment = .center
         label.layer.masksToBounds = true
         label.adjustsFontSizeToFitWidth = true

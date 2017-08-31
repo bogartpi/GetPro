@@ -12,17 +12,17 @@ class ConfigCell: BaseCell {
     
     let cellView: UIView = {
         let cv = UIView()
-        cv.backgroundColor = customDarkGrayColor
+        cv.backgroundColor = UIColor.customDarkGrayColor
         return cv
     }()
     
     let titleLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
         return label
     }()
     
     let valueLabel: UILabel = {
-        let label = UILabel(color: customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
+        let label = UILabel(color: UIColor.customWhitecolor, fontName: "Avenir-Heavy", fontSize: 14)
         return label
     }()
     

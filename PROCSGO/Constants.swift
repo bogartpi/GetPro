@@ -8,9 +8,20 @@
 
 import UIKit
 
-public var customGrayColor = UIColor(r: 54, g: 49, b: 49)
-public var customDarkGrayColor = UIColor(r: 38, g: 37, b: 37)
-public var customRedColor = UIColor(r: 239, g: 83, b: 80)
-public var customWhitecolor = UIColor(r: 245, g: 245, b: 245)
-
-
+extension UIColor {
+    static var customGrayColor: UIColor = {
+        return UIColor(r: 54, g: 49, b: 49)
+    }()
+    
+    static var customDarkGrayColor: UIColor = {
+        return UIColor(r: 38, g: 37, b: 37)
+    }()
+    
+    static var customRedColor: UIColor = {
+        return UIColor(r: 239, g: 83, b: 80)
+    }()
+    
+    static var customWhitecolor: UIColor = {
+        return UIColor(r: 245, g: 245, b: 245)
+    }()
+}

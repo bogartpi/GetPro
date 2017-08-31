@@ -41,7 +41,7 @@ class SettingsLauncher: NSObject {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = customDarkGrayColor
+        cv.backgroundColor = UIColor.customDarkGrayColor
         cv.layer.shadowColor = UIColor.black.cgColor
         cv.layer.shadowOffset = CGSize(width: 0, height: 1)
         cv.layer.shadowOpacity = 1
