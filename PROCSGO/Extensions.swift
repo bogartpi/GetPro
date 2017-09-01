@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import SystemConfiguration
 
 public extension UIViewController {
     
@@ -37,60 +36,6 @@ public extension UIViewController {
     }
 }
 
-protocol Utilities {
-    
-}
-
-extension NSObject: Utilities {
-    
-    enum ReachabilityStatus {
-        case notReachable
-        case reachableViaWWAN
-        case reachableViaWiFi
-    }
-    
-    var currentReachabilityStatus: ReachabilityStatus {
-        
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-        
-        guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
-                SCNetworkReachabilityCreateWithAddress(nil, $0)
-            }
-        }) else {
-            return .notReachable 
-        }
-        
-        var flags: SCNetworkReachabilityFlags = []
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
-            return .notReachable
-        }
-        
-        if flags.contains(.reachable) == false {
-            // The target host is not reachable.
-            return .notReachable
-        }
-        else if flags.contains(.isWWAN) == true {
-            // WWAN connections are OK if the calling application is using the CFNetwork APIs.
-            return .reachableViaWWAN
-        }
-        else if flags.contains(.connectionRequired) == false {
-            // If the target host is reachable and no connection is required then we'll assume that you're on Wi-Fi...
-            return .reachableViaWiFi
-        }
-        else if (flags.contains(.connectionOnDemand) == true || flags.contains(.connectionOnTraffic) == true) && flags.contains(.interventionRequired) == false {
-            // The connection is on-demand (or on-traffic) if the calling application is using the CFSocketStream or higher APIs and no [user] intervention is needed
-            return .reachableViaWiFi
-        }
-        else {
-            return .notReachable
-        }
-    }
-    
-}
-
 public extension UIColor {
 
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
@@ -100,60 +45,6 @@ public extension UIColor {
 }
 
 public extension UIView {
-    
-    func pinEdges(to view: UIView) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        self.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
-    
-    func anchor(width: CGFloat, height: CGFloat) {
-        self.anchor(top: nil,
-                    left: nil,
-                    bottom: nil,
-                    right: nil,
-                    paddingTop: 0,
-                    paddingLeft: 0,
-                    paddingBottom: 0,
-                    paddingRight: 0,
-                    width: width,
-                    height: height)
-    }
-    
-    func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?,
-                bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?,
-                paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat,
-                paddingRight: CGFloat, width: CGFloat = 0, height: CGFloat = 0) {
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
-        if let top = top {
-            self.topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
-        }
-        
-        if let left = left {
-            self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
-        }
-        
-        if let bottom = bottom {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
-        }
-        
-        if let right = right {
-            self.rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
-        }
-        
-        if width != 0 {
-            self.widthAnchor.constraint(equalToConstant: width).isActive = true
-        }
-        
-        if height != 0 {
-            self.heightAnchor.constraint(equalToConstant: height).isActive = true
-        }
-    }
-    
     func setDefaultShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -162,10 +53,25 @@ public extension UIView {
         self.clipsToBounds = false
         self.layer.masksToBounds = false
     }
-
 }
 
+
 public extension UILabel {
+    public convenience init(topTitle: String, topFont: UIFont, topColor: UIColor,
+                            bottomTitle: String, bottomFont: UIFont, bottomColor: UIColor,
+                            align: NSTextAlignment) {
+        self.init()
+        let topAttribute = NSMutableAttributedString(string: topTitle,
+                                                     attributes: [NSFontAttributeName: topFont,
+                                                                  NSForegroundColorAttributeName: topColor])
+        let bottomAttribute = NSMutableAttributedString(string: bottomTitle,
+                                                        attributes: [NSFontAttributeName: bottomFont,
+                                                                     NSForegroundColorAttributeName: bottomColor])
+        topAttribute.append(bottomAttribute)
+        self.attributedText = topAttribute
+        self.numberOfLines = 0
+        self.textAlignment = align
+    }
     
     public convenience init(color: UIColor, fontName: String, fontSize: CGFloat, align: NSTextAlignment = .left, lines: Int = 1) {
         self.init()
@@ -196,7 +102,6 @@ public extension UIImageView {
 }
 
 public extension UIButton {
-    
     public convenience init(imageName: String) {
         self.init(type: .system)
         self.setImage(UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -204,18 +109,31 @@ public extension UIButton {
     }
 }
 
-public extension UIView {
-    
-    func addConstraintsWithFormaat(format: String, views: UIView...) {
-        var viewsDictionary = [String: UIView]()
-        for (index, view) in views.enumerated() {
-            let key = "v\(index)"
-            viewsDictionary[key] = view
-            view.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+public extension UITextField {
+    public convenience init(placeHolderName: String, leftViewImage: String, plusWidth: CGFloat) {
+        self.init()
+        self.borderStyle = .none
+        self.layer.cornerRadius = 3
+        self.backgroundColor = UIColor(red: 216.0/255.0, green: 216.0/255.0, blue: 216.0/255.0, alpha: 0.2)
+        self.textColor = UIColor(white: 0.9, alpha: 0.8)
+        self.autocapitalizationType = .none
+        self.tintColor = UIColor(white: 0.9, alpha: 0.8)
+        self.autocorrectionType = .no
+        self.clearButtonMode = .whileEditing
+        self.isSecureTextEntry = true
+        // placeholder
+        let placeholderName = placeHolderName
+        var placeholder = NSMutableAttributedString()
+        placeholder = NSMutableAttributedString(attributedString: NSAttributedString(string: placeholderName,
+                                                                                     attributes: [NSFontAttributeName: UIFont(name: "Avenir Next-Light", size: 17) ?? UIFont.systemFont(ofSize: 17),
+                                                                                                  NSForegroundColorAttributeName: UIColor(white: 0.7, alpha: 0.5)]))
+        self.attributedPlaceholder = placeholder
+        // leftView
+        let image = UIImageView(image: UIImage(named: leftViewImage)?.withRenderingMode(.alwaysTemplate))
+        image.tintColor = UIColor(white: 0.9, alpha: 0.8)
+        image.contentMode = .center
+        image.frame = CGRect(x: 0, y: 0, width: image.frame.width + plusWidth, height: image.frame.size.height)
+        self.leftView = image
+        self.leftViewMode = .always
     }
-    
 }
-

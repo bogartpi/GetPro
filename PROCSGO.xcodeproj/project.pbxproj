@@ -27,6 +27,9 @@
 		365E56731F25B9480087A6D3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56721F25B9480087A6D3 /* Extensions.swift */; };
 		365E56751F25C5930087A6D3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56741F25C5930087A6D3 /* Model.swift */; };
 		365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56761F25E8B10087A6D3 /* PlayersController.swift */; };
+		365FF4231F5970BC00F65B2D /* LoginMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365FF4221F5970BC00F65B2D /* LoginMainView.swift */; };
+		365FF4251F59720C00F65B2D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365FF4241F59720C00F65B2D /* Reachability.swift */; };
+		365FF4271F59725400F65B2D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365FF4261F59725400F65B2D /* Constraints.swift */; };
 		36631C061F30358100C6CDD5 /* PovController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C051F30358100C6CDD5 /* PovController.swift */; };
 		366C9C841F5851DF00302D27 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 366C9C831F58508B00302D27 /* video.mov */; };
 		366C9C861F585CC900302D27 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C9C851F585CC900302D27 /* VideoView.swift */; };
@@ -92,6 +95,9 @@
 		365E56721F25B9480087A6D3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		365E56741F25C5930087A6D3 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		365E56761F25E8B10087A6D3 /* PlayersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersController.swift; sourceTree = "<group>"; };
+		365FF4221F5970BC00F65B2D /* LoginMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainView.swift; sourceTree = "<group>"; };
+		365FF4241F59720C00F65B2D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		365FF4261F59725400F65B2D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		36631C051F30358100C6CDD5 /* PovController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PovController.swift; sourceTree = "<group>"; };
 		366C9C831F58508B00302D27 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		366C9C851F585CC900302D27 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 		364A18581F55657E00DAFC98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				365E56421F25B3A00087A6D3 /* AppDelegate.swift */,
+				364A18521F553E5800DAFC98 /* MainTabBarController.swift */,
 				365E564E1F25B3A00087A6D3 /* Info.plist */,
 				365E564B1F25B3A00087A6D3 /* LaunchScreen.storyboard */,
 				365E56491F25B3A00087A6D3 /* Assets.xcassets */,
@@ -217,10 +225,9 @@
 		365E56411F25B3A00087A6D3 /* PROCSGO */ = {
 			isa = PBXGroup;
 			children = (
-				366C9C831F58508B00302D27 /* video.mov */,
-				364A18581F55657E00DAFC98 /* Supporting Files */,
 				36B47B541F2DB48700CECB3F /* Resources */,
 				36BB867E1F372FCB0044BDEC /* Helpers */,
+				364A18581F55657E00DAFC98 /* Supporting Files */,
 				36AA692B1F52700D003660CA /* Rosters */,
 				36AA692C1F527022003660CA /* News */,
 				364A18591F5566AA00DAFC98 /* Profile */,
@@ -251,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				3691CC441F56D73200512962 /* LogInController.swift */,
+				365FF4221F5970BC00F65B2D /* LoginMainView.swift */,
 				3691CC421F56D72300512962 /* SignUpController.swift */,
 				366C9C851F585CC900302D27 /* VideoView.swift */,
 			);
@@ -282,6 +290,7 @@
 		36B47B541F2DB48700CECB3F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				366C9C831F58508B00302D27 /* video.mov */,
 				3648D6171F401AAB00B3E941 /* csgonew.json */,
 			);
 			name = Resources;
@@ -309,12 +318,12 @@
 		36BB867E1F372FCB0044BDEC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				365E56421F25B3A00087A6D3 /* AppDelegate.swift */,
-				364A18521F553E5800DAFC98 /* MainTabBarController.swift */,
 				365E56721F25B9480087A6D3 /* Extensions.swift */,
 				365E56741F25C5930087A6D3 /* Model.swift */,
 				3612ED871F3D551D00AEA870 /* Constants.swift */,
 				362DF0541F52D28100EEE73C /* BaseCell.swift */,
+				365FF4241F59720C00F65B2D /* Reachability.swift */,
+				365FF4261F59725400F65B2D /* Constraints.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -493,9 +502,11 @@
 			files = (
 				364A18531F553E5800DAFC98 /* MainTabBarController.swift in Sources */,
 				36AA692E1F52707E003660CA /* NewsController.swift in Sources */,
+				365FF4231F5970BC00F65B2D /* LoginMainView.swift in Sources */,
 				365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */,
 				365E56711F25B40C0087A6D3 /* TeamsController.swift in Sources */,
 				36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */,
+				365FF4251F59720C00F65B2D /* Reachability.swift in Sources */,
 				3691CC431F56D72300512962 /* SignUpController.swift in Sources */,
 				36BB86801F3739E00044BDEC /* SettingsLauncher.swift in Sources */,
 				36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */,
@@ -511,6 +522,7 @@
 				36BB867D1F3723E90044BDEC /* ConfigHeader.swift in Sources */,
 				369277061F28163C00AC434A /* DetailsController.swift in Sources */,
 				3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */,
+				365FF4271F59725400F65B2D /* Constraints.swift in Sources */,
 				364A18551F55535100DAFC98 /* NewsDetailController.swift in Sources */,
 				364A185B1F5566E200DAFC98 /* ProfileController.swift in Sources */,
 				36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */,
