@@ -33,7 +33,12 @@ class LogInController: UIViewController {
     func setupMainView() {
         let mainView = LoginMainView(frame: self.view.frame)
         self.mainView = mainView
+        self.mainView.signUpAction = self.signUpSwitch
         self.videoView.addSubview(mainView)
         mainView.pinEdges(to: self.videoView)
+    }
+    
+    func signUpSwitch() {
+        print(123)
     }
 }

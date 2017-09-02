@@ -63,13 +63,21 @@ class LoginMainView: UIView {
         button.setAttributedTitle(attributedString, for: .normal)
         button.titleLabel?.textAlignment = .right
         button.alpha = 0.6
+        button.addTarget(self, action: #selector(switchToSignUp), for: .touchUpInside)
         return button
     }()
+    
+    var signUpAction: (() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
+        
         setup()
+    }
+    
+    func switchToSignUp(sender: UIButton) {
+        signUpAction?()
     }
     
     func setup() {

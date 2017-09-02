@@ -17,7 +17,7 @@ class VideoView: UIView {
     let blurEffectView: UIVisualEffectView = {
         let blur = UIBlurEffect(style: .dark)
         let blurView = UIVisualEffectView(effect: blur)
-        blurView.alpha = 0.6
+        blurView.alpha = 0.8
         return blurView
     }()
     
@@ -51,7 +51,7 @@ class VideoView: UIView {
         playerLayer.frame = self.frame
         self.layer.addSublayer(playerLayer)
         player.play()
-        player.rate = 0.75
+        player.rate = 0.6
     }
     
     func loopVideo() {
