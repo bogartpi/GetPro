@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LoginMainView: UIView {
+class LoginMainView: BaseView {
     
     let welcomeLabel: UILabel = {
         let label = UILabel(topTitle: "GetPro\n", topFont: UIFont(name: "Avenir-Heavy", size: 35) ?? UIFont.boldSystemFont(ofSize: 35),
                             topColor: UIColor(white: 0.9, alpha: 0.8), bottomTitle: "The best place to get know CSGO World",
-                            bottomFont: UIFont(name: "Avenir-Heavy", size: 15) ?? UIFont.systemFont(ofSize: 15), bottomColor: UIColor(white: 0.9, alpha: 0.8), align: NSTextAlignment.center)
+                            bottomFont: UIFont(name: "Avenir-Heavy", size: 12) ?? UIFont.systemFont(ofSize: 12), bottomColor: UIColor(white: 0.9, alpha: 0.8), align: NSTextAlignment.center)
         return label
     }()
     
@@ -25,6 +25,7 @@ class LoginMainView: UIView {
     
     let passwordTextField: UITextField = {
         let tf =  UITextField(placeHolderName: "Password", leftViewImage: "pwicon_", plusWidth: 30)
+        tf.isSecureTextEntry = true
         tf.anchor(width: 0, height: 40)
         return tf
     }()
@@ -69,13 +70,13 @@ class LoginMainView: UIView {
     
     var signUpAction: (() -> Void)?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
         backgroundColor = .clear
         
         setup()
     }
-    
+ 
     func switchToSignUp(sender: UIButton) {
         signUpAction?()
     }
@@ -130,8 +131,5 @@ class LoginMainView: UIView {
         stackView.spacing = 10
         return stackView
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }

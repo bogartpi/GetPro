@@ -39,6 +39,7 @@ class LogInController: UIViewController {
     }
     
     func signUpSwitch() {
-        print(123)
+        let signUpController = SignUpController()
+        navigationController?.pushViewController(signUpController, animated: true)
     }
 }

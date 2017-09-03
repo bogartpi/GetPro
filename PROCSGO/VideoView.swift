@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class VideoView: UIView {
+class VideoView: BaseView {
     
     var player: AVPlayer!
     
@@ -21,8 +21,8 @@ class VideoView: UIView {
         return blurView
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
+        super.setupViews()
         setup()
     }
     
@@ -57,9 +57,5 @@ class VideoView: UIView {
     func loopVideo() {
         player.seek(to: kCMTimeZero)
         player.play()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

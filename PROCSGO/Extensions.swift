@@ -120,7 +120,6 @@ public extension UITextField {
         self.tintColor = UIColor(white: 0.9, alpha: 0.8)
         self.autocorrectionType = .no
         self.clearButtonMode = .whileEditing
-        self.isSecureTextEntry = true
         // placeholder
         let placeholderName = placeHolderName
         var placeholder = NSMutableAttributedString()
