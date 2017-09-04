@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
-class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpController: UIViewController {
     
     var videoView: VideoView!
     var mainView: SignUpMainView!
@@ -36,12 +37,42 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         self.mainView = mainView
         self.mainView.dismissAction = self.dismissController
         self.mainView.plusPhotoAction = self.handlePlusPhoto
+        self.mainView.signUpAction = self.handleSignUp
+        self.mainView.inputChangeAction = self.handleInputChange
         videoView.addSubview(mainView)
         mainView.pinEdges(to: self.videoView)
     }
     
+    func handleInputChange() {
+        let isFormValid = mainView.userNameTextField.text?.characters.count ?? 0 > 0 &&
+            mainView.emailTextField.text?.characters.count ?? 0 > 0 && mainView.passwordTextField.text?.characters.count ?? 0 > 0
+        if isFormValid {
+            mainView.signUpButton.isEnabled = true
+            mainView.signUpButton.backgroundColor = UIColor.customRedColor
+            mainView.signUpButton.alpha = 0.8
+        } else {
+            mainView.signUpButton.isEnabled = false
+            mainView.signUpButton.backgroundColor = UIColor.customRedColor
+            mainView.signUpButton.alpha = 0.5 
+        }
+    }
+    
+    func handleSignUp() {
+        guard let username = mainView.userNameTextField.text, username.characters.count > 0 else { return }
+        guard let email = mainView.emailTextField.text, email.characters.count > 0 else { return }
+        guard let password = mainView.passwordTextField.text, password.characters.count > 0 else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
+            if let err = error {
+                print("Failed to create a user:", err)
+                return
+            }
+            print("Successfully created a user:", user?.uid ?? "")
+        }
+    }
+    
     func handlePlusPhoto() {
-        print(123)
+        print("added photo")
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
@@ -49,19 +80,22 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func dismissController() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
 
+extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             mainView.plusButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
         } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             mainView.plusButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
-
+        
         dismiss(animated: true, completion: nil)
     }
     
-    func dismissController() {
-        self.navigationController?.popViewController(animated: true)
-    }
-
 }

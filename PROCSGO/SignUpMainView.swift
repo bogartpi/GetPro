@@ -12,6 +12,8 @@ class SignUpMainView: BaseView {
     
     var dismissAction: (() -> Void)?
     var plusPhotoAction: (() -> Void)?
+    var signUpAction: (() -> Void)?
+    var inputChangeAction: (() -> Void)?
     
     let closeButton: UIButton = {
         let button = UIButton(imageName: "back")
@@ -34,16 +36,19 @@ class SignUpMainView: BaseView {
     
     let userNameTextField: UITextField = {
         let tf = UITextField(placeHolderName: "Username", leftViewImage: "user_", plusWidth: 25)
+        tf.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         return tf
     }()
     
     let emailTextField: UITextField = {
         let tf = UITextField(placeHolderName: "Email", leftViewImage: "email_", plusWidth: 25)
+        tf.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf =  UITextField(placeHolderName: "Password", leftViewImage: "pwicon_", plusWidth: 30)
+        tf.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         tf.isSecureTextEntry = true
         return tf
     }()
@@ -55,6 +60,8 @@ class SignUpMainView: BaseView {
         button.backgroundColor = UIColor.customRedColor
         button.alpha = 0.5
         button.layer.cornerRadius = 3
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
     
@@ -107,6 +114,14 @@ class SignUpMainView: BaseView {
     
     func handlePlusPhoto() {
         plusPhotoAction?()
+    }
+    
+    func handleSignUp() {
+        signUpAction?()
+    }
+    
+    func handleInputChange() {
+        inputChangeAction?()
     }
 
 }
