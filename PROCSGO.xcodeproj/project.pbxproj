@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3612ED881F3D551D00AEA870 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3612ED871F3D551D00AEA870 /* Constants.swift */; };
+		3612ED881F3D551D00AEA870 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3612ED871F3D551D00AEA870 /* UIColorExtension.swift */; };
 		362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DF0501F52B10E00EEE73C /* NewsCell.swift */; };
 		362DF0551F52D28100EEE73C /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DF0541F52D28100EEE73C /* BaseCell.swift */; };
 		363BA8281F5AA0D0006D0606 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BA8271F5AA0D0006D0606 /* SignUpMainView.swift */; };
@@ -35,6 +35,10 @@
 		366C9C841F5851DF00302D27 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 366C9C831F58508B00302D27 /* video.mov */; };
 		366C9C861F585CC900302D27 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C9C851F585CC900302D27 /* VideoView.swift */; };
 		366D5BC01F5AE1CD00F2293C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D5BBF1F5AE1CD00F2293C /* BaseView.swift */; };
+		3689E20A1F5BA79E00354DAF /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E2091F5BA79E00354DAF /* ValidationManager.swift */; };
+		3689E20C1F5BB0A800354DAF /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E20B1F5BB0A800354DAF /* UITextFieldExtension.swift */; };
+		3689E20E1F5BB0F500354DAF /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E20D1F5BB0F500354DAF /* UILabelExtension.swift */; };
+		3689E2101F5BB20200354DAF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689E20F1F5BB20200354DAF /* UIViewExtension.swift */; };
 		3691CC431F56D72300512962 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC421F56D72300512962 /* SignUpController.swift */; };
 		3691CC451F56D73200512962 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3691CC441F56D73200512962 /* LogInController.swift */; };
 		369277061F28163C00AC434A /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369277051F28163C00AC434A /* DetailsController.swift */; };
@@ -71,7 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3612ED871F3D551D00AEA870 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3612ED871F3D551D00AEA870 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		362DF0501F52B10E00EEE73C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		362DF0541F52D28100EEE73C /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		363BA8271F5AA0D0006D0606 /* SignUpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,10 @@
 		366C9C831F58508B00302D27 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		366C9C851F585CC900302D27 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		366D5BBF1F5AE1CD00F2293C /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		3689E2091F5BA79E00354DAF /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		3689E20B1F5BB0A800354DAF /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		3689E20D1F5BB0F500354DAF /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		3689E20F1F5BB20200354DAF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3691CC421F56D72300512962 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		3691CC441F56D73200512962 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		369277051F28163C00AC434A /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
@@ -161,9 +169,12 @@
 			isa = PBXGroup;
 			children = (
 				365E56721F25B9480087A6D3 /* Extensions.swift */,
+				3612ED871F3D551D00AEA870 /* UIColorExtension.swift */,
+				3689E20D1F5BB0F500354DAF /* UILabelExtension.swift */,
+				3689E20B1F5BB0A800354DAF /* UITextFieldExtension.swift */,
+				3689E20F1F5BB20200354DAF /* UIViewExtension.swift */,
 				365FF4241F59720C00F65B2D /* Reachability.swift */,
 				365FF4261F59725400F65B2D /* Constraints.swift */,
-				3612ED871F3D551D00AEA870 /* Constants.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -386,6 +397,7 @@
 			children = (
 				362DF0541F52D28100EEE73C /* BaseCell.swift */,
 				366D5BBF1F5AE1CD00F2293C /* BaseView.swift */,
+				3689E2091F5BA79E00354DAF /* ValidationManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -566,6 +578,7 @@
 				36AA692E1F52707E003660CA /* NewsController.swift in Sources */,
 				365FF4231F5970BC00F65B2D /* LoginMainView.swift in Sources */,
 				365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */,
+				3689E2101F5BB20200354DAF /* UIViewExtension.swift in Sources */,
 				365E56711F25B40C0087A6D3 /* TeamsController.swift in Sources */,
 				36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */,
 				365FF4251F59720C00F65B2D /* Reachability.swift in Sources */,
@@ -580,9 +593,11 @@
 				36AE43151F29B37300C3A386 /* ConfigController.swift in Sources */,
 				365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */,
 				36BB86791F3723820044BDEC /* VideoCell.swift in Sources */,
+				3689E20C1F5BB0A800354DAF /* UITextFieldExtension.swift in Sources */,
 				362DF0551F52D28100EEE73C /* BaseCell.swift in Sources */,
 				365E56431F25B3A00087A6D3 /* AppDelegate.swift in Sources */,
-				3612ED881F3D551D00AEA870 /* Constants.swift in Sources */,
+				3689E20A1F5BA79E00354DAF /* ValidationManager.swift in Sources */,
+				3612ED881F3D551D00AEA870 /* UIColorExtension.swift in Sources */,
 				36BB867D1F3723E90044BDEC /* ConfigHeader.swift in Sources */,
 				369277061F28163C00AC434A /* DetailsController.swift in Sources */,
 				3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */,
@@ -596,6 +611,7 @@
 				365E56751F25C5930087A6D3 /* Model.swift in Sources */,
 				36BB86821F3745200044BDEC /* SettingCell.swift in Sources */,
 				366C9C861F585CC900302D27 /* VideoView.swift in Sources */,
+				3689E20E1F5BB0F500354DAF /* UILabelExtension.swift in Sources */,
 				36631C061F30358100C6CDD5 /* PovController.swift in Sources */,
 				36BF57641F356BEA003125C9 /* TeamCell.swift in Sources */,
 				362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */,

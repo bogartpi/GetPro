@@ -60,6 +60,10 @@ class SignUpMainView: BaseView {
     
     override func setupViews() {
         super.setupViews()
+        userNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        hideKeyboardWhenTappedAround()
         setup()
     }
     

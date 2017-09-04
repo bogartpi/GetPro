@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginMainView: BaseView {
+
+    var signUpAction: (() -> Void)?
     
     let welcomeLabel: UILabel = {
         let label = UILabel(topTitle: "GetPro\n", topFont: UIFont(name: "Avenir-Heavy", size: 35) ?? UIFont.boldSystemFont(ofSize: 35),
@@ -68,15 +70,15 @@ class LoginMainView: BaseView {
         return button
     }()
     
-    var signUpAction: (() -> Void)?
-    
     override func setupViews() {
         super.setupViews()
+        hideKeyboardWhenTappedAround()
         backgroundColor = .clear
-        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         setup()
     }
- 
+    
     func switchToSignUp(sender: UIButton) {
         signUpAction?()
     }

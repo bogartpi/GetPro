@@ -28,11 +28,13 @@ class VideoView: BaseView {
     
     func setup() {
         setupVideo()
-        setupBlur()
+        setupBlurView()
         NotificationCenter.default.addObserver(self, selector: #selector(loopVideo), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseVideo), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(playVideo), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
-    func setupBlur() {
+    func setupBlurView() {
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(blurEffectView)
@@ -56,6 +58,14 @@ class VideoView: BaseView {
     
     func loopVideo() {
         player.seek(to: kCMTimeZero)
+        player.play()
+    }
+    
+    func pauseVideo() {
+        player.pause()
+    }
+    
+    func playVideo() {
         player.play()
     }
 }
