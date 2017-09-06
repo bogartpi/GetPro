@@ -64,10 +64,37 @@ class SignUpController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
             if let err = error {
-                print("Failed to create a user:", err)
+                print("Failed to create a user:", err.localizedDescription)
                 return
             }
             print("Successfully created a user:", user?.uid ?? "")
+            
+            guard let image = self.mainView.plusButton.imageView?.image else { return }
+            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else { return }
+            let filename = NSUUID().uuidString
+            Storage.storage().reference().child("profile_images").child(filename).putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if let err = error {
+                    print("Failed to upload profile image:", err)
+                    return
+                }
+                guard let profileImageUrl = metadata?.downloadURL()?.absoluteString else { return }
+                print("Successfully uploaded profile image:", profileImageUrl)
+                
+                guard let uid = user?.uid else { return }
+                let dictValues = ["username": username,
+                                  "profileImageUrl": profileImageUrl ]
+                let values = [uid: dictValues]
+                
+                Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (error, ref) in
+                    
+                    if let err = error {
+                        print("Failed to save user info into db:", err)
+                        return
+                    }
+                    print("Successfully saved user info to db")
+                })
+
+            })
         }
     }
     
