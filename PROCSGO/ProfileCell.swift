@@ -6,4 +6,12 @@
 //  Copyright © 2017 Pavel Bogart. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ProfileCell: BaseCell {
+    
+    override func setupViews() {
+        super.setupViews()
+        
+    }
+}

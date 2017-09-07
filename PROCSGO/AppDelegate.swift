@@ -22,17 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
-        let mainVC = MainTabBarController()
-        window?.rootViewController = mainVC
+        window?.rootViewController = MainTabBarController()
         
         UIApplication.shared.statusBarStyle = .lightContent 
         
         // get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        
-        let statusBarBackgroundView = UIView()
-        statusBarBackgroundView.backgroundColor = UIColor(r: 214, g: 74, b: 71)
         
         return true
     }

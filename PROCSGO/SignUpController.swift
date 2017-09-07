@@ -62,7 +62,7 @@ class SignUpController: UIViewController {
         guard let email = mainView.emailTextField.text, email.characters.count > 0 else { return }
         guard let password = mainView.passwordTextField.text, password.characters.count > 0 else { return }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let err = error {
                 print("Failed to create a user:", err.localizedDescription)
                 return
