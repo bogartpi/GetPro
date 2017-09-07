@@ -31,7 +31,8 @@ class MainTabBarController: UITabBarController {
         teamsNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "rostersWhite").withRenderingMode(.alwaysOriginal)
         
         // Profile Controller
-        let profileController = ProfileController(nibName: nil, bundle: nil)
+        let profileLayout = UICollectionViewFlowLayout()
+        let profileController = ProfileController(collectionViewLayout: profileLayout)
         let profileNavController = UINavigationController(rootViewController: profileController)
         profileNavController.tabBarItem.image = #imageLiteral(resourceName: "profileBlack").withRenderingMode(.alwaysOriginal)
         profileNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "profileWhite").withRenderingMode(.alwaysOriginal)

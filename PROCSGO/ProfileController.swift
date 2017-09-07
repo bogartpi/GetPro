@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ProfileController: UIViewController {
+class ProfileController: UICollectionViewController {
+    
+    fileprivate var profileCellId = "profileCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.customGrayColor
+        collectionView?.backgroundColor = UIColor.customDarkGrayColor
         customizeNavController()
         navigationItem.title = "Profile"
         changeNavigationTintColor(.white)

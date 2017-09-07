@@ -22,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
-        let mainVC = LogInController()
-        let navMainVC = UINavigationController(rootViewController: mainVC)
-        window?.rootViewController = navMainVC
+        let mainVC = MainTabBarController()
+        window?.rootViewController = mainVC
         
         UIApplication.shared.statusBarStyle = .lightContent 
         
