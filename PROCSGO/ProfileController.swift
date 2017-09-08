@@ -47,7 +47,9 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
         alertVC.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
             do {
                 try Auth.auth().signOut()
-                // present login vc
+                let loginController = LogInController()
+                let navController = UINavigationController(rootViewController: loginController)
+                self.present(navController, animated: true, completion: nil)
             } catch let err {
                 print("Failed to sign out:", err)
             }

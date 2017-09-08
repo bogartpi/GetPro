@@ -11,6 +11,7 @@ import UIKit
 class LoginMainView: BaseView {
 
     var signUpAction: (() -> Void)?
+    var signInAction: (() -> Void)?
     var handleInputChangeAction: (() -> Void)?
     
     let welcomeLabel: UILabel = {
@@ -43,6 +44,7 @@ class LoginMainView: BaseView {
         button.alpha = 0.5
         button.layer.cornerRadius = 3
         button.anchor(width: 0, height: 40)
+        button.addTarget(self, action: #selector(handleSignIn(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -80,14 +82,6 @@ class LoginMainView: BaseView {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         setup()
-    }
-    
-    func handleInputChange() {
-        handleInputChangeAction?()
-    }
-    
-    func switchToSignUp(sender: UIButton) {
-        signUpAction?()
     }
     
     func setup() {
@@ -139,6 +133,18 @@ class LoginMainView: BaseView {
         stackView.distribution = .fillProportionally
         stackView.spacing = 0
         return stackView
+    }
+    
+    func handleSignIn(_ sender: UIButton) {
+        signInAction?()
+    }
+    
+    func handleInputChange() {
+        handleInputChangeAction?()
+    }
+    
+    func switchToSignUp(_ sender: UIButton) {
+        signUpAction?()
     }
 
 }

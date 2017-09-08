@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInController: UIViewController {
     
@@ -35,8 +36,27 @@ class LogInController: UIViewController {
         self.mainView = mainView
         self.mainView.signUpAction = self.signUpSwitch
         self.mainView.handleInputChangeAction = self.handleInputChange
+        self.mainView.signInAction = self.handleSignIn
         self.videoView.addSubview(mainView)
         mainView.pinEdges(to: self.videoView)
+    }
+    
+    func handleSignIn() {
+        guard let email = mainView.emailTextField.text else { return }
+        guard let password = mainView.passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let err = error {
+                // show alrt with the error
+                print("Failed to sign in:", err.localizedDescription)
+                return
+            }
+            print("Successfully logged in with user:", user?.uid ?? "")
+            
+            guard let mainTabBarVC = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+            mainTabBarVC.setupViewControllers()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func handleInputChange() {

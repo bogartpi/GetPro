@@ -55,7 +55,8 @@ class SignUpMainView: BaseView {
     
     let signUpButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedString = NSMutableAttributedString(string: "Sign Up", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18) ?? UIFont.systemFont(ofSize: 18), NSForegroundColorAttributeName: UIColor.white])
+        let attributedString = NSMutableAttributedString(string: "Sign Up",
+                                                         attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18) ?? UIFont.systemFont(ofSize: 18), NSForegroundColorAttributeName: UIColor.white])
         button.setAttributedTitle(attributedString, for: .normal)
         button.backgroundColor = UIColor.customRedColor
         button.alpha = 0.5
@@ -67,8 +68,10 @@ class SignUpMainView: BaseView {
     
     let alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedString = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12) ?? UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: UIColor.white])
-        let rightAttributedString = NSMutableAttributedString(string: "Sign In", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Black", size: 13) ?? UIFont.boldSystemFont(ofSize: 13), NSForegroundColorAttributeName: UIColor.white])
+        let attributedString = NSMutableAttributedString(string: "Already have an account? ",
+                                                         attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12) ?? UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: UIColor.white])
+        let rightAttributedString = NSMutableAttributedString(string: "Sign In",
+                                                              attributes: [NSFontAttributeName: UIFont(name: "Avenir-Black", size: 13) ?? UIFont.boldSystemFont(ofSize: 13), NSForegroundColorAttributeName: UIColor.white])
         attributedString.append(rightAttributedString)
         button.setAttributedTitle(attributedString, for: .normal)
         button.titleLabel?.textAlignment = .right
@@ -94,9 +97,14 @@ class SignUpMainView: BaseView {
         addSubview(containerStack)
         addSubview(alreadyHaveAccountButtonStack)
 
-        closeButton.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 20, height: 20)
+        closeButton.anchor(top: topAnchor, left: leftAnchor,
+                           bottom: nil, right: nil, paddingTop: 40,
+                           paddingLeft: 20, paddingBottom: 0, paddingRight: 0,
+                           width: 20, height: 20)
         
-        containerStack.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 350)
+        containerStack.anchor(top: nil, left: nil, bottom: nil, right: nil,
+                              paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
+                              paddingRight: 0, width: 0, height: 350)
         containerStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         containerStack.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
         alreadyHaveAccountButtonStack.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor,

@@ -24,30 +24,36 @@ class MainTabBarController: UITabBarController {
         } 
         
         tabBar.barTintColor = UIColor.customRedColor
-        
-        // News Controller
-        let newsLayout = UICollectionViewFlowLayout()
-        newsLayout.minimumLineSpacing = 1
-        let newsController = NewsController(collectionViewLayout: newsLayout)
-        let newsNavController = UINavigationController(rootViewController: newsController)
-        newsNavController.tabBarItem.image = #imageLiteral(resourceName: "newsBlack").withRenderingMode(.alwaysOriginal)
-        newsNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "newsWhite").withRenderingMode(.alwaysOriginal)
-        
-        // Rosters Controller
-        let teamsLayout = UICollectionViewFlowLayout()
-        let teamsController = TeamsController(collectionViewLayout: teamsLayout)
-        let teamsNavController = UINavigationController(rootViewController: teamsController)
-        teamsNavController.tabBarItem.image = #imageLiteral(resourceName: "rostersBlack").withRenderingMode(.alwaysOriginal)
-        teamsNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "rostersWhite").withRenderingMode(.alwaysOriginal)
-        
-        // Profile Controller
-        let profileLayout = UICollectionViewFlowLayout()
-        let profileController = ProfileController(collectionViewLayout: profileLayout)
-        let profileNavController = UINavigationController(rootViewController: profileController)
-        profileNavController.tabBarItem.image = #imageLiteral(resourceName: "profileBlack").withRenderingMode(.alwaysOriginal)
-        profileNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "profileWhite").withRenderingMode(.alwaysOriginal)
-        
-        viewControllers = [newsNavController, teamsNavController, profileNavController]
+        setupViewControllers()
     }
     
+    func setupViewControllers() {
+        // News Controller
+        let newsController = templateNavController(unselectedImage: #imageLiteral(resourceName: "newsBlack"), selectedImage: #imageLiteral(resourceName: "newsWhite"), rootController: NewsController(collectionViewLayout: UICollectionViewFlowLayout()))
+        
+        // Rosters Controller
+        let teamsController = templateNavController(unselectedImage: #imageLiteral(resourceName: "rostersBlack"), selectedImage: #imageLiteral(resourceName: "rostersWhite"), rootController: TeamsController(collectionViewLayout: UICollectionViewFlowLayout()))
+        
+        // Profile Controller
+        let profileController = templateNavController(unselectedImage: #imageLiteral(resourceName: "profileBlack"), selectedImage: #imageLiteral(resourceName: "profileWhite"), rootController: ProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
+
+        viewControllers = [newsController, teamsController, profileController]
+        
+        // Modify TabBar Items Insets
+        guard let items = tabBar.items else { return }
+        for item in items {
+            item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
+        }
+    }
+    
+}
+
+extension UITabBarController {
+    fileprivate func templateNavController(unselectedImage: UIImage, selectedImage: UIImage, rootController: UIViewController = UIViewController()) -> UINavigationController {
+        let viewController = rootController
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.tabBarItem.image = unselectedImage.withRenderingMode(.alwaysOriginal)
+        navController.tabBarItem.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)
+        return navController
+    }
 }
