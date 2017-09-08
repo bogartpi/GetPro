@@ -25,6 +25,10 @@ extension UIColor {
         return UIColor(r: 245, g: 245, b: 245)
     }()
     
+    static var customBlueColor: UIColor = {
+        return UIColor(r: 73, g: 144, b: 226)
+    }()
+    
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }

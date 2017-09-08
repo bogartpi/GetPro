@@ -11,6 +11,7 @@ import UIKit
 class LoginMainView: BaseView {
 
     var signUpAction: (() -> Void)?
+    var handleInputChangeAction: (() -> Void)?
     
     let welcomeLabel: UILabel = {
         let label = UILabel(topTitle: "GetPro\n", topFont: UIFont(name: "Avenir-Heavy", size: 35) ?? UIFont.boldSystemFont(ofSize: 35),
@@ -21,12 +22,14 @@ class LoginMainView: BaseView {
     
     let emailTextField: UITextField = {
         let tf = UITextField(placeHolderName: "Email", leftViewImage: "email_", plusWidth: 25)
+        tf.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         tf.anchor(width: 0, height: 40)
         return tf
     }()
     
     let passwordTextField: UITextField = {
         let tf =  UITextField(placeHolderName: "Password", leftViewImage: "pwicon_", plusWidth: 30)
+        tf.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         tf.isSecureTextEntry = true
         tf.anchor(width: 0, height: 40)
         return tf
@@ -36,7 +39,7 @@ class LoginMainView: BaseView {
         let button = UIButton(type: .system)
         let attributedString = NSMutableAttributedString(string: "Sign In", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 18) ?? UIFont.systemFont(ofSize: 18), NSForegroundColorAttributeName: UIColor.white])
         button.setAttributedTitle(attributedString, for: .normal)
-        button.backgroundColor = UIColor(r: 73, g: 144, b: 226)
+        button.backgroundColor = UIColor.customBlueColor
         button.alpha = 0.5
         button.layer.cornerRadius = 3
         button.anchor(width: 0, height: 40)
@@ -58,7 +61,7 @@ class LoginMainView: BaseView {
         return button
     }()
     
-    let signUpButton: UIButton = {
+    let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedString = NSMutableAttributedString(string: "Don't have an account yet? ", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12) ?? UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: UIColor.white])
         let rightAttributedString = NSMutableAttributedString(string: "Sign Up", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Black", size: 13) ?? UIFont.boldSystemFont(ofSize: 13), NSForegroundColorAttributeName: UIColor.white])
@@ -79,21 +82,25 @@ class LoginMainView: BaseView {
         setup()
     }
     
+    func handleInputChange() {
+        handleInputChangeAction?()
+    }
+    
     func switchToSignUp(sender: UIButton) {
         signUpAction?()
     }
     
     func setup() {
         let containerStackView = welcomeAndInputStackView()
-        let bottomStackView = resetAndSignupStackView()
+        let dontHaveAccountStack = dontHaveAccountStackView()
         
         addSubview(containerStackView)
-        addSubview(bottomStackView)
+        addSubview(dontHaveAccountStack)
         
         containerStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         containerStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         containerStackView.anchor(width: self.frame.width - 60, height: 290)
-        bottomStackView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor,
+        dontHaveAccountStack.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor,
                                paddingTop: 0, paddingLeft: 12, paddingBottom: -12, paddingRight: 12,
                                width: 0, height: 20)
     }
@@ -126,11 +133,11 @@ class LoginMainView: BaseView {
         return stackView
     }
     
-    func resetAndSignupStackView() -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: [signUpButton])
+    func dontHaveAccountStackView() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [dontHaveAccountButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
-        stackView.spacing = 10
+        stackView.spacing = 0
         return stackView
     }
 

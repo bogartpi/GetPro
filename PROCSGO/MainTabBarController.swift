@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let loginVC = LogInController()
+                let navLoginVC = UINavigationController(rootViewController: loginVC)
+                self.present(navLoginVC, animated: true, completion: nil)
+            }
+            return
+        } 
         
         tabBar.barTintColor = UIColor.customRedColor
         

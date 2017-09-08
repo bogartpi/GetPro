@@ -65,6 +65,18 @@ class SignUpMainView: BaseView {
         return button
     }()
     
+    let alreadyHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        let attributedString = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 12) ?? UIFont.systemFont(ofSize: 12), NSForegroundColorAttributeName: UIColor.white])
+        let rightAttributedString = NSMutableAttributedString(string: "Sign In", attributes: [NSFontAttributeName: UIFont(name: "Avenir-Black", size: 13) ?? UIFont.boldSystemFont(ofSize: 13), NSForegroundColorAttributeName: UIColor.white])
+        attributedString.append(rightAttributedString)
+        button.setAttributedTitle(attributedString, for: .normal)
+        button.titleLabel?.textAlignment = .right
+        button.alpha = 0.6
+        button.addTarget(self, action: #selector(dismissController), for: .touchUpInside)
+        return button
+    }()
+    
     override func setupViews() {
         super.setupViews()
         userNameTextField.delegate = self
@@ -77,16 +89,19 @@ class SignUpMainView: BaseView {
     // MARK: - UI
     func setup() {
         let containerStack = containterStackView()
-        
+        let alreadyHaveAccountButtonStack = alreadyHaveAccountButtonStackView()
         addSubview(closeButton)
         addSubview(containerStack)
+        addSubview(alreadyHaveAccountButtonStack)
 
         closeButton.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 20, height: 20)
         
         containerStack.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 350)
         containerStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         containerStack.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 10).isActive = true
-
+        alreadyHaveAccountButtonStack.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor,
+                                             paddingTop: 0, paddingLeft: 12, paddingBottom: -12, paddingRight: 12,
+                                             width: 0, height: 20)
     }
     
     func containterStackView() -> UIStackView {
@@ -105,6 +120,14 @@ class SignUpMainView: BaseView {
         stackView.distribution = .fillEqually
         stackView.spacing = 10
         stackView.anchor(width: self.frame.width - 60, height: 0)
+        return stackView
+    }
+    
+    func alreadyHaveAccountButtonStackView() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [alreadyHaveAccountButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 0
         return stackView
     }
     
