@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -45,7 +46,14 @@ class MainTabBarController: UITabBarController {
             item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
         }
     }
-    
+}
+
+extension UIViewController {
+    func showMessage(_ title: String, description: String? = nil) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension UITabBarController {

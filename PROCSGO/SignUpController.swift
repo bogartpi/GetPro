@@ -64,7 +64,7 @@ class SignUpController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let err = error {
-                print("Failed to create a user:", err.localizedDescription)
+                self.showMessage("Failed to create a user", description: err.localizedDescription)
                 return
             }
             print("Successfully created a user:", user?.uid ?? "")
@@ -74,7 +74,7 @@ class SignUpController: UIViewController {
             let filename = NSUUID().uuidString
             Storage.storage().reference().child("profile_images").child(filename).putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 if let err = error {
-                    print("Failed to upload profile image:", err)
+                    self.showMessage("Failed to upload profile image", description: err.localizedDescription)
                     return
                 }
                 guard let profileImageUrl = metadata?.downloadURL()?.absoluteString else { return }
@@ -89,6 +89,7 @@ class SignUpController: UIViewController {
                     
                     if let err = error {
                         print("Failed to save user info into db:", err)
+                        self.showMessage("Failed to save user info", description: err.localizedDescription)
                         return
                     }
                     print("Successfully saved user info to db")

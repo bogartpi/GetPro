@@ -49,6 +49,7 @@ class LogInController: UIViewController {
             if let err = error {
                 // show alrt with the error
                 print("Failed to sign in:", err.localizedDescription)
+                self.showMessage("Failed to sign in", description: err.localizedDescription)
                 return
             }
             print("Successfully logged in with user:", user?.uid ?? "")
@@ -75,5 +76,17 @@ class LogInController: UIViewController {
     func signUpSwitch() {
         let signUpController = SignUpController()
         navigationController?.pushViewController(signUpController, animated: true)
+    }
+}
+
+extension LogInController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        videoView.player.play()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        videoView.player.pause()
     }
 }

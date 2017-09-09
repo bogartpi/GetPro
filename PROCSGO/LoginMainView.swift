@@ -45,6 +45,7 @@ class LoginMainView: BaseView {
         button.layer.cornerRadius = 3
         button.anchor(width: 0, height: 40)
         button.addTarget(self, action: #selector(handleSignIn(_:)), for: .touchUpInside)
+        button.isEnabled = false 
         return button
     }()
     

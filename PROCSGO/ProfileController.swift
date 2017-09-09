@@ -35,6 +35,7 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            print(dictionary)
             self.user = User(dictionary: dictionary)
             self.collectionView?.reloadData()
         }) { (err) in
@@ -51,7 +52,8 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
                 let navController = UINavigationController(rootViewController: loginController)
                 self.present(navController, animated: true, completion: nil)
             } catch let err {
-                print("Failed to sign out:", err)
+                print("Failed to log out:", err)
+                self.showMessage("Failed to log out", description: err.localizedDescription)
             }
         })) 
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
