@@ -25,7 +25,7 @@ class NewsController: UICollectionViewController {
         
         navigationItem.title = "News"
         changeNavigationTintColor(.white)
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = UIColor.customDarkGrayColor
         collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
     }
     
@@ -58,7 +58,7 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 200)
+        return CGSize(width: view.frame.size.width - 16, height: 200)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -67,7 +67,11 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     }
     
 }

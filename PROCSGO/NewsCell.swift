@@ -20,34 +20,19 @@ class NewsCell: BaseCell {
     
     let darkView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        return view
+    }()
+    
+    let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.customRedColor
         return view
     }()
     
     let newsTitleLabel: UILabel = {
         let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 15, lines: 2)
         label.text = "Fnatic DreamHack Masters Champion"
-        return label
-    }()
-    
-    let likesLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
-        label.text = "20 likes"
-        label.anchor(width: 40, height: 20)
-        return label
-    }()
-    
-    let commentsLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
-        label.text = "12 comments"
-        label.anchor(width: 70, height: 20)
-        return label
-    }()
-    
-    let viewsLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
-        label.text = "54 views"
-        label.anchor(width: 50, height: 20)
         return label
     }()
     
@@ -60,45 +45,54 @@ class NewsCell: BaseCell {
     
     let likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.anchor(width: 30, height: 30)
-        button.backgroundColor = UIColor(red: 239.0/255.0, green: 83.0/255.0, blue: 80.0/255.0, alpha: 0.8)
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
+        button.backgroundColor = UIColor.clear
         button.isUserInteractionEnabled = true
         return button
     }()
     
     let commentButton: UIButton = {
         let button = UIButton(type: .system)
-        button.anchor(width: 30, height: 30)
-        button.backgroundColor = UIColor(red: 38.0/255.0, green: 37.0/255.0, blue: 37.0/255.0, alpha: 0.8)
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
         return button
     }()
     
     let likeImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "likeWhite")?.withRenderingMode(.alwaysOriginal)
+        iv.image = UIImage(named: "like_icon")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 20, height: 18)
+        iv.anchor(width: 40, height: 20)
         return iv
     }()
     
     let commentImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "commentWhite")?.withRenderingMode(.alwaysOriginal)
+        iv.image = UIImage(named: "com_icon")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 20, height: 20)
+        iv.anchor(width: 70, height: 50)
+        return iv
+    }()
+    
+    let shareImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "share_icon")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 50, height: 30)
         return iv
     }()
     
     override func setupViews() {
         super.setupViews()
-        
-        setup()
+        self.backgroundColor = UIColor.customGrayColor
         likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
         commentButton.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(handleShare), for: .touchUpInside)
+        setup()
     }
     
     func handleLike(_ sender: UIButton) {
@@ -109,47 +103,66 @@ class NewsCell: BaseCell {
         print("comment")
     }
     
-    func setup() {
-        
-        let stackView = UIStackView(arrangedSubviews: [likesLabel, commentsLabel, viewsLabel])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 4
-        
-        addSubview(newsImage)
-        newsImage.addSubview(darkView)
-        darkView.addSubview(newsTitleLabel)
-        darkView.addSubview(stackView)
-        darkView.addSubview(timeStampLabel)
-        likeButton.addSubview(likeImage)
-        commentButton.addSubview(commentImage)
-        setButtonsStackView()
-        
-        addConstraintsWithFormaat(format: "H:|[v0]|", views: newsImage)
-        addConstraintsWithFormaat(format: "V:|[v0]|", views: newsImage)
-        newsImage.addConstraintsWithFormaat(format: "H:|[v0]|", views: darkView)
-        newsImage.addConstraintsWithFormaat(format: "V:|[v0]|", views: darkView)
-        
-        stackView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: -10, paddingRight: 0)
-        newsTitleLabel.anchor(top: nil, left: leftAnchor, bottom: stackView.topAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: -5, paddingRight: 0)
-        timeStampLabel.anchor(top: nil, left: nil, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: -10, paddingRight: 10)
-        likeImage.centerXAnchor.constraint(equalTo: likeButton.centerXAnchor).isActive = true
-        likeImage.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
-        commentImage.centerXAnchor.constraint(equalTo: commentButton.centerXAnchor).isActive = true
-        commentImage.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
+    func handleShare(_ sender: UIButton) {
+        print("share")
     }
     
-    func setButtonsStackView() {
-        let buttonStackView = UIStackView(arrangedSubviews: [likeButton, commentButton])
-        buttonStackView.axis = .horizontal
-        buttonStackView.distribution = .fillProportionally
-        buttonStackView.spacing = 10
-        buttonStackView.isUserInteractionEnabled = true
-        addSubview(buttonStackView)
-        buttonStackView.anchor(top: topAnchor, left: nil,
-                               bottom: nil, right: rightAnchor,
-                               paddingTop: 20, paddingLeft: 0,
-                               paddingBottom: 0, paddingRight: 10)
+    func setup() {
+        addSubview(newsImage)
+        newsImage.addSubview(darkView)
+        darkView.addSubview(bottomView)
+        darkView.addSubview(newsTitleLabel)
+        addSubview(likeButton)
+        addSubview(commentButton)
+        addSubview(shareButton)
+        addSubview(timeStampLabel)
+        
+        likeButton.addSubview(likeImage)
+        commentButton.addSubview(commentImage)
+        shareButton.addSubview(shareImage)
+        
+        newsImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor,
+                         right: rightAnchor, paddingTop: 0, paddingLeft: 0,
+                         paddingBottom: 0, paddingRight: 0)
+        
+        darkView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor,
+                        right: rightAnchor, paddingTop: 0, paddingLeft: 0,
+                        paddingBottom: 0, paddingRight: 0)
+        
+        bottomView.anchor(top: nil, left: darkView.leftAnchor,
+                          bottom: darkView.bottomAnchor, right: darkView.rightAnchor,
+                          paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
+                          width: 0, height: 40)
+        
+        newsTitleLabel.anchor(top: nil, left: darkView.leftAnchor, bottom: bottomView.topAnchor, right: timeStampLabel.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
+        timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor, right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: -12, paddingRight: 16, width: 20, height: 10)
+        
+        likeButton.anchor(top: nil, left: leftAnchor,
+                          bottom: bottomAnchor, right: nil,
+                          paddingTop: 0, paddingLeft: 0,
+                          paddingBottom: 0, paddingRight: 0,
+                          width: (contentView.frame.size.width / 3), height: 40)
+        
+        commentButton.anchor(top: nil, left: likeButton.rightAnchor,
+                             bottom: bottomAnchor, right: nil,
+                             paddingTop: 0, paddingLeft: 0,
+                             paddingBottom: 0, paddingRight: 0,
+                             width: (contentView.frame.size.width / 3), height: 40)
+        
+        shareButton.anchor(top: nil, left: commentButton.rightAnchor,
+                           bottom: bottomAnchor, right: nil,
+                           paddingTop: 0, paddingLeft: 0,
+                           paddingBottom: 0, paddingRight: 0,
+                           width: (contentView.frame.size.width / 3), height: 40)
+        
+        likeImage.centerXAnchor.constraint(equalTo: likeButton.centerXAnchor).isActive = true
+        likeImage.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
+        
+        commentImage.centerXAnchor.constraint(equalTo: commentButton.centerXAnchor).isActive = true
+        commentImage.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
+        
+        shareImage.centerXAnchor.constraint(equalTo: shareButton.centerXAnchor).isActive = true
+        shareImage.centerYAnchor.constraint(equalTo: shareButton.centerYAnchor).isActive = true
     }
-
+    
 }

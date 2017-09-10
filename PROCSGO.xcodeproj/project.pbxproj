@@ -295,8 +295,8 @@
 			children = (
 				364A18521F553E5800DAFC98 /* MainTabBarController.swift */,
 				3691CC461F56D73800512962 /* SignIn/SignUp */,
-				36AA692B1F52700D003660CA /* Rosters Tab */,
 				36AA692C1F527022003660CA /* News Tab */,
+				36AA692B1F52700D003660CA /* Rosters Tab */,
 				364A18591F5566AA00DAFC98 /* Profile Tab */,
 			);
 			name = ModelViewController;
