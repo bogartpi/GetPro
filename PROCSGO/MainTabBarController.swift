@@ -13,6 +13,8 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.barTintColor = UIColor.customRedColor
+        tabBar.alpha = 1
         view.backgroundColor = .white
         
         if Auth.auth().currentUser == nil {
@@ -22,9 +24,7 @@ class MainTabBarController: UITabBarController {
                 self.present(navLoginVC, animated: true, completion: nil)
             }
             return
-        } 
-        
-        tabBar.barTintColor = UIColor.customRedColor
+        }
         setupViewControllers()
     }
     

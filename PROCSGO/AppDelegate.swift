@@ -21,14 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-
-        window?.rootViewController = MainTabBarController()
-        
+        let mainVC = MainTabBarController()
+        window?.rootViewController = mainVC
         UIApplication.shared.statusBarStyle = .lightContent 
-        
-        // get rid of black bar underneath navbar
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         return true
     }

@@ -39,7 +39,6 @@ class NewsCell: BaseCell {
     let timeStampLabel: UILabel = {
         let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
         label.text = "3h"
-        label.anchor(width: 20, height: 20)
         return label
     }()
     

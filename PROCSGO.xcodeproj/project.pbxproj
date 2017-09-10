@@ -205,8 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				36BF57631F356BEA003125C9 /* TeamCell.swift */,
-				36BB86811F3745200044BDEC /* SettingCell.swift */,
-				36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */,
 				36BF57671F356C5B003125C9 /* PlayerCell.swift */,
 				36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */,
 				36D8E5241F3AEF1800DE0566 /* ConfCell.swift */,
@@ -334,6 +332,8 @@
 			isa = PBXGroup;
 			children = (
 				362DF0501F52B10E00EEE73C /* NewsCell.swift */,
+				36BB86811F3745200044BDEC /* SettingCell.swift */,
+				36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

@@ -20,21 +20,14 @@ class NewsController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizeNavController()
         setupNavigationButtons()
-        
         navigationItem.title = "News"
         changeNavigationTintColor(.white)
+        customizeNavController()
         collectionView?.backgroundColor = UIColor.customDarkGrayColor
         collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
     }
-    
-    override func customizeNavController() {
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.customRedColor
-        navigationController?.navigationBar.tintColor = UIColor.customWhitecolor
-    }
-    
+
     private func setupNavigationButtons() {
         let moreImage = UIImage(named: "more_icon")?.withRenderingMode(.alwaysOriginal)
         let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
