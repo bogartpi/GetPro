@@ -30,10 +30,10 @@ class SettingsLauncher: NSObject {
     let settings: [Setting] = {
         return [Setting(name: .RateUs, imageName: "rate_icon"),
                 Setting(name: .SendFeedback, imageName: "feedback_icon"),
-                Setting(name: .TellYourFriends, imageName: "share_icon"),
+                Setting(name: .TellYourFriends, imageName: "share_"),
                 Setting(name: .ReportBug, imageName: "report_icon"),
                 Setting(name: .About, imageName: "about_icon"),
-                Setting(name: .Cancel, imageName: "cancel_icon") ]
+                Setting(name: .Cancel, imageName: "cancel_icon")]
     }()
     
     var newsController: NewsController?
@@ -53,7 +53,6 @@ class SettingsLauncher: NSObject {
     
     override init() {
         super.init()
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(SettingCell.self, forCellWithReuseIdentifier: cellId)
@@ -62,7 +61,6 @@ class SettingsLauncher: NSObject {
     func showSettings() {
         
         if let window = UIApplication.shared.keyWindow {
-            
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             blackView.frame = window.frame
             blackView.alpha = 0
@@ -213,11 +211,13 @@ extension SettingsLauncher: UICollectionViewDelegateFlowLayout, UICollectionView
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: cellHeight)
     }
     
@@ -233,5 +233,3 @@ extension SettingsLauncher: UICollectionViewDelegateFlowLayout, UICollectionView
     }
     
 }
-
-

@@ -29,7 +29,7 @@ class DetailsController: UICollectionViewController, DetailsHandlerProtocol {
         collectionView?.backgroundColor = UIColor.customGrayColor
         collectionView?.register(ScreenshotsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(GearCell.self, forCellWithReuseIdentifier: gearCellId)
-        collectionView?.register(ConfCell.self, forCellWithReuseIdentifier: configCellId) 
+        collectionView?.register(ConfPovCell.self, forCellWithReuseIdentifier: configCellId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +67,7 @@ extension DetailsController: UICollectionViewDelegateFlowLayout {
         
         if indexPath.item == 1 {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: configCellId, for: indexPath) as! ConfCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: configCellId, for: indexPath) as! ConfPovCell
             cell.myDelegate = self
             return cell
             

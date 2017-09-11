@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 private let cellId = "cellId"
 
 class NewsController: UICollectionViewController {
+    
+    var addButtonItem: UIBarButtonItem!
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -20,15 +23,26 @@ class NewsController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationButtons()
+        checkAdminAccess()
+        setupRightNavButton()
         navigationItem.title = "News"
         changeNavigationTintColor(.white)
         customizeNavController()
         collectionView?.backgroundColor = UIColor.customDarkGrayColor
         collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
     }
+    
+    private func checkAdminAccess() {
+        if Auth.auth().currentUser?.email == "test1@mail.com" {
+            let addImage = UIImage(named: "add")?.withRenderingMode(.alwaysOriginal)
+            addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handleAdd))
+            navigationItem.leftBarButtonItems = [addButtonItem]
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
+    }
 
-    private func setupNavigationButtons() {
+    private func setupRightNavButton() {
         let moreImage = UIImage(named: "more_icon")?.withRenderingMode(.alwaysOriginal)
         let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
         navigationItem.rightBarButtonItems = [moreButtonItem]
@@ -36,6 +50,10 @@ class NewsController: UICollectionViewController {
     
     func handleMore() {
         settingsLauncher.showSettings()
+    }
+    
+    func handleAdd() {
+        
     }
 }
 

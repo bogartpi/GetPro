@@ -13,7 +13,7 @@ protocol DetailsHandlerProtocol {
     func handlePovsController()
 }
 
-class ConfCell: BaseCell {
+class ConfPovCell: BaseCell {
     
     var myDelegate: DetailsHandlerProtocol?
     
