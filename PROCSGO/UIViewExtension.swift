@@ -68,6 +68,22 @@ extension UIView: UITextFieldDelegate {
         animateTextField(textField: textField, up: false)
         let validationManager = ValidationManager()
         textField.text = validationManager.trimmingWhiteSpaces(textField: textField)
-        
+    }
+}
+
+extension UIView: UITextViewDelegate {
+    
+    public func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "News Description" {
+            textView.text = ""
+            textView.textColor = .white
+        }
+    }
+    
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "News Description"
+            textView.textColor = .lightGray
+        }
     }
 }

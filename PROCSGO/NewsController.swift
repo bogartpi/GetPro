@@ -35,7 +35,7 @@ class NewsController: UICollectionViewController {
     private func checkAdminAccess() {
         if Auth.auth().currentUser?.email == "test1@mail.com" {
             let addImage = UIImage(named: "add")?.withRenderingMode(.alwaysOriginal)
-            addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handleAdd))
+            addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handleAddPhoto))
             navigationItem.leftBarButtonItems = [addButtonItem]
         } else {
             self.navigationItem.leftBarButtonItem = nil
@@ -52,8 +52,10 @@ class NewsController: UICollectionViewController {
         settingsLauncher.showSettings()
     }
     
-    func handleAdd() {
-        
+    func handleAddPhoto() {
+        let postController = PostController()
+        let navController = UINavigationController(rootViewController: postController)
+        self.present(navController, animated: true)
     }
 }
 

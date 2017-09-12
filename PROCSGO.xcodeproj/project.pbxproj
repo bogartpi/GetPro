@@ -271,6 +271,7 @@
 			children = (
 				36AA692D1F52707E003660CA /* NewsController.swift */,
 				362DF0501F52B10E00EEE73C /* NewsCell.swift */,
+				364D03701F66A417005C9C08 /* AddNewPost */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -287,8 +288,8 @@
 		364D03701F66A417005C9C08 /* AddNewPost */ = {
 			isa = PBXGroup;
 			children = (
-				364D03691F66A1A2005C9C08 /* PostView.swift */,
 				364D03671F66A12D005C9C08 /* PostController.swift */,
+				364D03691F66A1A2005C9C08 /* PostView.swift */,
 			);
 			name = AddNewPost;
 			sourceTree = "<group>";
@@ -435,7 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				364D036B1F66A277005C9C08 /* Settings */,
-				364D03701F66A417005C9C08 /* AddNewPost */,
 				364D036E1F66A3C6005C9C08 /* News */,
 				364D036F1F66A3ED005C9C08 /* NewsDetails */,
 			);

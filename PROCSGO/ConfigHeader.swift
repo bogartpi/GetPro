@@ -31,6 +31,8 @@ class ConfigHeader: BaseCell {
         addSubview(headerView)
         headerView.addSubview(sectionNamelabel)
         headerView.pinEdges(to: self)
-        sectionNamelabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        sectionNamelabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil,
+                                paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 0,
+                                width: 0, height: 0)
     }
 }
