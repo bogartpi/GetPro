@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostController: UIViewController {
     
@@ -14,6 +15,10 @@ class PostController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
         setupMainView()
         setupNavigationButtons()
         customizeNavController()
@@ -47,7 +52,56 @@ class PostController: UIViewController {
     }
     
     func handlePost() {
-        print("sent")
+        guard let image = mainView.addButton.currentImage else { return }
+        print(image)
+        guard let uploadData = UIImageJPEGRepresentation(image, 0.5) else { return }
+        print(uploadData)
+        let filename = NSUUID().uuidString
+        Storage.storage().reference().child("news_Images").child(filename).putData(uploadData, metadata: nil) { (metadata, error) in
+            if let err = error {
+                print("Failed to upload post image:", err.localizedDescription)
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                return
+            }
+            guard let imageUrl = metadata?.downloadURL()?.absoluteString else { return }
+            print("Successfully uploaded an image:", imageUrl)
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.saveToDatabaseWithImageUrl(imageUrl: imageUrl)
+        }
+    }
+    
+    func saveToDatabaseWithImageUrl(imageUrl: String) {
+        guard let postImage = mainView.addButton.currentImage else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            return print("Not selected PostImage")
+        }
+        guard let title = mainView.titleTextField.text, title.characters.count > 0 else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            return print("Not entered title")
+        }
+        guard let descriptionText = mainView.descriptionTextView.text, descriptionText != "News Description", descriptionText.characters.count > 0 else {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            return print("Not entered description text")
+        }
+        let creationDate = Date().timeIntervalSince1970
+        
+        let postRef = Database.database().reference().child("posts")
+        let postId = postRef.childByAutoId()
+        let values = ["imageUrl": imageUrl,
+                      "imageWith": postImage.size.width,
+                      "imageHeight": postImage.size.height,
+                      "title": title,
+                      "body": descriptionText,
+                      "creationDate": creationDate] as [String : Any]
+        postId.updateChildValues(values) { (error, ref) in
+            if let err = error {
+                print("Failed to save post to DB:", err.localizedDescription)
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
+                return
+            }
+            print("Successully saved post to DB")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     func dismissController() {

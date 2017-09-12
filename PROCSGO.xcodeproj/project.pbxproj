@@ -51,6 +51,7 @@
 		369277061F28163C00AC434A /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369277051F28163C00AC434A /* DetailsController.swift */; };
 		36AA692E1F52707E003660CA /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AA692D1F52707E003660CA /* NewsController.swift */; };
 		36AE43151F29B37300C3A386 /* ConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE43141F29B37300C3A386 /* ConfigController.swift */; };
+		36B1A3B11F6820DF006E753F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B1A3B01F6820DF006E753F /* Post.swift */; };
 		36BB86791F3723820044BDEC /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB86781F3723820044BDEC /* VideoCell.swift */; };
 		36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB867A1F3723B40044BDEC /* ConfigCell.swift */; };
 		36BB867D1F3723E90044BDEC /* ConfigHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB867C1F3723E90044BDEC /* ConfigHeader.swift */; };
@@ -136,6 +137,7 @@
 		369277051F28163C00AC434A /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		36AA692D1F52707E003660CA /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		36AE43141F29B37300C3A386 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
+		36B1A3B01F6820DF006E753F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		36BB86781F3723820044BDEC /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		36BB867A1F3723B40044BDEC /* ConfigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
 		36BB867C1F3723E90044BDEC /* ConfigHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigHeader.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		364D036E1F66A3C6005C9C08 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				36B1A3B01F6820DF006E753F /* Post.swift */,
 				36AA692D1F52707E003660CA /* NewsController.swift */,
 				362DF0501F52B10E00EEE73C /* NewsCell.swift */,
 				364D03701F66A417005C9C08 /* AddNewPost */,
@@ -788,6 +791,7 @@
 				365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */,
 				3689E2101F5BB20200354DAF /* UIViewExtension.swift in Sources */,
 				365E56711F25B40C0087A6D3 /* TeamsController.swift in Sources */,
+				36B1A3B11F6820DF006E753F /* Post.swift in Sources */,
 				36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */,
 				364D036A1F66A1A2005C9C08 /* PostView.swift in Sources */,
 				365FF4251F59720C00F65B2D /* Reachability.swift in Sources */,

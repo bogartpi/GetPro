@@ -10,80 +10,23 @@ import UIKit
 
 class NewsCell: BaseCell {
     
-    let newsImage: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFill
-        iv.image = UIImage(named: "newsImage1")
-        iv.layer.masksToBounds = true
-        return iv
-    }()
-    
-    let darkView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
-        return view
-    }()
-    
-    let bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.customRedColor
-        return view
-    }()
-    
-    let newsTitleLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 15, lines: 2)
-        label.text = "Fnatic DreamHack Masters Champion"
-        return label
-    }()
-    
-    let timeStampLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
-        label.text = "3h"
-        return label
-    }()
-    
-    let likeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        button.isUserInteractionEnabled = true
-        return button
-    }()
-    
-    let commentButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        return button
-    }()
-    
-    let shareButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        return button
-    }()
-    
-    let likeImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "like_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 40, height: 20)
-        return iv
-    }()
-    
-    let commentImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "com_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 70, height: 50)
-        return iv
-    }()
-    
-    let shareImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "share_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 50, height: 30)
-        return iv
-    }()
+    var post: Post? {
+        didSet {
+            guard let imageUrl = post?.imageUrl else { return }
+            guard let url = URL(string: imageUrl) else { return }
+            URLSession.shared.dataTask(with: url) { (data, response, err) in
+                if let err = err {
+                    print("Failed to set post image:", err)
+                    return
+                }
+                guard let imageData = data else { return }
+                let photoImage = UIImage(data: imageData)
+                DispatchQueue.main.async {
+                    self.newsImage.image = photoImage
+                }
+            }.resume()
+        }
+    }
     
     override func setupViews() {
         super.setupViews()
@@ -163,5 +106,80 @@ class NewsCell: BaseCell {
         shareImage.centerXAnchor.constraint(equalTo: shareButton.centerXAnchor).isActive = true
         shareImage.centerYAnchor.constraint(equalTo: shareButton.centerYAnchor).isActive = true
     }
+    
+    let newsImage: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFill
+        iv.image = UIImage(named: "newsImage1")
+        iv.layer.masksToBounds = true
+        return iv
+    }()
+    
+    let darkView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        return view
+    }()
+    
+    let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.customRedColor
+        return view
+    }()
+    
+    let newsTitleLabel: UILabel = {
+        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 15, lines: 2)
+        label.text = "Fnatic DreamHack Masters Champion"
+        return label
+    }()
+    
+    let timeStampLabel: UILabel = {
+        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
+        label.text = "3h"
+        return label
+    }()
+    
+    let likeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        button.isUserInteractionEnabled = true
+        return button
+    }()
+    
+    let commentButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let likeImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "like_icon")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 40, height: 20)
+        return iv
+    }()
+    
+    let commentImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "com_icon")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 70, height: 50)
+        return iv
+    }()
+    
+    let shareImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "share_icon")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 50, height: 30)
+        return iv
+    }()
     
 }

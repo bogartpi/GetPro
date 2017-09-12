@@ -14,6 +14,7 @@ private let cellId = "cellId"
 class NewsController: UICollectionViewController {
     
     var addButtonItem: UIBarButtonItem!
+    var postsArray = [Post]()
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -24,25 +25,46 @@ class NewsController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkAdminAccess()
+        setupView()
+        collectionView?.backgroundColor = UIColor.customDarkGrayColor
+        collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
+        fetchPosts()
+    }
+    
+    func setupView() {
         setupRightNavButton()
         navigationItem.title = "News"
         changeNavigationTintColor(.white)
         customizeNavController()
-        collectionView?.backgroundColor = UIColor.customDarkGrayColor
-        collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
     }
     
-    private func checkAdminAccess() {
+    fileprivate func fetchPosts() {
+        let postRef = Database.database().reference().child("posts")
+        postRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dictionaries = snapshot.value as? [String: Any] else { return }
+            dictionaries.forEach({ (key, value) in
+                guard let dict = value as? [String: Any] else { return }
+                let post = Post(dictionary: dict)
+                self.postsArray.append(post)
+                print(self.postsArray)
+            })
+            self.collectionView?.reloadData()
+        }) { (err) in
+            print("Failed to fetch posts", err.localizedDescription)
+        }
+    }
+    
+    fileprivate func checkAdminAccess() {
         if Auth.auth().currentUser?.email == "test1@mail.com" {
             let addImage = UIImage(named: "add")?.withRenderingMode(.alwaysOriginal)
-            addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handleAddPhoto))
+            addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handlePostNews))
             navigationItem.leftBarButtonItems = [addButtonItem]
         } else {
             self.navigationItem.leftBarButtonItem = nil
         }
     }
 
-    private func setupRightNavButton() {
+    fileprivate func setupRightNavButton() {
         let moreImage = UIImage(named: "more_icon")?.withRenderingMode(.alwaysOriginal)
         let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain, target: self, action: #selector(handleMore))
         navigationItem.rightBarButtonItems = [moreButtonItem]
@@ -52,7 +74,7 @@ class NewsController: UICollectionViewController {
         settingsLauncher.showSettings()
     }
     
-    func handleAddPhoto() {
+    func handlePostNews() {
         let postController = PostController()
         let navController = UINavigationController(rootViewController: postController)
         self.present(navController, animated: true)
@@ -62,11 +84,12 @@ class NewsController: UICollectionViewController {
 extension NewsController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return postsArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! NewsCell
+        cell.post = postsArray[indexPath.item]
         return cell
     }
     
