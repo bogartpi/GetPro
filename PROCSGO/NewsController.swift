@@ -14,7 +14,9 @@ private let cellId = "cellId"
 class NewsController: UICollectionViewController {
     
     var addButtonItem: UIBarButtonItem!
+    
     var postsArray = [Post]()
+    var reversedPostsArray = [Post]()
     
     lazy var settingsLauncher: SettingsLauncher = {
         let launcher = SettingsLauncher()
@@ -28,7 +30,8 @@ class NewsController: UICollectionViewController {
         setupView()
         collectionView?.backgroundColor = UIColor.customDarkGrayColor
         collectionView?.register(NewsCell.self, forCellWithReuseIdentifier: cellId)
-        fetchPosts()
+        //fetchPosts()
+        fetchOrderedPosts()
     }
     
     func setupView() {
@@ -38,24 +41,40 @@ class NewsController: UICollectionViewController {
         customizeNavController()
     }
     
+    fileprivate func fetchOrderedPosts() {
+        let postRef = Database.database().reference().child("posts")
+        postRef.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
+            guard let dictionaries = snapshot.value as? [String: Any] else { return }
+            let post = Post(dictionary: dictionaries)
+            self.postsArray.append(post)
+            self.reversedPostsArray = self.postsArray.sorted(by: {$0.creationDate > $1.creationDate})
+            self.collectionView?.reloadData()
+        }) { (err) in
+            print("Failed to fetch news", err.localizedDescription)
+        }
+    }
+    
     fileprivate func fetchPosts() {
         let postRef = Database.database().reference().child("posts")
+        
         postRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let dictionaries = snapshot.value as? [String: Any] else { return }
+            
             dictionaries.forEach({ (key, value) in
                 guard let dict = value as? [String: Any] else { return }
                 let post = Post(dictionary: dict)
                 self.postsArray.append(post)
-                print(self.postsArray)
             })
+            
             self.collectionView?.reloadData()
+            
         }) { (err) in
             print("Failed to fetch posts", err.localizedDescription)
         }
     }
     
     fileprivate func checkAdminAccess() {
-        if Auth.auth().currentUser?.email == "test1@mail.com" {
+        if Auth.auth().currentUser?.email == "test@mail.com" {
             let addImage = UIImage(named: "add")?.withRenderingMode(.alwaysOriginal)
             addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handlePostNews))
             navigationItem.leftBarButtonItems = [addButtonItem]
@@ -84,12 +103,12 @@ class NewsController: UICollectionViewController {
 extension NewsController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postsArray.count
+        return reversedPostsArray.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! NewsCell
-        cell.post = postsArray[indexPath.item]
+        cell.post = reversedPostsArray[indexPath.item]
         return cell
     }
     

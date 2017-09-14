@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360DFDC81F6A694500287425 /* CustomImageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DFDC71F6A694500287425 /* CustomImageVIew.swift */; };
 		360F9A691F5D6F33009ADDD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 360F9A681F5D6C92009ADDD2 /* GoogleService-Info.plist */; };
 		3612ED881F3D551D00AEA870 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3612ED871F3D551D00AEA870 /* UIColorExtension.swift */; };
 		362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DF0501F52B10E00EEE73C /* NewsCell.swift */; };
@@ -87,6 +88,7 @@
 /* Begin PBXFileReference section */
 		2A5E14996B0ADF245DF8D006 /* Pods-PROCSGO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROCSGO.release.xcconfig"; path = "Pods/Target Support Files/Pods-PROCSGO/Pods-PROCSGO.release.xcconfig"; sourceTree = "<group>"; };
 		348C532DE19DA504F005D0A9 /* Pods-PROCSGOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROCSGOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PROCSGOTests/Pods-PROCSGOTests.release.xcconfig"; sourceTree = "<group>"; };
+		360DFDC71F6A694500287425 /* CustomImageVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageVIew.swift; sourceTree = "<group>"; };
 		360F9A681F5D6C92009ADDD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3612ED871F3D551D00AEA870 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		362DF0501F52B10E00EEE73C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360DFDC61F6A692400287425 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				360DFDC71F6A694500287425 /* CustomImageVIew.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		363BA8291F5AA3B7006D0606 /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +393,7 @@
 		365E56411F25B3A00087A6D3 /* PROCSGO */ = {
 			isa = PBXGroup;
 			children = (
+				360DFDC61F6A692400287425 /* Utilities */,
 				363BA8291F5AA3B7006D0606 /* Application Delegate */,
 				36B47B541F2DB48700CECB3F /* Resources */,
 				363BA82A1F5AA3EB006D0606 /* Extensions */,
@@ -826,6 +837,7 @@
 				36BB86821F3745200044BDEC /* SettingCell.swift in Sources */,
 				366C9C861F585CC900302D27 /* VideoView.swift in Sources */,
 				3689E20E1F5BB0F500354DAF /* UILabelExtension.swift in Sources */,
+				360DFDC81F6A694500287425 /* CustomImageVIew.swift in Sources */,
 				36631C061F30358100C6CDD5 /* PovController.swift in Sources */,
 				363087FB1F6179620024D431 /* ProfileHeaderView.swift in Sources */,
 				364D036D1F66A347005C9C08 /* NewsDetailView.swift in Sources */,

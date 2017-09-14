@@ -13,18 +13,9 @@ class NewsCell: BaseCell {
     var post: Post? {
         didSet {
             guard let imageUrl = post?.imageUrl else { return }
-            guard let url = URL(string: imageUrl) else { return }
-            URLSession.shared.dataTask(with: url) { (data, response, err) in
-                if let err = err {
-                    print("Failed to set post image:", err)
-                    return
-                }
-                guard let imageData = data else { return }
-                let photoImage = UIImage(data: imageData)
-                DispatchQueue.main.async {
-                    self.newsImage.image = photoImage
-                }
-            }.resume()
+            newsImage.loadImage(urlString: imageUrl)
+            newsTitleLabel.text = post?.title
+            
         }
     }
     
@@ -76,8 +67,13 @@ class NewsCell: BaseCell {
                           paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
                           width: 0, height: 40)
         
-        newsTitleLabel.anchor(top: nil, left: darkView.leftAnchor, bottom: bottomView.topAnchor, right: timeStampLabel.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
-        timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor, right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: -12, paddingRight: 16, width: 20, height: 10)
+        newsTitleLabel.anchor(top: nil, left: darkView.leftAnchor, bottom: bottomView.topAnchor,
+                              right: timeStampLabel.leftAnchor, paddingTop: 0, paddingLeft: 8,
+                              paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
+        
+        timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor,
+                              right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0,
+                              paddingBottom: -12, paddingRight: 16, width: 20, height: 10)
         
         likeButton.anchor(top: nil, left: leftAnchor,
                           bottom: bottomAnchor, right: nil,
@@ -107,10 +103,10 @@ class NewsCell: BaseCell {
         shareImage.centerYAnchor.constraint(equalTo: shareButton.centerYAnchor).isActive = true
     }
     
-    let newsImage: UIImageView = {
-        let iv = UIImageView()
+    let newsImage: CustomImageView = {
+        let iv = CustomImageView()
         iv.contentMode = .scaleAspectFill
-        iv.image = UIImage(named: "newsImage1")
+        iv.backgroundColor = UIColor.darkGray
         iv.layer.masksToBounds = true
         return iv
     }()

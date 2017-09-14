@@ -28,7 +28,7 @@ class PostView: BaseView {
         scrollView.addSubview(descriptionTextView)
         
         scrollView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        addButton.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: nil, right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: self.frame.size.width - 40, height: 150)
+        addButton.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, bottom: nil, right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: self.frame.size.width - 40, height: 200)
         titleTextField.anchor(top: addButton.bottomAnchor, left: scrollView.leftAnchor, bottom: nil, right: scrollView.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 50)
         descriptionTextView.anchor(top: titleTextField.bottomAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: -20, paddingRight: 20)
     }
@@ -51,6 +51,7 @@ class PostView: BaseView {
         button.addTarget(self, action: #selector(handleAddPhoto), for: .touchUpInside)
         button.backgroundColor = UIColor.customDarkGrayColor
         button.setDefaultShadow()
+        button.imageView?.contentMode = .scaleAspectFill
         return button
     }()
     

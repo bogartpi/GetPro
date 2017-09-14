@@ -24,18 +24,17 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
         collectionView?.backgroundColor = UIColor.customGrayColor
         customizeNavController()
         changeNavigationTintColor(.white)
-        
         collectionView?.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(LogOutCell.self, forCellWithReuseIdentifier: logoutCellId)
-        
         fetchUser()
     }
     
     func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        print(uid)
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-            print(dictionary)
+            print(snapshot.value ?? "")
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
             self.user = User(dictionary: dictionary)
             self.collectionView?.reloadData()
         }) { (err) in
