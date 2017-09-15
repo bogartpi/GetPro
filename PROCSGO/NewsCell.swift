@@ -15,7 +15,7 @@ class NewsCell: BaseCell {
             guard let imageUrl = post?.imageUrl else { return }
             newsImage.loadImage(urlString: imageUrl)
             newsTitleLabel.text = post?.title
-            
+            timeStampLabel.text = post?.creationDate.timeAgoDisplay()
         }
     }
     
@@ -73,7 +73,7 @@ class NewsCell: BaseCell {
         
         timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor,
                               right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0,
-                              paddingBottom: -12, paddingRight: 16, width: 20, height: 10)
+                              paddingBottom: -12, paddingRight: 0, width: 70, height: 15)
         
         likeButton.anchor(top: nil, left: leftAnchor,
                           bottom: bottomAnchor, right: nil,
@@ -113,7 +113,7 @@ class NewsCell: BaseCell {
     
     let darkView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        view.backgroundColor = UIColor(white: 0.1, alpha: 0.6)
         return view
     }()
     
@@ -130,8 +130,7 @@ class NewsCell: BaseCell {
     }()
     
     let timeStampLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 11)
-        label.text = "3h"
+        let label = UILabel(color: .white, fontName: "Avenir-Heavy", fontSize: 12)
         return label
     }()
     
