@@ -65,7 +65,8 @@ class NewsController: UICollectionViewController {
             dictionaries.forEach({ (key, value) in
                 guard let dictionary = value as? [String: Any] else { return }
                 
-                let post = Post(dictionary: dictionary)
+                var post = Post(dictionary: dictionary)
+                post.id = key
                 
                 self.postsArray.insert(post, at: 0)
                 self.postsArray.sort(by: { (p1, p2) -> Bool in
@@ -129,7 +130,7 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.width - 16, height: 200)
+        return CGSize(width: view.frame.size.width - 16, height: 100)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

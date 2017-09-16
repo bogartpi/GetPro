@@ -40,6 +40,15 @@ class NewsDetailController: UICollectionViewController {
     }
 }
 
+extension NewsDetailController: NewsDetailsViewCellDelegate {
+    func didTapComment(post: Post) {
+        let layout = UICollectionViewFlowLayout()
+        let commentsController = CommentsController(collectionViewLayout: layout)
+        commentsController.post = post
+        self.navigationController?.pushViewController(commentsController, animated: true)
+    }
+}
+
 extension NewsDetailController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,6 +59,7 @@ extension NewsDetailController: UICollectionViewDelegateFlowLayout {
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! NewsDetailCell
             cell.post = post
+            cell.delegate = self
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bodyCellId, for: indexPath) as! BodyTextCell

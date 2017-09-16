@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UITextField {
-    public convenience init(placeHolderName: String, leftViewImage: String, plusWidth: CGFloat) {
+    public convenience init(placeHolderName: String, leftViewImage: String = "", plusWidth: CGFloat = 0) {
         self.init()
         self.borderStyle = .none
         self.layer.cornerRadius = 3

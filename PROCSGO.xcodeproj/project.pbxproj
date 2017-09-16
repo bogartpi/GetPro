@@ -15,6 +15,7 @@
 		363087F91F6162D70024D431 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363087F81F6162D70024D431 /* ProfileCell.swift */; };
 		363087FB1F6179620024D431 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363087FA1F6179620024D431 /* ProfileHeaderView.swift */; };
 		363087FE1F618AA00024D431 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363087FD1F618AA00024D431 /* User.swift */; };
+		363240B11F6D7BDB00D9C8A6 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363240B01F6D7BDB00D9C8A6 /* Comment.swift */; };
 		363BA8281F5AA0D0006D0606 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BA8271F5AA0D0006D0606 /* SignUpMainView.swift */; };
 		3648D6181F401AAB00B3E941 /* csgonew.json in Resources */ = {isa = PBXBuildFile; fileRef = 3648D6171F401AAB00B3E941 /* csgonew.json */; };
 		364A18531F553E5800DAFC98 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A18521F553E5800DAFC98 /* MainTabBarController.swift */; };
@@ -63,6 +64,8 @@
 		36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */; };
 		36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576E1F356CF9003125C9 /* GearCell.swift */; };
 		36D8E5251F3AEF1800DE0566 /* ConfPovCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8E5241F3AEF1800DE0566 /* ConfPovCell.swift */; };
+		36E93D371F6D517F002BCAE8 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E93D361F6D517F002BCAE8 /* CommentsController.swift */; };
+		36E93D391F6D5602002BCAE8 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E93D381F6D5602002BCAE8 /* CommentsCell.swift */; };
 		93EE7048C9EAF65FF262911B /* Pods_PROCSGOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E0C48A85FF65C2011C1827 /* Pods_PROCSGOTests.framework */; };
 		B82BDC6BF8A5FEAB34ECCA8D /* Pods_PROCSGOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F169A00A0056856A9F3F8BDF /* Pods_PROCSGOUITests.framework */; };
 		E22E9B6EA68793853023C8F7 /* Pods_PROCSGO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2C28F5F402315F816286CB0 /* Pods_PROCSGO.framework */; };
@@ -96,6 +99,7 @@
 		363087F81F6162D70024D431 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		363087FA1F6179620024D431 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		363087FD1F618AA00024D431 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		363240B01F6D7BDB00D9C8A6 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		363BA8271F5AA0D0006D0606 /* SignUpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainView.swift; sourceTree = "<group>"; };
 		3648D6171F401AAB00B3E941 /* csgonew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = csgonew.json; sourceTree = "<group>"; };
 		364A18521F553E5800DAFC98 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
 		36BF576E1F356CF9003125C9 /* GearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearCell.swift; sourceTree = "<group>"; };
 		36D8E5241F3AEF1800DE0566 /* ConfPovCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfPovCell.swift; sourceTree = "<group>"; };
+		36E93D361F6D517F002BCAE8 /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		36E93D381F6D5602002BCAE8 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		71E0C48A85FF65C2011C1827 /* Pods_PROCSGOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PROCSGOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF7D81D9B1B31D58832F494 /* Pods-PROCSGOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROCSGOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PROCSGOUITests/Pods-PROCSGOUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		92BB27E3D9979E5E86B7CF36 /* Pods-PROCSGO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROCSGO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PROCSGO/Pods-PROCSGO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				364D036B1F66A277005C9C08 /* Settings */,
 				364D036E1F66A3C6005C9C08 /* News */,
 				364D036F1F66A3ED005C9C08 /* NewsDetails */,
+				36E93D351F6D512D002BCAE8 /* Comments */,
 			);
 			name = "News Tab";
 			sourceTree = "<group>";
@@ -474,6 +481,16 @@
 				3689E2091F5BA79E00354DAF /* ValidationManager.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		36E93D351F6D512D002BCAE8 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				36E93D361F6D517F002BCAE8 /* CommentsController.swift */,
+				36E93D381F6D5602002BCAE8 /* CommentsCell.swift */,
+				363240B01F6D7BDB00D9C8A6 /* Comment.swift */,
+			);
+			name = Comments;
 			sourceTree = "<group>";
 		};
 		768D39D98CB0F429881A132A /* Pods */ = {
@@ -807,6 +824,7 @@
 				364D036A1F66A1A2005C9C08 /* PostView.swift in Sources */,
 				365FF4251F59720C00F65B2D /* Reachability.swift in Sources */,
 				3691CC431F56D72300512962 /* SignUpController.swift in Sources */,
+				36E93D391F6D5602002BCAE8 /* CommentsCell.swift in Sources */,
 				36BB86801F3739E00044BDEC /* SettingsLauncher.swift in Sources */,
 				36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */,
 				365DDCE51F38124200364C0A /* AboutController.swift in Sources */,
@@ -817,8 +835,10 @@
 				36AE43151F29B37300C3A386 /* ConfigController.swift in Sources */,
 				365E56771F25E8B10087A6D3 /* PlayersController.swift in Sources */,
 				36BB86791F3723820044BDEC /* VideoCell.swift in Sources */,
+				363240B11F6D7BDB00D9C8A6 /* Comment.swift in Sources */,
 				3689E20C1F5BB0A800354DAF /* UITextFieldExtension.swift in Sources */,
 				362DF0551F52D28100EEE73C /* BaseCell.swift in Sources */,
+				36E93D371F6D517F002BCAE8 /* CommentsController.swift in Sources */,
 				365E56431F25B3A00087A6D3 /* AppDelegate.swift in Sources */,
 				3689E20A1F5BA79E00354DAF /* ValidationManager.swift in Sources */,
 				3612ED881F3D551D00AEA870 /* UIColorExtension.swift in Sources */,

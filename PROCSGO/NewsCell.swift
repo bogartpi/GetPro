@@ -22,85 +22,33 @@ class NewsCell: BaseCell {
     override func setupViews() {
         super.setupViews()
         self.backgroundColor = UIColor.customGrayColor
-        likeButton.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
-        commentButton.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
-        shareButton.addTarget(self, action: #selector(handleShare), for: .touchUpInside)
         setup()
-    }
-    
-    func handleLike(_ sender: UIButton) {
-        print("like")
-    }
-    
-    func handleComment(_ sender: UIButton) {
-        print("comment")
-    }
-    
-    func handleShare(_ sender: UIButton) {
-        print("share")
     }
     
     func setup() {
         addSubview(newsImage)
-        newsImage.addSubview(darkView)
-        darkView.addSubview(bottomView)
-        darkView.addSubview(newsTitleLabel)
-        addSubview(likeButton)
-        addSubview(commentButton)
-        addSubview(shareButton)
+        addSubview(newsTitleLabel)
         addSubview(timeStampLabel)
-        
-        likeButton.addSubview(likeImage)
-        commentButton.addSubview(commentImage)
-        shareButton.addSubview(shareImage)
+        addSubview(dividerItem)
+        addSubview(categoryLabel)
         
         newsImage.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor,
-                         right: rightAnchor, paddingTop: 0, paddingLeft: 0,
-                         paddingBottom: 0, paddingRight: 0)
+                         right: nil, paddingTop: 0, paddingLeft: 0,
+                         paddingBottom: 0, paddingRight: 0, width: self.frame.width / 2)
         
-        darkView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor,
-                        right: rightAnchor, paddingTop: 0, paddingLeft: 0,
-                        paddingBottom: 0, paddingRight: 0)
+        newsTitleLabel.anchor(top: topAnchor, left: newsImage.rightAnchor, bottom: nil,
+                              right: rightAnchor, paddingTop: 4, paddingLeft: 8,
+                              paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
         
-        bottomView.anchor(top: nil, left: darkView.leftAnchor,
-                          bottom: darkView.bottomAnchor, right: darkView.rightAnchor,
-                          paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
-                          width: 0, height: 40)
+        timeStampLabel.anchor(top: nil, left: newsImage.rightAnchor, bottom: bottomAnchor,
+                              right: nil, paddingTop: 0, paddingLeft: 8,
+                              paddingBottom: -4, paddingRight: 8, width: 0, height: 0)
         
-        newsTitleLabel.anchor(top: nil, left: darkView.leftAnchor, bottom: bottomView.topAnchor,
-                              right: timeStampLabel.leftAnchor, paddingTop: 0, paddingLeft: 8,
-                              paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
+        dividerItem.anchor(top: nil, left: timeStampLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: -8, paddingRight: 0)
+        dividerItem.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
         
-        timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor,
-                              right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0,
-                              paddingBottom: -12, paddingRight: 8, width: 35, height: 12)
-        
-        likeButton.anchor(top: nil, left: leftAnchor,
-                          bottom: bottomAnchor, right: nil,
-                          paddingTop: 0, paddingLeft: 0,
-                          paddingBottom: 0, paddingRight: 0,
-                          width: (contentView.frame.size.width / 3), height: 40)
-        
-        commentButton.anchor(top: nil, left: likeButton.rightAnchor,
-                             bottom: bottomAnchor, right: nil,
-                             paddingTop: 0, paddingLeft: 0,
-                             paddingBottom: 0, paddingRight: 0,
-                             width: (contentView.frame.size.width / 3), height: 40)
-        
-        shareButton.anchor(top: nil, left: commentButton.rightAnchor,
-                           bottom: bottomAnchor, right: nil,
-                           paddingTop: 0, paddingLeft: 0,
-                           paddingBottom: 0, paddingRight: 0,
-                           width: (contentView.frame.size.width / 3), height: 40)
-        
-        likeImage.centerXAnchor.constraint(equalTo: likeButton.centerXAnchor).isActive = true
-        likeImage.centerYAnchor.constraint(equalTo: likeButton.centerYAnchor).isActive = true
-        
-        commentImage.centerXAnchor.constraint(equalTo: commentButton.centerXAnchor).isActive = true
-        commentImage.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
-        
-        shareImage.centerXAnchor.constraint(equalTo: shareButton.centerXAnchor).isActive = true
-        shareImage.centerYAnchor.constraint(equalTo: shareButton.centerYAnchor).isActive = true
+        categoryLabel.anchor(top: nil, left: dividerItem.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: -8, paddingRight: 0)
+        categoryLabel.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
     }
     
     let newsImage: CustomImageView = {
@@ -111,74 +59,32 @@ class NewsCell: BaseCell {
         return iv
     }()
     
-    let darkView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0.1, alpha: 0.6)
-        return view
-    }()
-    
-    let bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.customRedColor
-        view.alpha = 0.7
-        return view
-    }()
-    
     let newsTitleLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 15, lines: 2)
+        let label = UILabel(color: .white, fontName: "Avenir-Heavy", fontSize: 16, lines: 3)
         label.text = "Fnatic DreamHack Masters Champion"
         label.alpha = 0.9
         return label
     }()
     
     let timeStampLabel: UILabel = {
-        let label = UILabel(color: .white, fontName: "Avenir-Heavy", fontSize: 12)
+        let label = UILabel(color: .white, fontName: "Avenir-Light", fontSize: 12)
         label.textAlignment = .right
         label.alpha = 0.9
         return label
     }()
     
-    let likeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        button.isUserInteractionEnabled = true
-        return button
+    let dividerItem: UILabel = {
+        let label = UILabel(color: UIColor.white, fontName: "Avenir-Light", fontSize: 12, align: NSTextAlignment.center, lines: 0)
+        label.text = "|"
+        return label
     }()
     
-    let commentButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        return button
-    }()
-    
-    let shareButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = UIColor.clear
-        return button
-    }()
-    
-    let likeImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "like_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 40, height: 20)
-        return iv
-    }()
-    
-    let commentImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "com_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 70, height: 50)
-        return iv
-    }()
-    
-    let shareImage: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "share_icon")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFit
-        iv.anchor(width: 50, height: 30)
-        return iv
+    let categoryLabel: UILabel = {
+        let label = UILabel(color: UIColor.customBlueColor, fontName: "Avenir-Medium", fontSize: 12)
+        label.textAlignment = .left
+        label.alpha = 0.9
+        label.text = "Touranment"
+        return label
     }()
     
 }

@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol NewsDetailsViewCellDelegate {
+    func didTapComment(post: Post)
+}
+
 class NewsDetailCell: BaseCell {
+    
+    var delegate: NewsDetailsViewCellDelegate?
     
     var post: Post? {
         didSet {
@@ -21,11 +27,23 @@ class NewsDetailCell: BaseCell {
         }
     }
     
+    func handleComment() {
+        print("comment")
+        guard let post = self.post else { return }
+        delegate?.didTapComment(post: post)
+    }
+    
+    func handleShare() {
+        print("share")
+    }
+    
     override func setupViews() {
         super.setupViews()
         self.backgroundColor = UIColor.customDarkGrayColor
         setDefaultShadow()
         setup()
+        commentButton.addTarget(self, action: #selector(handleComment), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(handleShare), for: .touchUpInside)
     }
     
     func setup() {
@@ -34,18 +52,34 @@ class NewsDetailCell: BaseCell {
         addSubview(timeStampLabel)
         addSubview(dividerItem)
         addSubview(categoryLabel)
+        addSubview(commentButton)
+        commentButton.addSubview(commentImage)
+        addSubview(shareButton)
+        shareButton.addSubview(shareImage)
         
         imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 220)
         
-        titleLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
+        titleLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
         
-        timeStampLabel.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
+        timeStampLabel.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         dividerItem.anchor(top: nil, left: timeStampLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 8, height: 30)
         dividerItem.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
         
-        categoryLabel.anchor(top: nil, left: dividerItem.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
+        categoryLabel.anchor(top: nil, left: dividerItem.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         categoryLabel.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
+        
+        commentButton.anchor(top: nil, left: nil, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 30, height: 30)
+        commentButton.centerYAnchor.constraint(equalTo: categoryLabel.centerYAnchor).isActive = true
+        
+        commentImage.centerXAnchor.constraint(equalTo: commentButton.centerXAnchor).isActive = true
+        commentImage.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
+        
+        shareButton.anchor(top: nil, left: nil, bottom: nil, right: commentButton.leftAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 30, height: 30)
+        shareButton.centerYAnchor.constraint(equalTo: commentButton.centerYAnchor).isActive = true
+        
+        shareImage.centerXAnchor.constraint(equalTo: shareButton.centerXAnchor).isActive = true
+        shareImage.centerYAnchor.constraint(equalTo: shareButton.centerYAnchor).isActive = true
     }
     
     let imageView: CustomImageView = {
@@ -80,6 +114,34 @@ class NewsDetailCell: BaseCell {
         label.alpha = 0.9
         label.text = "Touranment"
         return label
+    }()
+    
+    let commentButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let commentImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "commentWhite")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 20, height: 20)
+        return iv
+    }()
+    
+    let shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.clear
+        return button
+    }()
+    
+    let shareImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "shareWhite")?.withRenderingMode(.alwaysOriginal)
+        iv.contentMode = .scaleAspectFit
+        iv.anchor(width: 20, height: 20)
+        return iv
     }()
     
 }
