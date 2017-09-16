@@ -14,15 +14,6 @@ private let cellId = "cellId"
 private let cellHeight: CGFloat = 50
 private let appId = "id1271666107"
 
-enum SettingName: String {
-    case Cancel = "Cancel"
-    case RateUs = "Rate Us"
-    case SendFeedback = "Send Feedback"
-    case TellYourFriends = "Tell Your Friends"
-    case ReportBug = "Report Bug"
-    case About = "About"
-}
-
 class SettingsLauncher: NSObject {
     
     let blackView = UIView()

@@ -22,10 +22,10 @@
 		364A185B1F5566E200DAFC98 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364A185A1F5566E200DAFC98 /* ProfileController.swift */; };
 		364D03681F66A12D005C9C08 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03671F66A12D005C9C08 /* PostController.swift */; };
 		364D036A1F66A1A2005C9C08 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03691F66A1A2005C9C08 /* PostView.swift */; };
-		364D036D1F66A347005C9C08 /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D036C1F66A347005C9C08 /* NewsDetailView.swift */; };
+		364D036D1F66A347005C9C08 /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D036C1F66A347005C9C08 /* NewsDetailCell.swift */; };
 		3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA6E1F4A769E003BA1F0 /* PopVC.swift */; };
 		365C05491F39B47A008A2F25 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365C05481F39B47A008A2F25 /* MessageUI.framework */; };
-		365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE11F380FDA00364C0A /* SettingModel.swift */; };
+		365DDCE21F380FDA00364C0A /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE11F380FDA00364C0A /* Setting.swift */; };
 		365DDCE51F38124200364C0A /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE41F38124200364C0A /* AboutController.swift */; };
 		365E56431F25B3A00087A6D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365E56421F25B3A00087A6D3 /* AppDelegate.swift */; };
 		365E564A1F25B3A00087A6D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365E56491F25B3A00087A6D3 /* Assets.xcassets */; };
@@ -103,10 +103,10 @@
 		364A185A1F5566E200DAFC98 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		364D03671F66A12D005C9C08 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		364D03691F66A1A2005C9C08 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		364D036C1F66A347005C9C08 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
+		364D036C1F66A347005C9C08 /* NewsDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		3655DA6E1F4A769E003BA1F0 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		365C05481F39B47A008A2F25 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		365DDCE11F380FDA00364C0A /* SettingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModel.swift; sourceTree = "<group>"; };
+		365DDCE11F380FDA00364C0A /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		365DDCE41F38124200364C0A /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		365E563F1F25B3A00087A6D3 /* PROCSGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PROCSGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		365E56421F25B3A00087A6D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				3655DA6E1F4A769E003BA1F0 /* PopVC.swift */,
-				365DDCE11F380FDA00364C0A /* SettingModel.swift */,
+				365DDCE11F380FDA00364C0A /* Setting.swift */,
 				36BB86811F3745200044BDEC /* SettingCell.swift */,
 				36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */,
 				365DDCE41F38124200364C0A /* AboutController.swift */,
@@ -293,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				364A18541F55535100DAFC98 /* NewsDetailController.swift */,
-				364D036C1F66A347005C9C08 /* NewsDetailView.swift */,
+				364D036C1F66A347005C9C08 /* NewsDetailCell.swift */,
 			);
 			name = NewsDetails;
 			sourceTree = "<group>";
@@ -799,7 +799,7 @@
 				364A18531F553E5800DAFC98 /* MainTabBarController.swift in Sources */,
 				36AA692E1F52707E003660CA /* NewsController.swift in Sources */,
 				365FF4231F5970BC00F65B2D /* LoginMainView.swift in Sources */,
-				365DDCE21F380FDA00364C0A /* SettingModel.swift in Sources */,
+				365DDCE21F380FDA00364C0A /* Setting.swift in Sources */,
 				3689E2101F5BB20200354DAF /* UIViewExtension.swift in Sources */,
 				365E56711F25B40C0087A6D3 /* TeamsController.swift in Sources */,
 				36B1A3B11F6820DF006E753F /* Post.swift in Sources */,
@@ -840,7 +840,7 @@
 				360DFDC81F6A694500287425 /* CustomImageVIew.swift in Sources */,
 				36631C061F30358100C6CDD5 /* PovController.swift in Sources */,
 				363087FB1F6179620024D431 /* ProfileHeaderView.swift in Sources */,
-				364D036D1F66A347005C9C08 /* NewsDetailView.swift in Sources */,
+				364D036D1F66A347005C9C08 /* NewsDetailCell.swift in Sources */,
 				36BF57641F356BEA003125C9 /* TeamCell.swift in Sources */,
 				364D03681F66A12D005C9C08 /* PostController.swift in Sources */,
 				362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */,

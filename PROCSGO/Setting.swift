@@ -8,7 +8,16 @@
 
 import UIKit
 
-class Setting: NSObject {
+enum SettingName: String {
+    case Cancel = "Cancel"
+    case RateUs = "Rate Us"
+    case SendFeedback = "Send Feedback"
+    case TellYourFriends = "Tell Your Friends"
+    case ReportBug = "Report Bug"
+    case About = "About"
+}
+
+struct Setting {
     let name: SettingName
     let imageName: String
     
@@ -17,3 +26,4 @@ class Setting: NSObject {
         self.imageName = imageName
     }
 }
+

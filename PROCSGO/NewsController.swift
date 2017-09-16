@@ -106,6 +106,14 @@ class NewsController: UICollectionViewController {
         let navController = UINavigationController(rootViewController: postController)
         self.present(navController, animated: true)
     }
+    
+    func showNewsDetailController(index: Int) {
+        let layout = UICollectionViewFlowLayout()
+        let detailVC = NewsDetailController(collectionViewLayout: layout)
+        print("TEST",postsArray[0])
+        detailVC.post = postsArray[index]
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension NewsController: UICollectionViewDelegateFlowLayout {
@@ -125,8 +133,7 @@ extension NewsController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = NewsDetailController()
-        navigationController?.pushViewController(detailVC, animated: true)
+        showNewsDetailController(index: indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

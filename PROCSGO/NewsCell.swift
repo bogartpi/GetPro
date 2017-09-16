@@ -15,7 +15,7 @@ class NewsCell: BaseCell {
             guard let imageUrl = post?.imageUrl else { return }
             newsImage.loadImage(urlString: imageUrl)
             newsTitleLabel.text = post?.title
-            timeStampLabel.text = post?.creationDate.timeAgoDisplay()
+            timeStampLabel.text = post?.creationDate.timeAgoDisplayShort()
         }
     }
     
@@ -73,7 +73,7 @@ class NewsCell: BaseCell {
         
         timeStampLabel.anchor(top: nil, left: nil, bottom: bottomView.topAnchor,
                               right: darkView.rightAnchor, paddingTop: 0, paddingLeft: 0,
-                              paddingBottom: -12, paddingRight: 0, width: 70, height: 15)
+                              paddingBottom: -12, paddingRight: 8, width: 35, height: 12)
         
         likeButton.anchor(top: nil, left: leftAnchor,
                           bottom: bottomAnchor, right: nil,
@@ -120,17 +120,21 @@ class NewsCell: BaseCell {
     let bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.customRedColor
+        view.alpha = 0.7
         return view
     }()
     
     let newsTitleLabel: UILabel = {
         let label = UILabel(color: .white, fontName: "Avenir-Medium", fontSize: 15, lines: 2)
         label.text = "Fnatic DreamHack Masters Champion"
+        label.alpha = 0.9
         return label
     }()
     
     let timeStampLabel: UILabel = {
         let label = UILabel(color: .white, fontName: "Avenir-Heavy", fontSize: 12)
+        label.textAlignment = .right
+        label.alpha = 0.9
         return label
     }()
     
