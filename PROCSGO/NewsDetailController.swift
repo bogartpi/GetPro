@@ -38,6 +38,7 @@ class NewsDetailController: UICollectionViewController {
         
         return attributedText
     }
+    
 }
 
 extension NewsDetailController: NewsDetailsViewCellDelegate {
@@ -72,7 +73,7 @@ extension NewsDetailController: UICollectionViewDelegateFlowLayout {
             let maxSize = CGSize(width: view.frame.width, height: 2800)
             let options = NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin)
             let rect = descriptionAttributedText().boundingRect(with: maxSize, options: options, context: nil)
-            return CGSize(width: view.frame.width - 16, height: rect.height + 100)
+            return CGSize(width: view.frame.width - 16, height: rect.height + 60)
         }
         return CGSize(width: view.frame.width - 16, height: 320)
     }

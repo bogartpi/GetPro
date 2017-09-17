@@ -80,6 +80,7 @@ class PostView: BaseView {
         textView.textContainerInset = UIEdgeInsets(top: 10, left: 16, bottom: 0, right: 16)
         textView.autocorrectionType = .no
         textView.setDefaultShadow()
+        textView.isScrollEnabled = false 
         return textView
     }()
 

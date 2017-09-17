@@ -12,8 +12,20 @@ class CommentsCell: BaseCell {
     
     var comment: Comment? {
         didSet {
-            guard let text = comment?.text else { return }
-            textLabel.text = text
+            guard let comment = comment else { return }
+ 
+            profileImageView.loadImage(urlString: comment.user.profileImageUrl)
+            
+            let usernameAttributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.customDarkGrayColor,
+                                              NSFontAttributeName: UIFont(name: "Avenir-Heavy", size: 15)!]
+            let attributedUsername = NSMutableAttributedString(string: comment.user.username, attributes: usernameAttributes)
+            
+            let commentAttributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.customGrayColor,
+                                                      NSFontAttributeName: UIFont(name: "Avenir-Medium", size: 14)!]
+            let attributedString = NSMutableAttributedString(string: "  " + comment.text, attributes: commentAttributes)
+            attributedUsername.append(attributedString)
+            
+            textLabel.attributedText = attributedUsername
         }
     }
     
@@ -23,16 +35,29 @@ class CommentsCell: BaseCell {
     }
     
     func setup() {
-        backgroundColor = .red
         addSubview(textLabel)
-        textLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
+        addSubview(profileImageView)
+        
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
+        profileImageView.layer.cornerRadius = 40 / 2
+        textLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
     }
     
-    let textLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont(name: "Avenir-Medium", size: 14)
-        label.numberOfLines = 0
-        return label
+    let profileImageView: CustomImageView = {
+        let iv = CustomImageView()
+        iv.clipsToBounds = true
+        iv.contentMode = .scaleAspectFill
+        iv.backgroundColor = UIColor.customDarkGrayColor
+        return iv
+    }()
+    
+    let textLabel: UITextView = {
+        let tv = UITextView()
+        tv.font = UIFont(name: "Avenir-Medium", size: 14)
+        tv.textColor = UIColor.customWhitecolor
+        tv.backgroundColor = UIColor.white
+        tv.isScrollEnabled = false
+        return tv
     }()
     
 }

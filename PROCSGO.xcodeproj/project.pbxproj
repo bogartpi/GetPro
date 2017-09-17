@@ -63,6 +63,7 @@
 		36BF57681F356C5B003125C9 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF57671F356C5B003125C9 /* PlayerCell.swift */; };
 		36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */; };
 		36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576E1F356CF9003125C9 /* GearCell.swift */; };
+		36C038141F6E346100378E48 /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C038131F6E346100378E48 /* FirebaseUtils.swift */; };
 		36D8E5251F3AEF1800DE0566 /* ConfPovCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8E5241F3AEF1800DE0566 /* ConfPovCell.swift */; };
 		36E93D371F6D517F002BCAE8 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E93D361F6D517F002BCAE8 /* CommentsController.swift */; };
 		36E93D391F6D5602002BCAE8 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E93D381F6D5602002BCAE8 /* CommentsCell.swift */; };
@@ -153,6 +154,7 @@
 		36BF57671F356C5B003125C9 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
 		36BF576E1F356CF9003125C9 /* GearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GearCell.swift; sourceTree = "<group>"; };
+		36C038131F6E346100378E48 /* FirebaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
 		36D8E5241F3AEF1800DE0566 /* ConfPovCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfPovCell.swift; sourceTree = "<group>"; };
 		36E93D361F6D517F002BCAE8 /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		36E93D381F6D5602002BCAE8 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				3689E20F1F5BB20200354DAF /* UIViewExtension.swift */,
 				365FF4241F59720C00F65B2D /* Reachability.swift */,
 				365FF4261F59725400F65B2D /* Constraints.swift */,
+				36C038131F6E346100378E48 /* FirebaseUtils.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				36631C061F30358100C6CDD5 /* PovController.swift in Sources */,
 				363087FB1F6179620024D431 /* ProfileHeaderView.swift in Sources */,
 				364D036D1F66A347005C9C08 /* NewsDetailCell.swift in Sources */,
+				36C038141F6E346100378E48 /* FirebaseUtils.swift in Sources */,
 				36BF57641F356BEA003125C9 /* TeamCell.swift in Sources */,
 				364D03681F66A12D005C9C08 /* PostController.swift in Sources */,
 				362DF0511F52B10E00EEE73C /* NewsCell.swift in Sources */,

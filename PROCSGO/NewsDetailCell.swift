@@ -61,7 +61,7 @@ class NewsDetailCell: BaseCell {
         
         titleLabel.anchor(top: imageView.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
         
-        timeStampLabel.anchor(top: titleLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        timeStampLabel.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 8, paddingLeft: 12, paddingBottom: -8, paddingRight: 0, width: 0, height: 0)
         
         dividerItem.anchor(top: nil, left: timeStampLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 8, height: 30)
         dividerItem.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
@@ -167,7 +167,8 @@ class BodyTextCell: BaseCell {
         tv.backgroundColor = .clear
         tv.isEditable = false
         tv.textAlignment = .left
-        tv.bounces = false 
+        tv.bounces = false
+        tv.isScrollEnabled = false 
         return tv
     }()
 }

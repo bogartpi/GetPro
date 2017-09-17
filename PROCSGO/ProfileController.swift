@@ -31,11 +31,10 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
     
     func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        print(uid)
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot.value ?? "")
             guard let dictionary = snapshot.value as? [String: Any] else { return }
-            self.user = User(dictionary: dictionary)
+            self.user = User(uid: uid, dictionary: dictionary)
             self.collectionView?.reloadData()
         }) { (err) in
             print("Failed to fetch user:", err)
