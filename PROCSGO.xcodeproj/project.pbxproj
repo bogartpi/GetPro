@@ -24,7 +24,6 @@
 		364D03681F66A12D005C9C08 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03671F66A12D005C9C08 /* PostController.swift */; };
 		364D036A1F66A1A2005C9C08 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03691F66A1A2005C9C08 /* PostView.swift */; };
 		364D036D1F66A347005C9C08 /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D036C1F66A347005C9C08 /* NewsDetailCell.swift */; };
-		3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655DA6E1F4A769E003BA1F0 /* PopVC.swift */; };
 		365C05491F39B47A008A2F25 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365C05481F39B47A008A2F25 /* MessageUI.framework */; };
 		365DDCE21F380FDA00364C0A /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE11F380FDA00364C0A /* Setting.swift */; };
 		365DDCE51F38124200364C0A /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE41F38124200364C0A /* AboutController.swift */; };
@@ -57,7 +56,6 @@
 		36BB86791F3723820044BDEC /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB86781F3723820044BDEC /* VideoCell.swift */; };
 		36BB867B1F3723B40044BDEC /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB867A1F3723B40044BDEC /* ConfigCell.swift */; };
 		36BB867D1F3723E90044BDEC /* ConfigHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB867C1F3723E90044BDEC /* ConfigHeader.swift */; };
-		36BB86801F3739E00044BDEC /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */; };
 		36BF57641F356BEA003125C9 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF57631F356BEA003125C9 /* TeamCell.swift */; };
 		36BF57681F356C5B003125C9 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF57671F356C5B003125C9 /* PlayerCell.swift */; };
 		36BF576B1F356CA4003125C9 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */; };
@@ -108,7 +106,6 @@
 		364D03671F66A12D005C9C08 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		364D03691F66A1A2005C9C08 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		364D036C1F66A347005C9C08 /* NewsDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
-		3655DA6E1F4A769E003BA1F0 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		365C05481F39B47A008A2F25 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		365DDCE11F380FDA00364C0A /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		365DDCE41F38124200364C0A /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -147,7 +144,6 @@
 		36BB86781F3723820044BDEC /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		36BB867A1F3723B40044BDEC /* ConfigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
 		36BB867C1F3723E90044BDEC /* ConfigHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigHeader.swift; sourceTree = "<group>"; };
-		36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		36BF57631F356BEA003125C9 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		36BF57671F356C5B003125C9 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		36BF576A1F356CA4003125C9 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
@@ -265,24 +261,14 @@
 		364A18591F5566AA00DAFC98 /* Profile Tab */ = {
 			isa = PBXGroup;
 			children = (
-				364D036B1F66A277005C9C08 /* Settings */,
 				364A185A1F5566E200DAFC98 /* ProfileController.swift */,
+				365DDCE41F38124200364C0A /* AboutController.swift */,
 				363087FA1F6179620024D431 /* ProfileHeaderView.swift */,
 				363087F81F6162D70024D431 /* ProfileCell.swift */,
 				365DDCE11F380FDA00364C0A /* Setting.swift */,
 				363087FD1F618AA00024D431 /* User.swift */,
 			);
 			name = "Profile Tab";
-			sourceTree = "<group>";
-		};
-		364D036B1F66A277005C9C08 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				3655DA6E1F4A769E003BA1F0 /* PopVC.swift */,
-				36BB867F1F3739E00044BDEC /* SettingsLauncher.swift */,
-				365DDCE41F38124200364C0A /* AboutController.swift */,
-			);
-			name = Settings;
 			sourceTree = "<group>";
 		};
 		364D036E1F66A3C6005C9C08 /* News */ = {
@@ -825,7 +811,6 @@
 				365FF4251F59720C00F65B2D /* Reachability.swift in Sources */,
 				3691CC431F56D72300512962 /* SignUpController.swift in Sources */,
 				36E93D391F6D5602002BCAE8 /* CommentsCell.swift in Sources */,
-				36BB86801F3739E00044BDEC /* SettingsLauncher.swift in Sources */,
 				36BF576F1F356CF9003125C9 /* GearCell.swift in Sources */,
 				365DDCE51F38124200364C0A /* AboutController.swift in Sources */,
 				365E56731F25B9480087A6D3 /* Extensions.swift in Sources */,
@@ -844,7 +829,6 @@
 				3612ED881F3D551D00AEA870 /* UIColorExtension.swift in Sources */,
 				36BB867D1F3723E90044BDEC /* ConfigHeader.swift in Sources */,
 				369277061F28163C00AC434A /* DetailsController.swift in Sources */,
-				3655DA6F1F4A769E003BA1F0 /* PopVC.swift in Sources */,
 				363087F91F6162D70024D431 /* ProfileCell.swift in Sources */,
 				365FF4271F59725400F65B2D /* Constraints.swift in Sources */,
 				364A18551F55535100DAFC98 /* NewsDetailController.swift in Sources */,
