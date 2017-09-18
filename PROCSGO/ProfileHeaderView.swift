@@ -21,32 +21,36 @@ class ProfileHeaderView: UICollectionViewCell {
     
     let profileImageView: CustomImageView = {
         let iv = CustomImageView()
-        iv.backgroundColor = UIColor.customDarkGrayColor
-        iv.layer.cornerRadius = 50
+        iv.backgroundColor = UIColor.customGrayColor
+        iv.layer.cornerRadius = 35
         iv.clipsToBounds = true
         return iv
     }()
     
     let usernameLabel: UILabel = {
-        let label = UILabel(color: UIColor.white, fontName: "Avenir-Heavy", fontSize: 25, align: NSTextAlignment.center)
-        label.text = "Username"
+        let label = UILabel(color: UIColor.white, fontName: "Avenir-Heavy", fontSize: 20, align: NSTextAlignment.left)
+        label.backgroundColor = UIColor.customGrayColor
+        label.text = ""
         return label
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+        backgroundColor = UIColor.customDarkGrayColor
     }
     
     func setup() {
         addSubview(profileImageView)
         addSubview(usernameLabel)
         
-        profileImageView.anchor(top: topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
-        profileImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        usernameLabel.anchor(top: profileImageView.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        usernameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil,
+                                right: nil, paddingTop: 15, paddingLeft: 20,
+                                paddingBottom: 0, paddingRight: 0, width: 70, height: 70)
+        usernameLabel.anchor(top: nil, left: profileImageView.rightAnchor,
+                             bottom: nil, right: rightAnchor, paddingTop: 0,
+                             paddingLeft: 20, paddingBottom: 0, paddingRight: 20, height: 30)
+        usernameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

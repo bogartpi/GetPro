@@ -25,7 +25,7 @@ class CommentsCell: BaseCell {
             let attributedString = NSMutableAttributedString(string: "  " + comment.text, attributes: commentAttributes)
             attributedUsername.append(attributedString)
             
-            textLabel.attributedText = attributedUsername
+            textView.attributedText = attributedUsername
         }
     }
     
@@ -35,28 +35,29 @@ class CommentsCell: BaseCell {
     }
     
     func setup() {
-        addSubview(textLabel)
+        addSubview(textView)
         addSubview(profileImageView)
         
         profileImageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
         profileImageView.layer.cornerRadius = 40 / 2
-        textLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
+        textView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
     }
     
     let profileImageView: CustomImageView = {
         let iv = CustomImageView()
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
-        iv.backgroundColor = UIColor.customDarkGrayColor
+        iv.backgroundColor = UIColor.customWhitecolor
         return iv
     }()
     
-    let textLabel: UITextView = {
+    let textView: UITextView = {
         let tv = UITextView()
         tv.font = UIFont(name: "Avenir-Medium", size: 14)
         tv.textColor = UIColor.customWhitecolor
         tv.backgroundColor = UIColor.white
         tv.isScrollEnabled = false
+        tv.isEditable = false
         return tv
     }()
     

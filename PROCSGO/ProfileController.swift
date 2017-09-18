@@ -9,13 +9,30 @@
 import UIKit
 import Firebase
 
-class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
+class ProfileController: UICollectionViewController {
     
     fileprivate let headerId = "headerId"
     fileprivate let profileCellId = "profileCellId"
-    fileprivate let logoutCellId = "logoutCellId"
     
     var user: User?
+    
+    let settings: [Setting] = {
+        return [Setting(name: .PushNotifications, imageName: .PushNotificationsImage),
+                Setting(name: .TellYourFriends, imageName: .TellYourFriendsImage),
+                Setting(name: .RateUs, imageName: .RateUsImage),
+                Setting(name: .SendFeedback, imageName: .SendFeedbackImage),
+                Setting(name: .ReportProblem, imageName: .ReportProblemImage)]
+    }()
+    
+    let infoSettings: [Setting] = {
+        return [Setting(name: .TermsConditions, imageName: .TermsConditionsImage),
+                Setting(name: .PrivacyPolicy, imageName: .PrivacyPolicyImage),
+                Setting(name: .About, imageName: .AboutImage)]
+    }()
+    
+    let logoutSettings: [Setting] = {
+        return [Setting(name: .LogOut, imageName: .LogOutImage)]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +41,11 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
         collectionView?.backgroundColor = UIColor.customGrayColor
         customizeNavController()
         changeNavigationTintColor(.white)
+        
         collectionView?.register(ProfileHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
-        collectionView?.register(LogOutCell.self, forCellWithReuseIdentifier: logoutCellId)
+        
+        collectionView?.register(ProfileCell.self, forCellWithReuseIdentifier: profileCellId)
+
         fetchUser()
     }
     
@@ -62,34 +82,61 @@ class ProfileController: UICollectionViewController, LogOutHandlerProtocol {
 extension ProfileController: UICollectionViewDelegateFlowLayout {
     // MARK: - HeadView Methods
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! ProfileHeaderView
-        header.user = self.user
-        return header
+
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! ProfileHeaderView
+            header.user = self.user
+            return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 200)
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 100)
+        } else {
+            return CGSize(width: view.frame.width, height: 0)
+        }
     }
     
     // MARK: - CollectionView Cells Methods
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return settings.count
+        }
+        if section == 1 {
+            return infoSettings.count
+        }
+        return logoutSettings.count
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: logoutCellId, for: indexPath)  as! LogOutCell
-        cell.myDelegate = self
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellId, for: indexPath)  as! ProfileCell
+            cell.setting = settings[indexPath.item]
+            return cell
+        }
+        if indexPath.section == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellId, for: indexPath)  as! ProfileCell
+            cell.setting = infoSettings[indexPath.item]
+            return cell
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: profileCellId, for: indexPath)  as! ProfileCell
+        cell.setting = logoutSettings[indexPath.item]
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if indexPath.item == 0  {
-            return CGSize(width: view.frame.width, height: 60)
-        }
-        
-        return CGSize(width: view.frame.width, height: 300)
+        return CGSize(width: view.frame.width, height: 50)
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
