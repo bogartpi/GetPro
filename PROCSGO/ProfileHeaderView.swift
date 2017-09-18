@@ -29,7 +29,6 @@ class ProfileHeaderView: UICollectionViewCell {
     
     let usernameLabel: UILabel = {
         let label = UILabel(color: UIColor.white, fontName: "Avenir-Heavy", fontSize: 20, align: NSTextAlignment.left)
-        label.backgroundColor = UIColor.customGrayColor
         label.text = ""
         return label
     }()

@@ -12,7 +12,6 @@
 //
 //private let cellId = "cellId"
 //private let cellHeight: CGFloat = 50
-//private let appId = "id1271666107"
 //
 //class SettingsLauncher: NSObject {
 //    
@@ -91,83 +90,7 @@
 //
 //}
 //
-//extension SettingsLauncher: MFMailComposeViewControllerDelegate {
-//    
-//    func customAlert(title: String, msg: String) {
-//        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-//        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-//        self.newsController?.present(alertVC, animated: true, completion: nil)
-//    }
-//    
-//    func shareTheApp() {
-//        let shareActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        // Twitter
-//        let twitterActionSheet = UIAlertAction(title: "Share on Twitter", style: .default) { (action) in
-//            // display twitter composer
-//            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter) {
-//                let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-//                tweetComposer?.setInitialText("Getpro App is waiting for you. Get it on your phone and enjoy exploring CS:GO pro players.")
-//                tweetComposer?.add(UIImage(named: "shareImage1"))
-//                tweetComposer?.add(URL(string: "https://itunes.apple.com/us/app/getpro-cs-go/id1271666107?ls=1&mt=8"))
-//                self.newsController?.present(tweetComposer!, animated: true, completion: nil)
-//            } else {
-//                self.customAlert(title: "Twitter Unavailable", msg: "Check your settings Settings > Twitter to set up your Twitter account.")
-//            }
-//        }
-//        
-//        // Facebook
-//        let facebookActionSheet = UIAlertAction(title: "Share on Facebook", style: .default) { (action) in
-//            // display twitter composer
-//            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook) {
-//                let fbComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-//                fbComposer?.setInitialText("Getpro App is waiting for you. Get it on your phone and enjoy exploring CS:GO pro players.")
-//                fbComposer?.add(UIImage(named: "shareImage1"))
-//                fbComposer?.add(URL(string: "https://itunes.apple.com/us/app/getpro-cs-go/id1271666107?ls=1&mt=8"))
-//                self.newsController?.present(fbComposer!, animated: true, completion: nil)
-//            } else {
-//                self.customAlert(title: "Facebook Unavailable", msg: "Check your settings Settings > Facebook to set up your Facebook account.")
-//            }
-//        }
-//        // Cancel
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-//        
-//        shareActionSheet.addAction(twitterActionSheet)
-//        shareActionSheet.addAction(facebookActionSheet)
-//        shareActionSheet.addAction(cancelAction)
-//        self.newsController?.present(shareActionSheet, animated: true, completion: nil)
-//    }
-//    
-//    func configureEmailComposeViewController(setToRecipients: [String], setSubject: String, setMsgBody: String) -> MFMailComposeViewController {
-//        let mailComposeVC = MFMailComposeViewController()
-//        mailComposeVC.mailComposeDelegate = self
-//        mailComposeVC.setToRecipients(setToRecipients)
-//        mailComposeVC.setSubject(setSubject)
-//        mailComposeVC.setMessageBody(setMsgBody, isHTML: false)
-//        return mailComposeVC
-//    }
-//    
-//    func createEmailController(sendToEmail: [String], subject: String, msgBody: String) {
-//        let emailController = configureEmailComposeViewController(setToRecipients: sendToEmail, setSubject: subject, setMsgBody: msgBody)
-//        if MFMailComposeViewController.canSendMail() {
-//            newsController?.navigationController?.present(emailController, animated: true, completion: nil)
-//        } else {
-//            print("ERROR")
-//        }
-//    }
-//    
-//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        switch result {
-//        case MFMailComposeResult.cancelled:
-//            print("Cancelled Mail")
-//        case MFMailComposeResult.sent:
-//            print("Mail sent")
-//        default:
-//            break
-//        }
-//        newsController?.dismiss(animated: true, completion: nil)
-//    }
-//    
-//}
+
 //
 //extension SettingsLauncher: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
 //    
