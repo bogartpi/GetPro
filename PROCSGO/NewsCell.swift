@@ -15,7 +15,7 @@ class NewsCell: BaseCell {
             guard let imageUrl = post?.imageUrl else { return }
             newsImage.loadImage(urlString: imageUrl)
             newsTitleLabel.text = post?.title
-            timeStampLabel.text = post?.creationDate.timeAgoDisplayShort()
+            timeStampLabel.text = post?.creationDate.timeAgoDisplayLong()
         }
     }
     
@@ -43,12 +43,6 @@ class NewsCell: BaseCell {
         timeStampLabel.anchor(top: nil, left: newsImage.rightAnchor, bottom: bottomAnchor,
                               right: nil, paddingTop: 0, paddingLeft: 8,
                               paddingBottom: -4, paddingRight: 8, width: 0, height: 0)
-        
-        dividerItem.anchor(top: nil, left: timeStampLabel.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: -8, paddingRight: 0)
-        dividerItem.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
-        
-        categoryLabel.anchor(top: nil, left: dividerItem.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: -8, paddingRight: 0)
-        categoryLabel.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor).isActive = true
     }
     
     let newsImage: CustomImageView = {

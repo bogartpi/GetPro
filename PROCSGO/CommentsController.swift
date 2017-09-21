@@ -23,9 +23,7 @@ class CommentsController: UICollectionViewController {
         collectionView?.backgroundColor = UIColor.white 
         collectionView?.alwaysBounceVertical = true
         collectionView?.keyboardDismissMode = .interactive
-    
-        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: -50, right: 0)
-        
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView?.register(CommentsCell.self, forCellWithReuseIdentifier: cellId)
         
         fetchComments()
@@ -55,7 +53,10 @@ class CommentsController: UICollectionViewController {
             
             Database.fetchUserWithUID(uid: uid, completion: { (user) in
                 let comment = Comment(user: user, dictionary: dict)
-                self.comments.append(comment)
+                self.comments.insert(comment, at: 0)
+                self.comments.sort(by: { (c1, c2) -> Bool in
+                    return c1.createDate.compare(c2.createDate) == .orderedAscending
+                })
                 self.collectionView?.reloadData()
             })
             
@@ -138,7 +139,6 @@ class CommentsController: UICollectionViewController {
         textField.addTarget(self, action: #selector(handleInputChange), for: .editingChanged)
         return textField
     }()
-    
 }
 
 extension CommentsController {
@@ -190,10 +190,10 @@ extension CommentsController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        return UIEdgeInsets(top: 8, left: 0, bottom: 16, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 5
     }
 }

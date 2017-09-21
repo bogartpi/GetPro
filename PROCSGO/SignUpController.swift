@@ -16,31 +16,12 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupVideoView()
-        setupMainView()
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func setupVideoView() {
-        let videoView = VideoView(frame: self.view.frame)
-        self.videoView = videoView
-        self.view.addSubview(videoView)
-        videoView.pinEdges(to: self.view)
-    }
-
-    func setupMainView() {
-        let mainView = SignUpMainView(frame: self.view.frame)
-        self.mainView = mainView
-        self.mainView.dismissAction = self.dismissController
-        self.mainView.plusPhotoAction = self.handlePlusPhoto
-        self.mainView.signUpAction = self.handleSignUp
-        self.mainView.inputChangeAction = self.handleInputChange
-        videoView.addSubview(mainView)
-        mainView.pinEdges(to: self.videoView)
     }
     
     func handleInputChange() {
@@ -94,9 +75,9 @@ class SignUpController: UIViewController {
                     }
                     print("Successfully saved user info to db")
                     
-                    guard let mainTabBarVC = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
-                    mainTabBarVC.setupViewControllers()
-                    self.dismiss(animated: true, completion: nil)
+                    let mainVC = MainTabBarController()
+                    mainVC.setupViewControllers()
+                    self.navigationController?.pushViewController(mainVC, animated: true)
                 })
 
             })
@@ -116,6 +97,37 @@ class SignUpController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+// MARK: - Setting View Layers
+
+extension SignUpController {
+    func setup() {
+        setupVideoView()
+        setupMainView()
+    }
+    
+    func setupVideoView() {
+        let videoView = VideoView(frame: self.view.frame)
+        self.videoView = videoView
+        self.view.addSubview(videoView)
+        videoView.pinEdges(to: self.view)
+    }
+    
+    func setupMainView() {
+        let mainView = SignUpMainView(frame: self.view.frame)
+        self.mainView = mainView
+        self.mainView.dismissAction = self.dismissController
+        self.mainView.plusPhotoAction = self.handlePlusPhoto
+        self.mainView.signUpAction = self.handleSignUp
+        self.mainView.inputChangeAction = self.handleInputChange
+        videoView.addSubview(mainView)
+        mainView.anchor(top: videoView.safeTopAnchor, left: videoView.safeLeftAnchor,
+                        bottom: videoView.safeBottomAnchor, right: videoView.safeRightAnchor,
+                        paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+    }
+}
+
+// MARK: - Image Picker Methods
 
 extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

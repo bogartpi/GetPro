@@ -96,7 +96,7 @@ class PostController: UIViewController {
         postId.updateChildValues(values) { (error, ref) in
             if let err = error {
                 print("Failed to save post to DB:", err.localizedDescription)
-                self.navigationItem.rightBarButtonItem?.isEnabled = false
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
                 return
             }
             print("Successully saved post to DB")

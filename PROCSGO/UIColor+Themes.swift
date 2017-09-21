@@ -29,6 +29,10 @@ extension UIColor {
         return UIColor(r: 73, g: 144, b: 226)
     }()
     
+    static var customWarningColor: UIColor = {
+        return UIColor(r: 244, g: 67, b: 54)
+    }()
+    
     public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }

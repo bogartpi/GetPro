@@ -20,28 +20,6 @@ class LogInController: UIViewController {
         setupViews()
     }
     
-    fileprivate func setupViews() {
-        setupVideoView()
-        setupMainView()
-    }
-    
-    fileprivate func setupVideoView() {
-        let videoView = VideoView(frame: self.view.frame)
-        self.videoView = videoView
-        self.view.addSubview(videoView)
-        videoView.pinEdges(to: self.view)
-    }
-    
-    fileprivate func setupMainView() {
-        let mainView = LoginMainView(frame: self.view.frame)
-        self.mainView = mainView
-        self.mainView.signUpAction = self.signUpSwitch
-        self.mainView.handleInputChangeAction = self.handleInputChange
-        self.mainView.signInAction = self.handleSignIn
-        self.videoView.addSubview(mainView)
-        mainView.pinEdges(to: self.videoView)
-    }
-    
     fileprivate func handleSignIn() {
         guard let email = mainView.emailTextField.text else {
             self.showMessage("Error", description: "Please enter an email")
@@ -88,14 +66,42 @@ class LogInController: UIViewController {
     }
     
     fileprivate func showMainTabBarController() {
-        guard let mainTabBarVC = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
-        mainTabBarVC.setupViewControllers()
-        self.dismiss(animated: true, completion: nil)
+        let mainVC = MainTabBarController()
+        mainVC.setupViewControllers()
+        navigationController?.pushViewController(mainVC, animated: true)
     }
     
     fileprivate func signUpSwitch() {
         let signUpController = SignUpController()
         navigationController?.pushViewController(signUpController, animated: true)
+    }
+}
+
+// MARK: - Setting View Layers
+
+extension LogInController {
+    fileprivate func setupViews() {
+        setupVideoView()
+        setupMainView()
+    }
+    
+    fileprivate func setupVideoView() {
+        let videoView = VideoView(frame: self.view.frame)
+        self.videoView = videoView
+        self.view.addSubview(videoView)
+        videoView.pinEdges(to: self.view)
+    }
+    
+    fileprivate func setupMainView() {
+        let mainView = LoginMainView(frame: self.view.frame)
+        self.mainView = mainView
+        self.mainView.signUpAction = self.signUpSwitch
+        self.mainView.handleInputChangeAction = self.handleInputChange
+        self.mainView.signInAction = self.handleSignIn
+        self.videoView.addSubview(mainView)
+        mainView.anchor(top: view.safeTopAnchor, left: view.safeLeftAnchor,
+                        bottom: view.safeBottomAnchor, right: view.rightAnchor,
+                        paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
 }
 

@@ -21,8 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let mainVC = MainTabBarController()
-        window?.rootViewController = mainVC
+        if Auth.auth().currentUser != nil {
+            let mainVC = MainTabBarController()
+            window?.rootViewController = mainVC
+        } else {
+            let loginVC = LogInController()
+            window?.rootViewController = loginVC
+        }
         UIApplication.shared.statusBarStyle = .lightContent 
         
         return true

@@ -8,28 +8,6 @@
 
 import UIKit
 
-extension UIView {
-    
-    public func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        self.addGestureRecognizer(tap)
-    }
-    
-    public func dismissKeyboard() {
-        self.endEditing(true)
-    }
-    
-    public func setDefaultShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = 2.0
-        self.clipsToBounds = false
-        self.layer.masksToBounds = false
-    }
-}
-
 extension UIView: UITextFieldDelegate {
     
     func animateTextField(textField: UITextField, up: Bool) {

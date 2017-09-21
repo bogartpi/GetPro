@@ -41,3 +41,7 @@ struct Setting {
         self.imageName = imageName
     }
 }
+
+
+
+
