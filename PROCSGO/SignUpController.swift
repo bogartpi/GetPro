@@ -14,9 +14,17 @@ class SignUpController: UIViewController {
     var videoView: VideoView!
     var mainView: SignUpMainView!
     
+    lazy var myactivityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        myActivityIndicator.center = self.view.center
+        myActivityIndicator.hidesWhenStopped = true
+        return myActivityIndicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        view.addSubview(myactivityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +50,13 @@ class SignUpController: UIViewController {
         guard let username = mainView.userNameTextField.text, username.characters.count > 0 else { return }
         guard let email = mainView.emailTextField.text, email.characters.count > 0 else { return }
         guard let password = mainView.passwordTextField.text, password.characters.count > 0 else { return }
-        
+        self.myactivityIndicator.startAnimating()
+        self.mainView.signUpButton.isEnabled = false
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let err = error {
+                self.myactivityIndicator.stopAnimating()
+                self.mainView.signUpButton.isEnabled = true
+                
                 self.showMessage("Failed to create a user", description: err.localizedDescription)
                 return
             }
@@ -55,6 +67,8 @@ class SignUpController: UIViewController {
             let filename = NSUUID().uuidString
             Storage.storage().reference().child("profile_images").child(filename).putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 if let err = error {
+                    self.myactivityIndicator.stopAnimating()
+                    self.mainView.signUpButton.isEnabled = true
                     self.showMessage("Failed to upload profile image", description: err.localizedDescription)
                     return
                 }
@@ -70,6 +84,8 @@ class SignUpController: UIViewController {
                     
                     if let err = error {
                         print("Failed to save user info into db:", err)
+                        self.myactivityIndicator.stopAnimating()
+                        self.mainView.signUpButton.isEnabled = true
                         self.showMessage("Failed to save user info", description: err.localizedDescription)
                         return
                     }
@@ -78,6 +94,8 @@ class SignUpController: UIViewController {
                     let mainVC = MainTabBarController()
                     mainVC.setupViewControllers()
                     self.navigationController?.pushViewController(mainVC, animated: true)
+                    self.myactivityIndicator.stopAnimating()
+                    self.mainView.signUpButton.isEnabled = true
                 })
 
             })

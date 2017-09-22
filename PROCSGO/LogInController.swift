@@ -11,16 +11,24 @@ import Firebase
 
 class LogInController: UIViewController {
     
-    fileprivate var videoView: VideoView!
-    fileprivate var mainView: LoginMainView!
+    var videoView: VideoView!
+    var mainView: LoginMainView!
+    
+    lazy var myactivityIndicator: UIActivityIndicatorView = {
+        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        myActivityIndicator.center = self.view.center
+        myActivityIndicator.hidesWhenStopped = true
+        return myActivityIndicator
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupViews()
+        view.addSubview(myactivityIndicator)
     }
     
-    fileprivate func handleSignIn() {
+    func handleSignIn() {
         guard let email = mainView.emailTextField.text else {
             self.showMessage("Error", description: "Please enter an email")
             return
@@ -29,17 +37,23 @@ class LogInController: UIViewController {
             self.showMessage("Error", description: "Please enter a password")
             return
         }
+        self.mainView.signInButton.isEnabled = false
+        self.myactivityIndicator.startAnimating()
         AuthService.instance.loginWithEmail(email, password: password) { (success, message) in
             if success {
+                self.myactivityIndicator.stopAnimating()
                 self.setUsername()
                 self.showMainTabBarController()
+                self.mainView.signInButton.isEnabled = true
             } else {
                 self.showMessage("Failure", description: message)
+                self.myactivityIndicator.stopAnimating()
+                self.mainView.signInButton.isEnabled = true
             }
         }
     }
     
-    fileprivate func setUsername() {
+    func setUsername() {
         if let user = Auth.auth().currentUser {
             AuthService.instance.isLoggedIn = true
             let emailComponents = user.email?.components(separatedBy: "@")
@@ -52,7 +66,7 @@ class LogInController: UIViewController {
         }
     }
     
-    fileprivate func handleInputChange() {
+    func handleInputChange() {
         let isFormValid = mainView.emailTextField.text?.characters.count ?? 0 > 0 && mainView.passwordTextField.text?.characters.count ?? 0 > 0
         if isFormValid {
             mainView.signInButton.isEnabled = true
@@ -65,13 +79,13 @@ class LogInController: UIViewController {
         }
     }
     
-    fileprivate func showMainTabBarController() {
+    func showMainTabBarController() {
         let mainVC = MainTabBarController()
         mainVC.setupViewControllers()
         navigationController?.pushViewController(mainVC, animated: true)
     }
     
-    fileprivate func signUpSwitch() {
+    func signUpSwitch() {
         let signUpController = SignUpController()
         navigationController?.pushViewController(signUpController, animated: true)
     }
@@ -80,19 +94,19 @@ class LogInController: UIViewController {
 // MARK: - Setting View Layers
 
 extension LogInController {
-    fileprivate func setupViews() {
+    func setupViews() {
         setupVideoView()
         setupMainView()
     }
     
-    fileprivate func setupVideoView() {
+    func setupVideoView() {
         let videoView = VideoView(frame: self.view.frame)
         self.videoView = videoView
         self.view.addSubview(videoView)
         videoView.pinEdges(to: self.view)
     }
     
-    fileprivate func setupMainView() {
+    func setupMainView() {
         let mainView = LoginMainView(frame: self.view.frame)
         self.mainView = mainView
         self.mainView.signUpAction = self.signUpSwitch

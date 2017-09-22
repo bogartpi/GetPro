@@ -103,7 +103,7 @@ extension NewsController {
         self.present(navController, animated: true)
     }
     
-    fileprivate func showNewsDetailController(index: Int) {
+    func showNewsDetailController(index: Int) {
         let layout = UICollectionViewFlowLayout()
         let detailVC = NewsDetailController(collectionViewLayout: layout)
         print("TEST",postsArray[0])
@@ -132,13 +132,13 @@ extension NewsController {
 
 extension NewsController {
     
-    fileprivate func setupView() {
+    func setupView() {
         navigationItem.title = "News"
         changeNavigationTintColor(.white)
         customizeNavController()
     }
     
-    fileprivate func setupWarningView() {
+    func setupWarningView() {
         let warnView = WarningView(frame: CGRect(x: 0, y: -80, width: self.view.frame.width, height: 0))
         self.warningView = warnView
         view.addSubview(warningView)
