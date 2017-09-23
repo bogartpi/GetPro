@@ -15,15 +15,19 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         tabBar.barTintColor = UIColor.customRedColor
         tabBar.alpha = 1
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.customDarkGrayColor
         
         if Auth.auth().currentUser == nil {
+            //show if not logged in
             DispatchQueue.main.async {
-                let loginVC = LogInController()
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                let loginController = LogInController()
+                let navController = UINavigationController(rootViewController: loginController)
+                self.present(navController, animated: true, completion: nil)
             }
+            
             return
         }
+        
         setupViewControllers()
     }
     
@@ -45,6 +49,7 @@ class MainTabBarController: UITabBarController {
             item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0)
         }
     }
+
 }
 
 extension UIViewController {

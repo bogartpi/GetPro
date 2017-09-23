@@ -114,7 +114,7 @@ extension NewsController {
 
 // MARK: - View Methods
 
-extension NewsController {
+extension NewsController {    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.checkReachability), userInfo: nil, repeats: false)

@@ -90,12 +90,12 @@ class SignUpController: UIViewController {
                         return
                     }
                     print("Successfully saved user info to db")
-                    
-                    let mainVC = MainTabBarController()
-                    mainVC.setupViewControllers()
-                    self.navigationController?.pushViewController(mainVC, animated: true)
                     self.myactivityIndicator.stopAnimating()
                     self.mainView.signUpButton.isEnabled = true
+                    
+                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                    mainTabBarController.setupViewControllers()
+                    self.dismiss(animated: true, completion: nil)
                 })
 
             })

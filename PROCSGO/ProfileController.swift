@@ -69,13 +69,13 @@ class ProfileController: UICollectionViewController {
         alertVC.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
             do {
                 try Auth.auth().signOut()
-                let loginController = LogInController()
-                let navController = UINavigationController(rootViewController: loginController)
-                self.present(navController, animated: true, completion: nil)
             } catch let err {
                 print("Failed to log out:", err)
                 self.showMessage("Failed to log out", description: err.localizedDescription)
             }
+            let loginController = LogInController()
+            let navController = UINavigationController(rootViewController: loginController)
+            self.present(navController, animated: true, completion: nil)
         })) 
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)

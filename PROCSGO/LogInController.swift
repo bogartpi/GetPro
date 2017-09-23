@@ -13,6 +13,7 @@ class LogInController: UIViewController {
     
     var videoView: VideoView!
     var mainView: LoginMainView!
+    var mainController: MainTabBarController?
     
     lazy var myactivityIndicator: UIActivityIndicatorView = {
         let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -25,7 +26,31 @@ class LogInController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupViews()
-        view.addSubview(myactivityIndicator)
+        mainView.addSubview(myactivityIndicator)
+    }
+    
+    func setupViews() {
+        setupVideoView()
+        setupMainView()
+    }
+    
+    func setupVideoView() {
+        let videoView = VideoView(frame: self.view.frame)
+        self.videoView = videoView
+        self.view.addSubview(videoView)
+        videoView.pinEdges(to: self.view)
+    }
+    
+    func setupMainView() {
+        let mainView = LoginMainView(frame: self.view.frame)
+        self.mainView = mainView
+        self.mainView.signUpAction = self.signUpSwitch
+        self.mainView.handleInputChangeAction = self.handleInputChange
+        self.mainView.signInAction = self.handleSignIn
+        self.videoView.addSubview(mainView)
+        mainView.anchor(top: view.safeTopAnchor, left: view.safeLeftAnchor,
+                        bottom: view.safeBottomAnchor, right: view.rightAnchor,
+                        paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
     
     func handleSignIn() {
@@ -42,9 +67,9 @@ class LogInController: UIViewController {
         AuthService.instance.loginWithEmail(email, password: password) { (success, message) in
             if success {
                 self.myactivityIndicator.stopAnimating()
+                self.mainView.signInButton.isEnabled = true
                 self.setUsername()
                 self.showMainTabBarController()
-                self.mainView.signInButton.isEnabled = true
             } else {
                 self.showMessage("Failure", description: message)
                 self.myactivityIndicator.stopAnimating()
@@ -80,44 +105,21 @@ class LogInController: UIViewController {
     }
     
     func showMainTabBarController() {
-        let mainVC = MainTabBarController()
-        mainVC.setupViewControllers()
-        navigationController?.pushViewController(mainVC, animated: true)
+        guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+        
+        mainTabBarController.setupViewControllers()
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     func signUpSwitch() {
+        print("Sign ")
         let signUpController = SignUpController()
         navigationController?.pushViewController(signUpController, animated: true)
     }
 }
 
 // MARK: - Setting View Layers
-
-extension LogInController {
-    func setupViews() {
-        setupVideoView()
-        setupMainView()
-    }
-    
-    func setupVideoView() {
-        let videoView = VideoView(frame: self.view.frame)
-        self.videoView = videoView
-        self.view.addSubview(videoView)
-        videoView.pinEdges(to: self.view)
-    }
-    
-    func setupMainView() {
-        let mainView = LoginMainView(frame: self.view.frame)
-        self.mainView = mainView
-        self.mainView.signUpAction = self.signUpSwitch
-        self.mainView.handleInputChangeAction = self.handleInputChange
-        self.mainView.signInAction = self.handleSignIn
-        self.videoView.addSubview(mainView)
-        mainView.anchor(top: view.safeTopAnchor, left: view.safeLeftAnchor,
-                        bottom: view.safeBottomAnchor, right: view.rightAnchor,
-                        paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-    }
-}
 
 extension LogInController {
     override func viewDidAppear(_ animated: Bool) {

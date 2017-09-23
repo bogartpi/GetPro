@@ -24,6 +24,7 @@
 		364D03681F66A12D005C9C08 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03671F66A12D005C9C08 /* PostController.swift */; };
 		364D036A1F66A1A2005C9C08 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D03691F66A1A2005C9C08 /* PostView.swift */; };
 		364D036D1F66A347005C9C08 /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364D036C1F66A347005C9C08 /* NewsDetailCell.swift */; };
+		365114EC1F76B0DF00B340F5 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 36A7CE531F76B02B0047A626 /* video.mov */; };
 		365C05491F39B47A008A2F25 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365C05481F39B47A008A2F25 /* MessageUI.framework */; };
 		365DDCE21F380FDA00364C0A /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE11F380FDA00364C0A /* Setting.swift */; };
 		365DDCE51F38124200364C0A /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365DDCE41F38124200364C0A /* AboutController.swift */; };
@@ -40,7 +41,6 @@
 		365FF4251F59720C00F65B2D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365FF4241F59720C00F65B2D /* Reachability.swift */; };
 		365FF4271F59725400F65B2D /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365FF4261F59725400F65B2D /* UIView+Constraints.swift */; };
 		36631C061F30358100C6CDD5 /* PovController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36631C051F30358100C6CDD5 /* PovController.swift */; };
-		366C9C841F5851DF00302D27 /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 366C9C831F58508B00302D27 /* video.mov */; };
 		366C9C861F585CC900302D27 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366C9C851F585CC900302D27 /* VideoView.swift */; };
 		366D5BC01F5AE1CD00F2293C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366D5BBF1F5AE1CD00F2293C /* BaseView.swift */; };
 		36817CF01F71D419008106B4 /* UIVIew+SafeAreaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36817CEF1F71D419008106B4 /* UIVIew+SafeAreaLayout.swift */; };
@@ -131,7 +131,6 @@
 		365FF4241F59720C00F65B2D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		365FF4261F59725400F65B2D /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		36631C051F30358100C6CDD5 /* PovController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PovController.swift; sourceTree = "<group>"; };
-		366C9C831F58508B00302D27 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		366C9C851F585CC900302D27 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		366D5BBF1F5AE1CD00F2293C /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		36817CEF1F71D419008106B4 /* UIVIew+SafeAreaLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+SafeAreaLayout.swift"; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		369277051F28163C00AC434A /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		36988FA81F709BA000F075C0 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		36988FAB1F71912100F075C0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		36A7CE531F76B02B0047A626 /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		36AA692D1F52707E003660CA /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		36AE43141F29B37300C3A386 /* ConfigController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigController.swift; sourceTree = "<group>"; };
 		36B1A3B01F6820DF006E753F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -210,14 +210,6 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		363BA8291F5AA3B7006D0606 /* Application Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				365E56421F25B3A00087A6D3 /* AppDelegate.swift */,
-			);
-			name = "Application Delegate";
-			sourceTree = "<group>";
-		};
 		363BA82A1F5AA3EB006D0606 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,35 +221,6 @@
 				36817CEF1F71D419008106B4 /* UIVIew+SafeAreaLayout.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		363BA82C1F5AA472006D0606 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				365E564B1F25B3A00087A6D3 /* LaunchScreen.storyboard */,
-			);
-			name = Storyboards;
-			sourceTree = "<group>";
-		};
-		363BA8341F5AA629006D0606 /* ModelViewController */ = {
-			isa = PBXGroup;
-			children = (
-				364A18521F553E5800DAFC98 /* MainTabBarController.swift */,
-				3691CC461F56D73800512962 /* SignIn/SignUp */,
-				36AA692C1F527022003660CA /* News Tab */,
-				36AA692B1F52700D003660CA /* Rosters Tab */,
-				364A18591F5566AA00DAFC98 /* Profile Tab */,
-			);
-			name = ModelViewController;
-			sourceTree = "<group>";
-		};
-		364A18581F55657E00DAFC98 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				365E564E1F25B3A00087A6D3 /* Info.plist */,
-				360F9A681F5D6C92009ADDD2 /* GoogleService-Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		364A18591F5566AA00DAFC98 /* Profile Tab */ = {
@@ -386,14 +349,21 @@
 		365E56411F25B3A00087A6D3 /* PROCSGO */ = {
 			isa = PBXGroup;
 			children = (
-				363BA8291F5AA3B7006D0606 /* Application Delegate */,
-				364A18581F55657E00DAFC98 /* Supporting Files */,
-				36B47B541F2DB48700CECB3F /* Resources */,
 				363BA82A1F5AA3EB006D0606 /* Extensions */,
 				36988FAA1F71910500F075C0 /* Services */,
 				360DFDC61F6A692400287425 /* Utilities */,
-				363BA82C1F5AA472006D0606 /* Storyboards */,
-				363BA8341F5AA629006D0606 /* ModelViewController */,
+				3691CC461F56D73800512962 /* SignIn/SignUp */,
+				36AA692C1F527022003660CA /* News Tab */,
+				36AA692B1F52700D003660CA /* Rosters Tab */,
+				364A18591F5566AA00DAFC98 /* Profile Tab */,
+				365E56421F25B3A00087A6D3 /* AppDelegate.swift */,
+				364A18521F553E5800DAFC98 /* MainTabBarController.swift */,
+				365E564B1F25B3A00087A6D3 /* LaunchScreen.storyboard */,
+				365E564E1F25B3A00087A6D3 /* Info.plist */,
+				360F9A681F5D6C92009ADDD2 /* GoogleService-Info.plist */,
+				3648D6171F401AAB00B3E941 /* csgonew.json */,
+				36A7CE531F76B02B0047A626 /* video.mov */,
+				365E56491F25B3A00087A6D3 /* Assets.xcassets */,
 			);
 			path = PROCSGO;
 			sourceTree = "<group>";
@@ -454,16 +424,6 @@
 				36E93D351F6D512D002BCAE8 /* Comments */,
 			);
 			name = "News Tab";
-			sourceTree = "<group>";
-		};
-		36B47B541F2DB48700CECB3F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				366C9C831F58508B00302D27 /* video.mov */,
-				3648D6171F401AAB00B3E941 /* csgonew.json */,
-				365E56491F25B3A00087A6D3 /* Assets.xcassets */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		36E93D351F6D512D002BCAE8 /* Comments */ = {
@@ -623,10 +583,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366C9C841F5851DF00302D27 /* video.mov in Resources */,
 				365E564D1F25B3A00087A6D3 /* LaunchScreen.storyboard in Resources */,
 				360F9A691F5D6F33009ADDD2 /* GoogleService-Info.plist in Resources */,
 				365E564A1F25B3A00087A6D3 /* Assets.xcassets in Resources */,
+				365114EC1F76B0DF00B340F5 /* video.mov in Resources */,
 				3648D6181F401AAB00B3E941 /* csgonew.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
