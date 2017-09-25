@@ -20,8 +20,7 @@ class ProfileController: UICollectionViewController {
     var user: User?
     
     let settings: [Setting] = {
-        return [Setting(name: .PushNotifications, imageName: .PushNotificationsImage),
-                Setting(name: .TellYourFriends, imageName: .TellYourFriendsImage),
+        return [Setting(name: .TellYourFriends, imageName: .TellYourFriendsImage),
                 Setting(name: .RateUs, imageName: .RateUsImage),
                 Setting(name: .SendFeedback, imageName: .SendFeedbackImage),
                 Setting(name: .ReportProblem, imageName: .ReportProblemImage)]
@@ -150,21 +149,18 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
         case (0,0):
-            // push notifications
-            print("push notify")
-        case (0,1):
             // tell friends
             self.shareTheApp()
-        case (0,2):
+        case (0,1):
             // rate us
             self.rateApp(appId: appId) { success in
-               print("RateApp \(success)")
+                print("RateApp \(success)")
             }
-        case (0,3):
+        case (0,2):
             // send feedback
             self.createEmailController(sendToEmail: ["getprocsgo@gmail.com"], subject: "App Feedback",
                                        msgBody: "Hi Team!\n\nI would like to share the following feedback.")
-        case (0,4):
+        case (0,3):
             // report a problem
             self.createEmailController(sendToEmail: ["getprocsgo@gmail.com"], subject: "Report Bug",
                                        msgBody: "Hi Team!\n\nI have found the bug which I would like to share with you.")

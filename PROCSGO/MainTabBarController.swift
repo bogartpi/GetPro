@@ -18,6 +18,7 @@ class MainTabBarController: UITabBarController {
         view.backgroundColor = UIColor.customDarkGrayColor
         
         if Auth.auth().currentUser == nil {
+            print("NIL USER")
             //show if not logged in
             DispatchQueue.main.async {
                 let loginController = LogInController()
@@ -27,7 +28,7 @@ class MainTabBarController: UITabBarController {
             
             return
         }
-        
+        print("User ID:", Auth.auth().currentUser?.uid)
         setupViewControllers()
     }
     

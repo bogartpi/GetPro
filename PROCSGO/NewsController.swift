@@ -84,7 +84,7 @@ class NewsController: UICollectionViewController {
     }
     
     fileprivate func checkAdminAccess() {
-        if Auth.auth().currentUser?.email == "test@mail.com" {
+        if Auth.auth().currentUser?.email == "bogartpimail@gmail.com" {
             let addImage = UIImage(named: "add")?.withRenderingMode(.alwaysOriginal)
             addButtonItem = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(handleGoToNews))
             navigationItem.leftBarButtonItems = [addButtonItem]

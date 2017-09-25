@@ -26,6 +26,12 @@ class CommentsController: UICollectionViewController {
         collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView?.register(CommentsCell.self, forCellWithReuseIdentifier: cellId)
         
+        
+        
+        fetchComments()
+    }
+    
+    @objc fileprivate func handleRefresh() {
         fetchComments()
     }
     
