@@ -1,6 +1,8 @@
 ### GetPro iOS App
 
-https://imgur.com/a/qvg6N
+![GetPro](https://imgur.com/a/qvg6N)
+
+
 
 The GetPro App is your guide into the world of CS:GO professional players. Find your favorite team, be aware of current rosters of top teams, get familiar with a CS:GO Pro scene, watch POVs of pro players and test the most suitable configs of the best players in the world.
 
